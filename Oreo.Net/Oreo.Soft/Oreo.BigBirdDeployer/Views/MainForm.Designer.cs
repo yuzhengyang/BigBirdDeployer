@@ -49,6 +49,7 @@
             this.TBPublishStorage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BTSave = new System.Windows.Forms.Button();
+            this.BTOpenNewStorage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -166,7 +167,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(767, 419);
+            this.tabPage2.Size = new System.Drawing.Size(963, 435);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = " 【不够再来一页】 ";
             // 
@@ -204,6 +205,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.BTOpenNewStorage);
             this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.LBDesc);
@@ -301,6 +303,16 @@
             this.BTSave.UseVisualStyleBackColor = true;
             this.BTSave.Click += new System.EventHandler(this.BTSave_Click);
             // 
+            // BTOpenNewStorage
+            // 
+            this.BTOpenNewStorage.Location = new System.Drawing.Point(439, 140);
+            this.BTOpenNewStorage.Name = "BTOpenNewStorage";
+            this.BTOpenNewStorage.Size = new System.Drawing.Size(195, 23);
+            this.BTOpenNewStorage.TabIndex = 26;
+            this.BTOpenNewStorage.Text = "打开新增资料库（放入工程）";
+            this.BTOpenNewStorage.UseVisualStyleBackColor = true;
+            this.BTOpenNewStorage.Click += new System.EventHandler(this.BTOpenNewStorage_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -348,5 +360,6 @@
         private System.Windows.Forms.TextBox TBPublishStorage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BTSave;
+        private System.Windows.Forms.Button BTOpenNewStorage;
     }
 }

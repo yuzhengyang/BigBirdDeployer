@@ -1,5 +1,7 @@
 ﻿using Azylee.Core.IOUtils.TxtUtils;
+using Azylee.Core.WindowsUtils.APIUtils;
 using Azylee.WinformSkin.FormUI.CustomTitle;
+using Azylee.WinformSkin.FormUI.Toast;
 using Oreo.BigBirdDeployer.Commons;
 using Oreo.BigBirdDeployer.Models;
 using System;
@@ -24,8 +26,8 @@ namespace Oreo.BigBirdDeployer.Views
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            TBPublishStorage.Text = R.Paths.PublishStorage;
-            TBNewStorage.Text = R.Paths.NewStorage;
+            TBPublishStorage.Text = R.Paths.PublishStorage == R.Paths.DefaultPublishStorage ? "" : R.Paths.PublishStorage;
+            TBNewStorage.Text = R.Paths.NewStorage == R.Paths.DefaultNewStorage ? "" : R.Paths.NewStorage;
         }
 
         private void BTSave_Click(object sender, EventArgs e)
@@ -79,5 +81,11 @@ namespace Oreo.BigBirdDeployer.Views
             return flag;
         }
         #endregion
+
+        private void BTOpenNewStorage_Click(object sender, EventArgs e)
+        {
+            ExplorerAPI.Open(R.Paths.NewStorage);
+            ToastForm.Display("正在打开", $"正在打开添加新工程的仓库文件夹，请稍候...", 'i', 5000);
+        }
     }
 }

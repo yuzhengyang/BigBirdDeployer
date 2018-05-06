@@ -36,9 +36,24 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Azylee.Core">
+      <HintPath>..\..\Dlls\Azylee.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azylee.Core.Plus">
+      <HintPath>..\..\Dlls\Azylee.Core.Plus.dll</HintPath>
+    </Reference>
+    <Reference Include="Azylee.WinformSkin">
+      <HintPath>..\..\Dlls\Azylee.WinformSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Azylee.YeahWeb">
+      <HintPath>..\..\Dlls\Azylee.YeahWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Costura, Version=1.6.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Costura.Fody.1.6.2\lib\portable-net+sl+win+wpa+wp\Costura.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Dlls\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -111,24 +126,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\..\Azylee.Utils\Azylee.Core.Plus\Azylee.Core.Plus.csproj">
-      <Project>{915ae524-7efd-4ecc-b731-de1d1f5558f0}</Project>
-      <Name>Azylee.Core.Plus</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Azylee.Utils\Azylee.Core\Azylee.Core.csproj">
-      <Project>{88dc61fa-95f0-41b7-9d7d-ab0f3cbd169c}</Project>
-      <Name>Azylee.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Azylee.Utils\Azylee.WinformMan\Azylee.WinformMan.csproj">
-      <Project>{0783d6b7-a0e9-4e3b-b2e8-c72d318f99ce}</Project>
-      <Name>Azylee.WinformMan</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Azylee.Utils\Azylee.WinformSkin\Azylee.WinformSkin.csproj">
-      <Project>{d280c16f-fde2-4647-bd76-3514f673426d}</Project>
-      <Name>Azylee.WinformSkin</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
