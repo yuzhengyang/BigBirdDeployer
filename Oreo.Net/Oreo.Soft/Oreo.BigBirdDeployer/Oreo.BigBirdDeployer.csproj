@@ -36,7 +36,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Images\Icons\icon_2.ico</ApplicationIcon>
+    <ApplicationIcon>Images\Icons\icon_1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Azylee.Core">
@@ -129,7 +129,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Icons\icon_1.ico" />
     <Content Include="Images\Icons\icon_2.ico" />
+    <Content Include="Images\Logos\logo_1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
