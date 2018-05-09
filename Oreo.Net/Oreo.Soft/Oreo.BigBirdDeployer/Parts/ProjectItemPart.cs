@@ -324,8 +324,6 @@ namespace Oreo.BigBirdDeployer.Parts
                         };
                         if (Project.Versions == null) Project.Versions = new List<VersionModel>();
                         Project.Versions.Add(version);
-                        //重置项目信息
-                        SetProject(Project);
                         ToastForm.Display("装载成功", $"成功装载 {Project.Name} 的新版本", 'i', 5000);
                     }
                     catch
@@ -344,6 +342,39 @@ namespace Oreo.BigBirdDeployer.Parts
                 //没有工程配置信息，不做处理
                 ToastForm.Display("装载失败", $"没有发现工程的配置信息", 'e', 5000);
             }
+
+            //清除多余版本
+            if (Project.VersionCache > 0 &&
+                !string.IsNullOrWhiteSpace(Project.Folder) &&
+                ListTool.HasElements(Project.Versions))
+            {
+                if (Project.Versions.Count > Project.VersionCache)
+                {
+                    List<VersionModel> _tempVers = Project.Versions.OrderByDescending(x => x.CreateTime).ToList();
+                    List<VersionModel> _newVers = new List<VersionModel>();
+                    for (int i = 0; i < Project.VersionCache; i++)
+                    {
+                        _newVers.Add(_tempVers[i]);
+                    }
+                    for (int i = Project.VersionCache; i < Project.Versions.Count; i++)
+                    {
+                        string path = DirTool.Combine(R.Paths.PublishStorage, Project.Folder, (_tempVers[i].Number).ToString());
+                        try
+                        {
+                            Directory.Delete(path, true);
+                        }
+                        catch
+                        {
+                            //如果删除失败，则继续保留该版本，等待下次继续删除
+                            _newVers.Add(_tempVers[i]);
+                        }
+                    }
+                    Project.Versions = _newVers;
+                }
+            }
+
+            //重置项目信息
+            SetProject(Project);
         }
         /// <summary>
         /// 选择要启动的版本
@@ -373,7 +404,7 @@ namespace Oreo.BigBirdDeployer.Parts
                         case WorkStatus.准备就绪:
                             BackColor = ColorTranslator.FromHtml("#6a9c78");
                             LBStatus.BackColor = ColorTranslator.FromHtml("#446e5c");
-                            LBProjectName.BackColor = ColorTranslator.FromHtml("#7dc383"); 
+                            LBProjectName.BackColor = ColorTranslator.FromHtml("#7dc383");
                             BTStartOrStop.Text = "启动";
                             BTStartOrStop.Enabled = true;//允许启动/关闭
                             BTAddNew.Enabled = true;//允许装载新版本

@@ -41,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.LBDesc = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BTSave
@@ -153,6 +154,16 @@
             this.LBDesc.TabIndex = 13;
             this.LBDesc.Text = "执行结果描述";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(138, 234);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 12);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "0：不清除历史版本";
+            // 
             // ProjectConfigForm
             // 
             this.AcceptButton = this.BTSave;
@@ -160,6 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTCancel;
             this.ClientSize = new System.Drawing.Size(475, 321);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.LBDesc);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -200,5 +212,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LBDesc;
+        private System.Windows.Forms.Label label6;
     }
 }

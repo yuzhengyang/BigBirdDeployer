@@ -45,16 +45,27 @@ namespace Oreo.BigBirdDeployer.Views
         {
             try
             {
-                Project.Name = TBName.Text;
-                Project.Folder = TBFolder.Text;
-                Project.JarFile = TBJarFile.Text;
-                Project.Port = int.Parse(TBPort.Text);
-                Project.VersionCache = int.Parse(TBVersionCache.Text);
-                ProjectItem.SetProject(Project);
-                Project.LastVersion = Project.LastVersion;
-                Project.CurrentVersion = Project.CurrentVersion;
-                LBDesc.Text = "保存成功并更新到管理面板";
-                return true;
+                string name = TBName.Text;
+                string folder = TBFolder.Text;
+                string jar = TBJarFile.Text;
+                int port = int.Parse(TBPort.Text);
+                int cache = int.Parse(TBVersionCache.Text);
+
+                if (!string.IsNullOrWhiteSpace(name) &&
+                    !string.IsNullOrWhiteSpace(folder) &&
+                    !string.IsNullOrWhiteSpace(jar))
+                {
+                    Project.Name = name;
+                    Project.Folder = folder;
+                    Project.JarFile = jar;
+                    Project.Port = port;
+                    Project.VersionCache = cache;
+                    Project.LastVersion = Project.LastVersion;
+                    Project.CurrentVersion = Project.CurrentVersion;
+                    ProjectItem.SetProject(Project);
+                    LBDesc.Text = "保存成功并更新到管理面板";
+                    return true;
+                }
             }
             catch { LBDesc.Text = "配置填写有误，请检查修改"; }
             return false;

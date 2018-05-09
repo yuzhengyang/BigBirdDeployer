@@ -87,5 +87,22 @@ namespace Oreo.BigBirdDeployer.Views
             ExplorerAPI.Open(R.Paths.NewStorage);
             ToastForm.Display("正在打开", $"正在打开添加新工程的仓库文件夹，请稍候...", 'i', 5000);
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Hide();
+            e.Cancel = true;
+        }
+
+        private void NIMain_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+        }
+
+        private void TSMIExit_Click(object sender, EventArgs e)
+        {
+            FormClosing -= MainForm_FormClosing;
+            Application.Exit();
+        }
     }
 }
