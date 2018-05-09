@@ -90,19 +90,31 @@ namespace Oreo.BigBirdDeployer.Views
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Hide();
-            e.Cancel = true;
+            try
+            {
+                Hide();
+                e.Cancel = true;
+            }
+            catch { }
         }
 
         private void NIMain_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Show();
+            try
+            {
+                Show();
+            }
+            catch { }
         }
 
         private void TSMIExit_Click(object sender, EventArgs e)
         {
-            FormClosing -= MainForm_FormClosing;
-            Application.Exit();
+            try
+            {
+                FormClosing -= MainForm_FormClosing;
+                Application.Exit();
+            }
+            catch { }
         }
     }
 }

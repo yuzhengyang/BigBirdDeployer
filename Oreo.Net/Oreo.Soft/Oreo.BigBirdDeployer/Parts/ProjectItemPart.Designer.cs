@@ -43,22 +43,26 @@
             // 
             // BTStartOrStop
             // 
+            this.BTStartOrStop.BackColor = System.Drawing.Color.White;
+            this.BTStartOrStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BTStartOrStop.Location = new System.Drawing.Point(266, 85);
             this.BTStartOrStop.Name = "BTStartOrStop";
             this.BTStartOrStop.Size = new System.Drawing.Size(47, 23);
             this.BTStartOrStop.TabIndex = 0;
             this.BTStartOrStop.Text = "启动";
-            this.BTStartOrStop.UseVisualStyleBackColor = true;
+            this.BTStartOrStop.UseVisualStyleBackColor = false;
             this.BTStartOrStop.Click += new System.EventHandler(this.BTStartOrStop_Click);
             // 
             // BTConfig
             // 
+            this.BTConfig.BackColor = System.Drawing.Color.White;
+            this.BTConfig.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BTConfig.Location = new System.Drawing.Point(266, 48);
             this.BTConfig.Name = "BTConfig";
             this.BTConfig.Size = new System.Drawing.Size(47, 23);
             this.BTConfig.TabIndex = 1;
             this.BTConfig.Text = "配置";
-            this.BTConfig.UseVisualStyleBackColor = true;
+            this.BTConfig.UseVisualStyleBackColor = false;
             this.BTConfig.Click += new System.EventHandler(this.BTConfig_Click);
             // 
             // LBProjectName
@@ -126,12 +130,14 @@
             // 
             // BTAddNew
             // 
+            this.BTAddNew.BackColor = System.Drawing.Color.White;
+            this.BTAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BTAddNew.Location = new System.Drawing.Point(213, 85);
             this.BTAddNew.Name = "BTAddNew";
             this.BTAddNew.Size = new System.Drawing.Size(47, 23);
             this.BTAddNew.TabIndex = 12;
             this.BTAddNew.Text = "装载";
-            this.BTAddNew.UseVisualStyleBackColor = true;
+            this.BTAddNew.UseVisualStyleBackColor = false;
             this.BTAddNew.Click += new System.EventHandler(this.BTAddNew_Click);
             // 
             // CBVersion

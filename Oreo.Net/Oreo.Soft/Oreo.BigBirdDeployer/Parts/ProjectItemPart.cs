@@ -182,7 +182,10 @@ namespace Oreo.BigBirdDeployer.Parts
                         {
                             R.Log.i(s);
                             StatusUI(WorkStatus.启动成功);
-                            ToastForm.Display("启动成功", $"启动 {Project.Name} 工程成功", 'i', 5000);
+                            Invoke(new Action(() =>
+                            {
+                                ToastForm.Display("启动成功", $"启动 {Project.Name} 工程成功", 'i', 5000);
+                            }));
                             GetProcess();
                         }
 
@@ -396,7 +399,7 @@ namespace Oreo.BigBirdDeployer.Parts
             Status = status;
             try
             {
-                BeginInvoke(new Action(() =>
+                Invoke(new Action(() =>
                 {
                     LBStatus.Text = status.ToString();
                     switch (status)
