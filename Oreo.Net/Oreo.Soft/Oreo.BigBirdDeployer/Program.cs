@@ -3,6 +3,7 @@ using Azylee.Core.IOUtils.DirUtils;
 using Azylee.Core.IOUtils.TxtUtils;
 using Azylee.Core.LogUtils.SimpleLogUtils;
 using Azylee.Core.ProcessUtils;
+using Azylee.Core.WindowsUtils.APIUtils;
 using Oreo.BigBirdDeployer.Commons;
 using Oreo.BigBirdDeployer.Utils;
 using Oreo.BigBirdDeployer.Views;
@@ -25,8 +26,10 @@ namespace Oreo.BigBirdDeployer
         {
             if (appUnique.IsUnique("Oreo.BigBirdDeployer"))
             {
-                R.Log = new Log(true);
-                InitIni();
+                R.Log = new Log(true);//启动日志记录
+                SystemSleepAPI.PreventSleep(false);//禁用计算机息屏和待机
+                InitIni();//初始化Ini配置信息
+
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new MainForm());
