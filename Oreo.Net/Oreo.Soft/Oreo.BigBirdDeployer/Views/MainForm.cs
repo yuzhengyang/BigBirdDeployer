@@ -1,4 +1,7 @@
-﻿using Azylee.Core.IOUtils.TxtUtils;
+﻿using Azylee.Core.AppUtils;
+using Azylee.Core.DataUtils.StringUtils;
+using Azylee.Core.DataUtils.UnitConvertUtils;
+using Azylee.Core.IOUtils.TxtUtils;
 using Azylee.Core.WindowsUtils.APIUtils;
 using Azylee.WinformSkin.FormUI.CustomTitle;
 using Azylee.WinformSkin.FormUI.Toast;
@@ -13,12 +16,17 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Oreo.BigBirdDeployer.Views
 {
     public partial class MainForm : BigIconForm
     {
+        private bool RunStatusTask = false;//APP程序运行状态任务是否执行
+        private int STATUS_INTERVAL = 1000;//APP程序运行状态监测间隔
+        private Process Process = Process.GetCurrentProcess();
         public MainForm()
         {
             InitializeComponent();
@@ -28,6 +36,8 @@ namespace Oreo.BigBirdDeployer.Views
         {
             TBPublishStorage.Text = R.Paths.PublishStorage == R.Paths.DefaultPublishStorage ? "" : R.Paths.PublishStorage;
             TBNewStorage.Text = R.Paths.NewStorage == R.Paths.DefaultNewStorage ? "" : R.Paths.NewStorage;
+            TBHighlightKeyword.Text = R.HighlightKeyword;
+            TaskOfStatus();
         }
 
         private void BTSave_Click(object sender, EventArgs e)
@@ -38,8 +48,12 @@ namespace Oreo.BigBirdDeployer.Views
         #region 方法
         private bool SaveSettings()
         {
+            //保存输出高亮关键字
+            R.HighlightKeyword = TBHighlightKeyword.Text;
+            IniTool.WriteValue(R.Files.Settings, "Console", "HighlightKeyword", R.HighlightKeyword);
+
             bool flag = false;
-            if (!string.IsNullOrWhiteSpace(TBPublishStorage.Text))
+            if (StringTool.Ok(TBPublishStorage.Text))
             {
                 if (Directory.Exists(TBPublishStorage.Text))
                 {
@@ -55,11 +69,11 @@ namespace Oreo.BigBirdDeployer.Views
             else
             {
                 R.Paths.PublishStorage = R.Paths.DefaultPublishStorage;
-                IniTool.WriteValue(R.Files.Settings, "Paths", "PublishStorage", R.Paths.PublishStorage);
+                //IniTool.WriteValue(R.Files.Settings, "Paths", "PublishStorage", R.Paths.PublishStorage);
                 flag = true;
             }
 
-            if (!string.IsNullOrWhiteSpace(TBNewStorage.Text))
+            if (StringTool.Ok(TBNewStorage.Text))
             {
                 if (Directory.Exists(TBNewStorage.Text))
                 {
@@ -75,13 +89,14 @@ namespace Oreo.BigBirdDeployer.Views
             else
             {
                 R.Paths.NewStorage = R.Paths.DefaultNewStorage;
-                IniTool.WriteValue(R.Files.Settings, "Paths", "NewStorage", R.Paths.NewStorage);
+                //IniTool.WriteValue(R.Files.Settings, "Paths", "NewStorage", R.Paths.NewStorage);
                 flag = true;
             }
             return flag;
         }
         #endregion
 
+        #region 按钮事件
         private void BTOpenNewStorage_Click(object sender, EventArgs e)
         {
             ExplorerAPI.Open(R.Paths.NewStorage);
@@ -116,5 +131,36 @@ namespace Oreo.BigBirdDeployer.Views
             }
             catch { }
         }
+        #endregion
+        #region 任务函数
+        /// <summary>
+        /// 启动监测APP自身资源占用情况
+        /// </summary>
+        private void TaskOfStatus()
+        {
+            if (!RunStatusTask)
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    RunStatusTask = true;
+                    TimeSpan beginTime = TimeSpan.Zero;
+                    while (!IsDisposed)
+                    {
+                        try
+                        {
+                            int cpu = (int)AppInfoTool.CalcCpuRate(Process, ref beginTime, STATUS_INTERVAL);
+                            string ram = ByteConvertTool.Fmt(AppInfoTool.RAM() * 1024);
+                            Invoke(new Action(() =>
+                            {
+                                TSSLCpuRam.Text = $"CPU : {cpu} %  ,  RAM : {ram}";
+                            }));
+                        }
+                        catch { }
+                        Thread.Sleep(STATUS_INTERVAL);
+                    }
+                });
+            }
+        }
+        #endregion
     }
 }

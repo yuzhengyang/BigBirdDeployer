@@ -50,6 +50,8 @@ namespace Oreo.BigBirdDeployer
 
             R.Paths.NewStorage = IniTool.GetStringValue(R.Files.Settings, "Paths", "NewStorage", R.Paths.DefaultNewStorage);
             if (string.IsNullOrWhiteSpace(R.Paths.NewStorage)) R.Paths.NewStorage = R.Paths.DefaultNewStorage;
+
+            R.HighlightKeyword = IniTool.GetStringValue(R.Files.Settings, "Console", "HighlightKeyword","");
         }
     }
 }

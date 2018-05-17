@@ -32,11 +32,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TPPage1 = new System.Windows.Forms.TabPage();
+            this.project6 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project5 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.project1 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.project4 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.project2 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.project3 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.TPPage2 = new System.Windows.Forms.TabPage();
+            this.project12 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project11 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project7 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project10 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project8 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project9 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.TPPage3 = new System.Windows.Forms.TabPage();
+            this.project18 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project17 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project13 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project16 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project14 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project15 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.TPSettings = new System.Windows.Forms.TabPage();
             this.BTOpenNewStorage = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,21 +66,12 @@
             this.NIMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.CMSMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMIExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.TPPage3 = new System.Windows.Forms.TabPage();
-            this.project6 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project5 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project12 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project11 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project7 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project10 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project8 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project9 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project18 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project17 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project13 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project16 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project14 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
-            this.project15 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.PNFooter = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.TSSLCpuRam = new System.Windows.Forms.ToolStripStatusLabel();
+            this.PNContainer = new System.Windows.Forms.Panel();
+            this.TBHighlightKeyword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -73,9 +79,12 @@
             this.tabControl1.SuspendLayout();
             this.TPPage1.SuspendLayout();
             this.TPPage2.SuspendLayout();
+            this.TPPage3.SuspendLayout();
             this.TPSettings.SuspendLayout();
             this.CMSMain.SuspendLayout();
-            this.TPPage3.SuspendLayout();
+            this.PNFooter.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.PNContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // BigIconFormLBHeadTitle
@@ -93,8 +102,9 @@
             // BigIconFormPNContainer
             // 
             this.BigIconFormPNContainer.BackColor = System.Drawing.Color.White;
-            this.BigIconFormPNContainer.Controls.Add(this.tabControl1);
-            this.BigIconFormPNContainer.Size = new System.Drawing.Size(775, 445);
+            this.BigIconFormPNContainer.Controls.Add(this.PNContainer);
+            this.BigIconFormPNContainer.Controls.Add(this.PNFooter);
+            this.BigIconFormPNContainer.Size = new System.Drawing.Size(775, 465);
             // 
             // BigIconFormPNHead
             // 
@@ -133,7 +143,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(775, 445);
+            this.tabControl1.Size = new System.Drawing.Size(775, 443);
             this.tabControl1.TabIndex = 5;
             // 
             // TPPage1
@@ -148,9 +158,25 @@
             this.TPPage1.Location = new System.Drawing.Point(4, 22);
             this.TPPage1.Name = "TPPage1";
             this.TPPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.TPPage1.Size = new System.Drawing.Size(767, 419);
+            this.TPPage1.Size = new System.Drawing.Size(767, 417);
             this.TPPage1.TabIndex = 0;
             this.TPPage1.Text = " 【第一页】 ";
+            // 
+            // project6
+            // 
+            this.project6.BackColor = System.Drawing.Color.DimGray;
+            this.project6.Location = new System.Drawing.Point(401, 290);
+            this.project6.Name = "project6";
+            this.project6.Size = new System.Drawing.Size(324, 116);
+            this.project6.TabIndex = 16;
+            // 
+            // project5
+            // 
+            this.project5.BackColor = System.Drawing.Color.DimGray;
+            this.project5.Location = new System.Drawing.Point(33, 290);
+            this.project5.Name = "project5";
+            this.project5.Size = new System.Drawing.Size(324, 116);
+            this.project5.TabIndex = 15;
             // 
             // project1
             // 
@@ -196,173 +222,9 @@
             this.TPPage2.Location = new System.Drawing.Point(4, 22);
             this.TPPage2.Name = "TPPage2";
             this.TPPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.TPPage2.Size = new System.Drawing.Size(767, 419);
+            this.TPPage2.Size = new System.Drawing.Size(963, 413);
             this.TPPage2.TabIndex = 1;
             this.TPPage2.Text = " 【第二页】 ";
-            // 
-            // TPSettings
-            // 
-            this.TPSettings.Controls.Add(this.BTOpenNewStorage);
-            this.TPSettings.Controls.Add(this.label4);
-            this.TPSettings.Controls.Add(this.label3);
-            this.TPSettings.Controls.Add(this.LBDesc);
-            this.TPSettings.Controls.Add(this.BTCancel);
-            this.TPSettings.Controls.Add(this.TBNewStorage);
-            this.TPSettings.Controls.Add(this.label2);
-            this.TPSettings.Controls.Add(this.TBPublishStorage);
-            this.TPSettings.Controls.Add(this.label1);
-            this.TPSettings.Controls.Add(this.BTSave);
-            this.TPSettings.Location = new System.Drawing.Point(4, 22);
-            this.TPSettings.Name = "TPSettings";
-            this.TPSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.TPSettings.Size = new System.Drawing.Size(767, 419);
-            this.TPSettings.TabIndex = 2;
-            this.TPSettings.Text = " 【设置】 ";
-            this.TPSettings.UseVisualStyleBackColor = true;
-            // 
-            // BTOpenNewStorage
-            // 
-            this.BTOpenNewStorage.Location = new System.Drawing.Point(439, 140);
-            this.BTOpenNewStorage.Name = "BTOpenNewStorage";
-            this.BTOpenNewStorage.Size = new System.Drawing.Size(195, 23);
-            this.BTOpenNewStorage.TabIndex = 26;
-            this.BTOpenNewStorage.Text = "打开新增资料库（放入工程）";
-            this.BTOpenNewStorage.UseVisualStyleBackColor = true;
-            this.BTOpenNewStorage.Click += new System.EventHandler(this.BTOpenNewStorage_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(437, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 12);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "默认为程序目录下 Storage\\New";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(437, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(197, 12);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "默认为程序目录下 Storage\\Publish";
-            // 
-            // LBDesc
-            // 
-            this.LBDesc.AutoSize = true;
-            this.LBDesc.Location = new System.Drawing.Point(69, 191);
-            this.LBDesc.Name = "LBDesc";
-            this.LBDesc.Size = new System.Drawing.Size(77, 12);
-            this.LBDesc.TabIndex = 23;
-            this.LBDesc.Text = "执行结果描述";
-            // 
-            // BTCancel
-            // 
-            this.BTCancel.Location = new System.Drawing.Point(559, 265);
-            this.BTCancel.Name = "BTCancel";
-            this.BTCancel.Size = new System.Drawing.Size(75, 23);
-            this.BTCancel.TabIndex = 22;
-            this.BTCancel.Text = "取消";
-            this.BTCancel.UseVisualStyleBackColor = true;
-            // 
-            // TBNewStorage
-            // 
-            this.TBNewStorage.Location = new System.Drawing.Point(188, 105);
-            this.TBNewStorage.Name = "TBNewStorage";
-            this.TBNewStorage.Size = new System.Drawing.Size(235, 21);
-            this.TBNewStorage.TabIndex = 21;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 108);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 12);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "新增资料库路径";
-            // 
-            // TBPublishStorage
-            // 
-            this.TBPublishStorage.Location = new System.Drawing.Point(188, 50);
-            this.TBPublishStorage.Name = "TBPublishStorage";
-            this.TBPublishStorage.Size = new System.Drawing.Size(235, 21);
-            this.TBPublishStorage.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "发布资料库路径";
-            // 
-            // BTSave
-            // 
-            this.BTSave.Location = new System.Drawing.Point(427, 265);
-            this.BTSave.Name = "BTSave";
-            this.BTSave.Size = new System.Drawing.Size(75, 23);
-            this.BTSave.TabIndex = 17;
-            this.BTSave.Text = "保存";
-            this.BTSave.UseVisualStyleBackColor = true;
-            this.BTSave.Click += new System.EventHandler(this.BTSave_Click);
-            // 
-            // NIMain
-            // 
-            this.NIMain.ContextMenuStrip = this.CMSMain;
-            this.NIMain.Icon = ((System.Drawing.Icon)(resources.GetObject("NIMain.Icon")));
-            this.NIMain.Text = "BigBirdDeployer";
-            this.NIMain.Visible = true;
-            this.NIMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NIMain_MouseDoubleClick);
-            // 
-            // CMSMain
-            // 
-            this.CMSMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSMIExit});
-            this.CMSMain.Name = "CMSMain";
-            this.CMSMain.Size = new System.Drawing.Size(125, 26);
-            // 
-            // TSMIExit
-            // 
-            this.TSMIExit.Name = "TSMIExit";
-            this.TSMIExit.Size = new System.Drawing.Size(124, 22);
-            this.TSMIExit.Text = "退出程序";
-            this.TSMIExit.Click += new System.EventHandler(this.TSMIExit_Click);
-            // 
-            // TPPage3
-            // 
-            this.TPPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.TPPage3.Controls.Add(this.project18);
-            this.TPPage3.Controls.Add(this.project17);
-            this.TPPage3.Controls.Add(this.project13);
-            this.TPPage3.Controls.Add(this.project16);
-            this.TPPage3.Controls.Add(this.project14);
-            this.TPPage3.Controls.Add(this.project15);
-            this.TPPage3.Location = new System.Drawing.Point(4, 22);
-            this.TPPage3.Name = "TPPage3";
-            this.TPPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.TPPage3.Size = new System.Drawing.Size(767, 419);
-            this.TPPage3.TabIndex = 3;
-            this.TPPage3.Text = " 【第三页】 ";
-            // 
-            // project6
-            // 
-            this.project6.BackColor = System.Drawing.Color.DimGray;
-            this.project6.Location = new System.Drawing.Point(401, 290);
-            this.project6.Name = "project6";
-            this.project6.Size = new System.Drawing.Size(324, 116);
-            this.project6.TabIndex = 16;
-            // 
-            // project5
-            // 
-            this.project5.BackColor = System.Drawing.Color.DimGray;
-            this.project5.Location = new System.Drawing.Point(33, 290);
-            this.project5.Name = "project5";
-            this.project5.Size = new System.Drawing.Size(324, 116);
-            this.project5.TabIndex = 15;
             // 
             // project12
             // 
@@ -412,6 +274,22 @@
             this.project9.Size = new System.Drawing.Size(324, 116);
             this.project9.TabIndex = 19;
             // 
+            // TPPage3
+            // 
+            this.TPPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.TPPage3.Controls.Add(this.project18);
+            this.TPPage3.Controls.Add(this.project17);
+            this.TPPage3.Controls.Add(this.project13);
+            this.TPPage3.Controls.Add(this.project16);
+            this.TPPage3.Controls.Add(this.project14);
+            this.TPPage3.Controls.Add(this.project15);
+            this.TPPage3.Location = new System.Drawing.Point(4, 22);
+            this.TPPage3.Name = "TPPage3";
+            this.TPPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.TPPage3.Size = new System.Drawing.Size(963, 413);
+            this.TPPage3.TabIndex = 3;
+            this.TPPage3.Text = " 【第三页】 ";
+            // 
             // project18
             // 
             this.project18.BackColor = System.Drawing.Color.DimGray;
@@ -460,11 +338,195 @@
             this.project15.Size = new System.Drawing.Size(324, 116);
             this.project15.TabIndex = 25;
             // 
+            // TPSettings
+            // 
+            this.TPSettings.Controls.Add(this.TBHighlightKeyword);
+            this.TPSettings.Controls.Add(this.label5);
+            this.TPSettings.Controls.Add(this.BTOpenNewStorage);
+            this.TPSettings.Controls.Add(this.label4);
+            this.TPSettings.Controls.Add(this.label3);
+            this.TPSettings.Controls.Add(this.LBDesc);
+            this.TPSettings.Controls.Add(this.BTCancel);
+            this.TPSettings.Controls.Add(this.TBNewStorage);
+            this.TPSettings.Controls.Add(this.label2);
+            this.TPSettings.Controls.Add(this.TBPublishStorage);
+            this.TPSettings.Controls.Add(this.label1);
+            this.TPSettings.Controls.Add(this.BTSave);
+            this.TPSettings.Location = new System.Drawing.Point(4, 22);
+            this.TPSettings.Name = "TPSettings";
+            this.TPSettings.Padding = new System.Windows.Forms.Padding(3);
+            this.TPSettings.Size = new System.Drawing.Size(767, 417);
+            this.TPSettings.TabIndex = 2;
+            this.TPSettings.Text = " 【设置】 ";
+            this.TPSettings.UseVisualStyleBackColor = true;
+            // 
+            // BTOpenNewStorage
+            // 
+            this.BTOpenNewStorage.Location = new System.Drawing.Point(481, 185);
+            this.BTOpenNewStorage.Name = "BTOpenNewStorage";
+            this.BTOpenNewStorage.Size = new System.Drawing.Size(195, 23);
+            this.BTOpenNewStorage.TabIndex = 26;
+            this.BTOpenNewStorage.Text = "打开新增资料库（放入工程）";
+            this.BTOpenNewStorage.UseVisualStyleBackColor = true;
+            this.BTOpenNewStorage.Click += new System.EventHandler(this.BTOpenNewStorage_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(479, 153);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 12);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "默认为程序目录下 Storage\\New";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(479, 98);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(197, 12);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "默认为程序目录下 Storage\\Publish";
+            // 
+            // LBDesc
+            // 
+            this.LBDesc.AutoSize = true;
+            this.LBDesc.Location = new System.Drawing.Point(69, 236);
+            this.LBDesc.Name = "LBDesc";
+            this.LBDesc.Size = new System.Drawing.Size(77, 12);
+            this.LBDesc.TabIndex = 23;
+            this.LBDesc.Text = "执行结果描述";
+            // 
+            // BTCancel
+            // 
+            this.BTCancel.Location = new System.Drawing.Point(559, 310);
+            this.BTCancel.Name = "BTCancel";
+            this.BTCancel.Size = new System.Drawing.Size(75, 23);
+            this.BTCancel.TabIndex = 22;
+            this.BTCancel.Text = "取消";
+            this.BTCancel.UseVisualStyleBackColor = true;
+            // 
+            // TBNewStorage
+            // 
+            this.TBNewStorage.Location = new System.Drawing.Point(210, 150);
+            this.TBNewStorage.Name = "TBNewStorage";
+            this.TBNewStorage.Size = new System.Drawing.Size(235, 21);
+            this.TBNewStorage.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(69, 153);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 12);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "新增资料库路径";
+            // 
+            // TBPublishStorage
+            // 
+            this.TBPublishStorage.Location = new System.Drawing.Point(210, 95);
+            this.TBPublishStorage.Name = "TBPublishStorage";
+            this.TBPublishStorage.Size = new System.Drawing.Size(235, 21);
+            this.TBPublishStorage.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(69, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "发布资料库路径";
+            // 
+            // BTSave
+            // 
+            this.BTSave.Location = new System.Drawing.Point(427, 310);
+            this.BTSave.Name = "BTSave";
+            this.BTSave.Size = new System.Drawing.Size(75, 23);
+            this.BTSave.TabIndex = 17;
+            this.BTSave.Text = "保存";
+            this.BTSave.UseVisualStyleBackColor = true;
+            this.BTSave.Click += new System.EventHandler(this.BTSave_Click);
+            // 
+            // NIMain
+            // 
+            this.NIMain.ContextMenuStrip = this.CMSMain;
+            this.NIMain.Icon = ((System.Drawing.Icon)(resources.GetObject("NIMain.Icon")));
+            this.NIMain.Text = "BigBirdDeployer";
+            this.NIMain.Visible = true;
+            this.NIMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NIMain_MouseDoubleClick);
+            // 
+            // CMSMain
+            // 
+            this.CMSMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMIExit});
+            this.CMSMain.Name = "CMSMain";
+            this.CMSMain.Size = new System.Drawing.Size(125, 26);
+            // 
+            // TSMIExit
+            // 
+            this.TSMIExit.Name = "TSMIExit";
+            this.TSMIExit.Size = new System.Drawing.Size(124, 22);
+            this.TSMIExit.Text = "退出程序";
+            this.TSMIExit.Click += new System.EventHandler(this.TSMIExit_Click);
+            // 
+            // PNFooter
+            // 
+            this.PNFooter.Controls.Add(this.statusStrip1);
+            this.PNFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PNFooter.Location = new System.Drawing.Point(0, 443);
+            this.PNFooter.Name = "PNFooter";
+            this.PNFooter.Size = new System.Drawing.Size(775, 22);
+            this.PNFooter.TabIndex = 6;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSSLCpuRam});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 0);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(775, 22);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // TSSLCpuRam
+            // 
+            this.TSSLCpuRam.Name = "TSSLCpuRam";
+            this.TSSLCpuRam.Size = new System.Drawing.Size(164, 17);
+            this.TSSLCpuRam.Text = "CPU : 100%    RAM : 50MB";
+            // 
+            // PNContainer
+            // 
+            this.PNContainer.Controls.Add(this.tabControl1);
+            this.PNContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PNContainer.Location = new System.Drawing.Point(0, 0);
+            this.PNContainer.Name = "PNContainer";
+            this.PNContainer.Size = new System.Drawing.Size(775, 443);
+            this.PNContainer.TabIndex = 7;
+            // 
+            // TBHighlightKeyword
+            // 
+            this.TBHighlightKeyword.Location = new System.Drawing.Point(210, 44);
+            this.TBHighlightKeyword.Name = "TBHighlightKeyword";
+            this.TBHighlightKeyword.Size = new System.Drawing.Size(235, 21);
+            this.TBHighlightKeyword.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(69, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 12);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "输出窗口高亮关键字";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 513);
+            this.ClientSize = new System.Drawing.Size(775, 533);
             this.DoubleClickMax = false;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -481,10 +543,15 @@
             this.tabControl1.ResumeLayout(false);
             this.TPPage1.ResumeLayout(false);
             this.TPPage2.ResumeLayout(false);
+            this.TPPage3.ResumeLayout(false);
             this.TPSettings.ResumeLayout(false);
             this.TPSettings.PerformLayout();
             this.CMSMain.ResumeLayout(false);
-            this.TPPage3.ResumeLayout(false);
+            this.PNFooter.ResumeLayout(false);
+            this.PNFooter.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.PNContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -526,5 +593,11 @@
         private Parts.ProjectItemPart project16;
         private Parts.ProjectItemPart project14;
         private Parts.ProjectItemPart project15;
+        private System.Windows.Forms.Panel PNContainer;
+        private System.Windows.Forms.Panel PNFooter;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel TSSLCpuRam;
+        private System.Windows.Forms.TextBox TBHighlightKeyword;
+        private System.Windows.Forms.Label label5;
     }
 }

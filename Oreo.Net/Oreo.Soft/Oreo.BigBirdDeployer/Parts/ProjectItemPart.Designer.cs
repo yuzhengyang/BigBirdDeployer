@@ -38,6 +38,7 @@
             this.LBPort = new System.Windows.Forms.Label();
             this.BTAddNew = new System.Windows.Forms.Button();
             this.CBVersion = new System.Windows.Forms.ComboBox();
+            this.BTConsole = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,9 +46,9 @@
             // 
             this.BTStartOrStop.BackColor = System.Drawing.Color.White;
             this.BTStartOrStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTStartOrStop.Location = new System.Drawing.Point(266, 85);
+            this.BTStartOrStop.Location = new System.Drawing.Point(266, 8);
             this.BTStartOrStop.Name = "BTStartOrStop";
-            this.BTStartOrStop.Size = new System.Drawing.Size(47, 23);
+            this.BTStartOrStop.Size = new System.Drawing.Size(47, 28);
             this.BTStartOrStop.TabIndex = 0;
             this.BTStartOrStop.Text = "启动";
             this.BTStartOrStop.UseVisualStyleBackColor = false;
@@ -57,7 +58,7 @@
             // 
             this.BTConfig.BackColor = System.Drawing.Color.White;
             this.BTConfig.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTConfig.Location = new System.Drawing.Point(266, 48);
+            this.BTConfig.Location = new System.Drawing.Point(266, 84);
             this.BTConfig.Name = "BTConfig";
             this.BTConfig.Size = new System.Drawing.Size(47, 23);
             this.BTConfig.TabIndex = 1;
@@ -72,9 +73,9 @@
             this.LBProjectName.ForeColor = System.Drawing.Color.White;
             this.LBProjectName.Location = new System.Drawing.Point(0, 0);
             this.LBProjectName.Name = "LBProjectName";
-            this.LBProjectName.Size = new System.Drawing.Size(234, 28);
+            this.LBProjectName.Size = new System.Drawing.Size(181, 28);
             this.LBProjectName.TabIndex = 2;
-            this.LBProjectName.Text = "工程名称";
+            this.LBProjectName.Text = "工程名称：某某管理系统后台";
             this.LBProjectName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LBStatus
@@ -82,7 +83,7 @@
             this.LBStatus.BackColor = System.Drawing.Color.Black;
             this.LBStatus.Dock = System.Windows.Forms.DockStyle.Right;
             this.LBStatus.ForeColor = System.Drawing.Color.White;
-            this.LBStatus.Location = new System.Drawing.Point(234, 0);
+            this.LBStatus.Location = new System.Drawing.Point(181, 0);
             this.LBStatus.Name = "LBStatus";
             this.LBStatus.Size = new System.Drawing.Size(67, 28);
             this.LBStatus.TabIndex = 3;
@@ -95,7 +96,7 @@
             this.panel1.Controls.Add(this.LBStatus);
             this.panel1.Location = new System.Drawing.Point(12, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(301, 28);
+            this.panel1.Size = new System.Drawing.Size(248, 28);
             this.panel1.TabIndex = 4;
             // 
             // LBCpu
@@ -150,11 +151,24 @@
             this.CBVersion.TabIndex = 14;
             this.CBVersion.SelectedIndexChanged += new System.EventHandler(this.CBVersion_SelectedIndexChanged);
             // 
+            // BTConsole
+            // 
+            this.BTConsole.BackColor = System.Drawing.Color.White;
+            this.BTConsole.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BTConsole.Location = new System.Drawing.Point(266, 48);
+            this.BTConsole.Name = "BTConsole";
+            this.BTConsole.Size = new System.Drawing.Size(47, 23);
+            this.BTConsole.TabIndex = 15;
+            this.BTConsole.Text = "输出";
+            this.BTConsole.UseVisualStyleBackColor = false;
+            this.BTConsole.Click += new System.EventHandler(this.BTConsole_Click);
+            // 
             // ProjectItemPart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.BTConsole);
             this.Controls.Add(this.CBVersion);
             this.Controls.Add(this.BTAddNew);
             this.Controls.Add(this.LBPort);
@@ -184,5 +198,6 @@
         private System.Windows.Forms.Label LBPort;
         private System.Windows.Forms.Button BTAddNew;
         private System.Windows.Forms.ComboBox CBVersion;
+        private System.Windows.Forms.Button BTConsole;
     }
 }

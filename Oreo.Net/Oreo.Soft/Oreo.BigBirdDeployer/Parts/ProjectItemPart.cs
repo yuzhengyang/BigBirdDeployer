@@ -30,10 +30,11 @@ namespace Oreo.BigBirdDeployer.Parts
 {
     public partial class ProjectItemPart : UserControl
     {
-        const int STATUS_INTERVAL = 1000;//刷新状态时间间隔
+        const int STATUS_INTERVAL = 2500;//刷新状态时间间隔
         private WorkStatus Status { get; set; }
         private ProjectModel Project { get; set; }
         private Process Process { get; set; }
+        private ProjectConsoleForm ConsoleForm { get; set; }
         public ProjectItemPart()
         {
             InitializeComponent();
@@ -191,6 +192,12 @@ namespace Oreo.BigBirdDeployer.Parts
 
                         string log = ConsoleCodeTool.GetLogInfo(s);
                         if (!string.IsNullOrWhiteSpace(log)) R.Log.v(log);
+
+                        //输出到窗口
+                        if (ConsoleForm != null && !ConsoleForm.IsDisposed && ConsoleForm.Visible == true)
+                        {
+                            ConsoleForm.UIConsole(s);
+                        }
                     }));
 
                 if (Status == WorkStatus.启动成功 || Status == WorkStatus.端口占用)
@@ -233,7 +240,7 @@ namespace Oreo.BigBirdDeployer.Parts
         {
             Task.Factory.StartNew(() =>
             {
-                TimeSpan pin = TimeSpan.Zero;
+                TimeSpan begin = TimeSpan.Zero;
                 while (!IsDisposed)
                 {
                     try
@@ -242,9 +249,7 @@ namespace Oreo.BigBirdDeployer.Parts
                         {
                             BeginInvoke(new Action(() =>
                             {
-                                double cpu = AppInfoTool.CalcCpuRate(Process, pin, STATUS_INTERVAL);
-                                pin = Process.TotalProcessorTime;
-
+                                double cpu = AppInfoTool.CalcCpuRate(Process, ref begin, STATUS_INTERVAL);
                                 LBCpu.Text = $"CPU：{Math.Round(cpu, 1)} %";
                                 LBRam.Text = $"内存：{AppInfoTool.RAM(Process.Id) / 1024} MB";
 
@@ -364,7 +369,8 @@ namespace Oreo.BigBirdDeployer.Parts
                         string path = DirTool.Combine(R.Paths.PublishStorage, Project.Folder, (_tempVers[i].Number).ToString());
                         try
                         {
-                            Directory.Delete(path, true);
+                            //如果文件夹存在，则删除文件夹及内容
+                            if (Directory.Exists(path)) Directory.Delete(path, true);
                         }
                         catch
                         {
@@ -378,6 +384,28 @@ namespace Oreo.BigBirdDeployer.Parts
 
             //重置项目信息
             SetProject(Project);
+        }
+        /// <summary>
+        /// 打开控制台输出窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTConsole_Click(object sender, EventArgs e)
+        {
+            if (ConsoleForm != null && !ConsoleForm.IsDisposed && ConsoleForm.Visible == true)
+            {
+                ConsoleForm.Show();
+                ConsoleForm.WindowState = FormWindowState.Normal;
+                ConsoleForm.Activate();
+            }
+            else
+            {
+                ConsoleForm = new ProjectConsoleForm();
+                ConsoleForm.Show();
+                ConsoleForm.WindowState = FormWindowState.Normal;
+                ConsoleForm.Activate();
+                ConsoleForm.UICaption(Project.Name);
+            }
         }
         /// <summary>
         /// 选择要启动的版本
@@ -482,5 +510,7 @@ namespace Oreo.BigBirdDeployer.Parts
             catch { }
         }
         #endregion
+
+
     }
 }
