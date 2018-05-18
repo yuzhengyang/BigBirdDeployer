@@ -59,7 +59,6 @@ namespace Oreo.BigBirdDeployer.Parts
             }
         }
 
-
         #region 功能方法
         /// <summary>
         /// 设置/重置工程信息
@@ -196,7 +195,7 @@ namespace Oreo.BigBirdDeployer.Parts
                         //输出到窗口
                         if (ConsoleForm != null && !ConsoleForm.IsDisposed && ConsoleForm.Visible == true)
                         {
-                            ConsoleForm.UIConsole(s);
+                            ConsoleForm.AddToQueue(s);
                         }
                     }));
 
@@ -437,41 +436,41 @@ namespace Oreo.BigBirdDeployer.Parts
                             LBStatus.BackColor = ColorTranslator.FromHtml("#446e5c");
                             LBProjectName.BackColor = ColorTranslator.FromHtml("#7dc383");
                             BTStartOrStop.Text = "启动";
-                            BTStartOrStop.Enabled = true;//允许启动/关闭
-                            BTAddNew.Enabled = true;//允许装载新版本
-                            BTConfig.Enabled = true;//允许配置工程
-                            CBVersion.Enabled = true;//允许选择启动版本
+                            UIEnable(BTStartOrStop);//允许启动/关闭
+                            UIEnable(BTAddNew);//允许装载新版本
+                            UIEnable(BTConfig);//允许配置工程
+                            UIEnable(CBVersion);//允许选择启动版本
                             break;
                         case WorkStatus.启动成功:
                             BackColor = ColorTranslator.FromHtml("#26adaf");
                             LBStatus.BackColor = ColorTranslator.FromHtml("#0081c6");
                             LBProjectName.BackColor = ColorTranslator.FromHtml("#1fd1c6");
                             BTStartOrStop.Text = "停止";
-                            BTStartOrStop.Enabled = true;//允许启动/关闭
-                            BTAddNew.Enabled = false;//禁止装载新版本
-                            BTConfig.Enabled = false;//禁止配置工程
-                            CBVersion.Enabled = false;//禁止选择启动版本
+                            UIEnable(BTStartOrStop);//允许启动/关闭
+                            UIEnable(BTAddNew, false);//禁止装载新版本
+                            UIEnable(BTConfig, false);//禁止配置工程
+                            UIEnable(CBVersion, false);//禁止选择启动版本
                             break;
 
                         case WorkStatus.正在启动:
                             BackColor = ColorTranslator.FromHtml("#ff8264");
                             LBStatus.BackColor = ColorTranslator.FromHtml("#ff6464");
                             LBProjectName.BackColor = ColorTranslator.FromHtml("#ffaa64");
-                            BTStartOrStop.Text = "启动中.";
-                            BTStartOrStop.Enabled = false;//禁止启动/关闭
-                            BTAddNew.Enabled = false;//禁止装载新版本
-                            BTConfig.Enabled = false;//禁止配置工程
-                            CBVersion.Enabled = false;//禁止选择启动版本
+                            BTStartOrStop.Text = "启~";
+                            UIEnable(BTStartOrStop, false);//禁止启动/关闭
+                            UIEnable(BTAddNew, false);//禁止装载新版本
+                            UIEnable(BTConfig, false);//禁止配置工程
+                            UIEnable(CBVersion, false);//禁止选择启动版本
                             break;
                         case WorkStatus.正在关闭:
                             BackColor = ColorTranslator.FromHtml("#ff8264");
                             LBStatus.BackColor = ColorTranslator.FromHtml("#ff6464");
                             LBProjectName.BackColor = ColorTranslator.FromHtml("#ffaa64");
-                            BTStartOrStop.Text = "关闭中.";
-                            BTStartOrStop.Enabled = false;//禁止启动/关闭
-                            BTAddNew.Enabled = false;//禁止装载新版本
-                            BTConfig.Enabled = false;//禁止配置工程
-                            CBVersion.Enabled = false;//禁止选择启动版本
+                            BTStartOrStop.Text = "关~";
+                            UIEnable(BTStartOrStop, false);//禁止启动/关闭
+                            UIEnable(BTAddNew, false);//禁止装载新版本
+                            UIEnable(BTConfig, false);//禁止配置工程
+                            UIEnable(CBVersion, false);//禁止选择启动版本
                             break;
 
                         case WorkStatus.端口占用:
@@ -479,20 +478,20 @@ namespace Oreo.BigBirdDeployer.Parts
                             LBStatus.BackColor = ColorTranslator.FromHtml("#f12b6b");
                             LBProjectName.BackColor = ColorTranslator.FromHtml("#fd94b4");
                             BTStartOrStop.Text = "停止";
-                            BTStartOrStop.Enabled = true;//允许启动/关闭
-                            BTAddNew.Enabled = false;//禁止装载新版本
-                            BTConfig.Enabled = true;//允许配置工程
-                            CBVersion.Enabled = false;//禁止选择启动版本
+                            UIEnable(BTStartOrStop);//允许启动/关闭
+                            UIEnable(BTAddNew, false);//禁止装载新版本
+                            UIEnable(BTConfig);//允许配置工程
+                            UIEnable(CBVersion, false);//禁止选择启动版本
                             break;
                         case WorkStatus.启动失败:
                             BackColor = ColorTranslator.FromHtml("#ff467e");
                             LBStatus.BackColor = ColorTranslator.FromHtml("#f12b6b");
                             LBProjectName.BackColor = ColorTranslator.FromHtml("#fd94b4");
                             BTStartOrStop.Text = "启动";
-                            BTStartOrStop.Enabled = true;//允许启动/关闭
-                            BTAddNew.Enabled = true;//允许装载新版本
-                            BTConfig.Enabled = true;//允许配置工程
-                            CBVersion.Enabled = true;//允许选择启动版本
+                            UIEnable(BTStartOrStop);//允许启动/关闭
+                            UIEnable(BTAddNew);//允许装载新版本
+                            UIEnable(BTConfig);//允许配置工程
+                            UIEnable(CBVersion);//允许选择启动版本
                             break;
                     }
                 }));
@@ -505,6 +504,19 @@ namespace Oreo.BigBirdDeployer.Parts
             {
                 BeginInvoke(new Action(() =>
                 {
+                }));
+            }
+            catch { }
+        }
+        private void UIEnable(Control ctrl, bool enable = true)
+        {
+            try
+            {
+                Invoke(new Action(() =>
+                {
+                    ctrl.Enabled = enable;
+                    if (enable) ctrl.BackColor = Color.White;
+                    else ctrl.BackColor = Color.LightGray;
                 }));
             }
             catch { }

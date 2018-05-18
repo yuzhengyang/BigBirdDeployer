@@ -3,6 +3,7 @@ using Azylee.Core.DataUtils.StringUtils;
 using Azylee.Core.DataUtils.UnitConvertUtils;
 using Azylee.Core.IOUtils.TxtUtils;
 using Azylee.Core.WindowsUtils.APIUtils;
+using Azylee.Core.WindowsUtils.InfoUtils;
 using Azylee.WinformSkin.FormUI.CustomTitle;
 using Azylee.WinformSkin.FormUI.Toast;
 using Oreo.BigBirdDeployer.Commons;
@@ -25,8 +26,9 @@ namespace Oreo.BigBirdDeployer.Views
     public partial class MainForm : BigIconForm
     {
         private bool RunStatusTask = false;//APP程序运行状态任务是否执行
-        private int STATUS_INTERVAL = 1000;//APP程序运行状态监测间隔
+        private int STATUS_INTERVAL = 2500;//APP程序运行状态监测间隔
         private Process Process = Process.GetCurrentProcess();
+        private PerformanceCounter ComputerProcessor = ComputerStatusTool.Processor();//电脑CPU监控
         public MainForm()
         {
             InitializeComponent();
@@ -148,11 +150,13 @@ namespace Oreo.BigBirdDeployer.Views
                     {
                         try
                         {
-                            int cpu = (int)AppInfoTool.CalcCpuRate(Process, ref beginTime, STATUS_INTERVAL);
-                            string ram = ByteConvertTool.Fmt(AppInfoTool.RAM() * 1024);
+                            bool cpuflag = ComputerStatusTool.TryGetNextValue(ComputerProcessor, out float cpu);
+                            string ram = ByteConvertTool.Fmt(ComputerInfoTool.AvailablePhysicalMemory() * 1024);
+                            int appcpu = (int)AppInfoTool.CalcCpuRate(Process, ref beginTime, STATUS_INTERVAL);
+                            string appram = ByteConvertTool.Fmt(AppInfoTool.RAM() * 1024);
                             Invoke(new Action(() =>
                             {
-                                TSSLCpuRam.Text = $"CPU : {cpu} %  ,  RAM : {ram}";
+                                TSSLCpuRam.Text = $"CPU: {(int)cpu}% , RAM: {ram} [ cpu: {appcpu}% , ram: {appram} ]";
                             }));
                         }
                         catch { }

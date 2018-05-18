@@ -53,6 +53,8 @@
             this.project14 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.project15 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.TPSettings = new System.Windows.Forms.TabPage();
+            this.TBHighlightKeyword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.BTOpenNewStorage = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,8 +72,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TSSLCpuRam = new System.Windows.Forms.ToolStripStatusLabel();
             this.PNContainer = new System.Windows.Forms.Panel();
-            this.TBHighlightKeyword = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -355,10 +355,26 @@
             this.TPSettings.Location = new System.Drawing.Point(4, 22);
             this.TPSettings.Name = "TPSettings";
             this.TPSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.TPSettings.Size = new System.Drawing.Size(767, 417);
+            this.TPSettings.Size = new System.Drawing.Size(963, 413);
             this.TPSettings.TabIndex = 2;
             this.TPSettings.Text = " 【设置】 ";
             this.TPSettings.UseVisualStyleBackColor = true;
+            // 
+            // TBHighlightKeyword
+            // 
+            this.TBHighlightKeyword.Location = new System.Drawing.Point(210, 44);
+            this.TBHighlightKeyword.Name = "TBHighlightKeyword";
+            this.TBHighlightKeyword.Size = new System.Drawing.Size(235, 21);
+            this.TBHighlightKeyword.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(69, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 12);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "输出窗口高亮关键字";
             // 
             // BTOpenNewStorage
             // 
@@ -494,8 +510,8 @@
             // TSSLCpuRam
             // 
             this.TSSLCpuRam.Name = "TSSLCpuRam";
-            this.TSSLCpuRam.Size = new System.Drawing.Size(164, 17);
-            this.TSSLCpuRam.Text = "CPU : 100%    RAM : 50MB";
+            this.TSSLCpuRam.Size = new System.Drawing.Size(275, 17);
+            this.TSSLCpuRam.Text = "CPU: 10% , RAM: 2GB [ cpu: 5% , ram: 50MB ]";
             // 
             // PNContainer
             // 
@@ -505,22 +521,6 @@
             this.PNContainer.Name = "PNContainer";
             this.PNContainer.Size = new System.Drawing.Size(775, 443);
             this.PNContainer.TabIndex = 7;
-            // 
-            // TBHighlightKeyword
-            // 
-            this.TBHighlightKeyword.Location = new System.Drawing.Point(210, 44);
-            this.TBHighlightKeyword.Name = "TBHighlightKeyword";
-            this.TBHighlightKeyword.Size = new System.Drawing.Size(235, 21);
-            this.TBHighlightKeyword.TabIndex = 28;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(69, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 12);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "输出窗口高亮关键字";
             // 
             // MainForm
             // 

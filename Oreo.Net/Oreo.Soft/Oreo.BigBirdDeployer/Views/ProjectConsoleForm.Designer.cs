@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectConsoleForm));
             this.BTClean = new System.Windows.Forms.Button();
             this.PNHead = new System.Windows.Forms.Panel();
             this.PNContainer = new System.Windows.Forms.Panel();
             this.RTBConsole = new System.Windows.Forms.RichTextBox();
+            this.TMConsoleWrite = new System.Windows.Forms.Timer(this.components);
             this.PNHead.SuspendLayout();
             this.PNContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // BTClean
             // 
-            this.BTClean.Location = new System.Drawing.Point(10, 12);
+            this.BTClean.Location = new System.Drawing.Point(9, 2);
             this.BTClean.Name = "BTClean";
             this.BTClean.Size = new System.Drawing.Size(75, 23);
             this.BTClean.TabIndex = 1;
@@ -52,17 +55,17 @@
             this.PNHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.PNHead.Location = new System.Drawing.Point(0, 0);
             this.PNHead.Name = "PNHead";
-            this.PNHead.Size = new System.Drawing.Size(556, 45);
+            this.PNHead.Size = new System.Drawing.Size(556, 27);
             this.PNHead.TabIndex = 2;
             // 
             // PNContainer
             // 
             this.PNContainer.Controls.Add(this.RTBConsole);
             this.PNContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PNContainer.Location = new System.Drawing.Point(0, 45);
+            this.PNContainer.Location = new System.Drawing.Point(0, 27);
             this.PNContainer.Name = "PNContainer";
             this.PNContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.PNContainer.Size = new System.Drawing.Size(556, 306);
+            this.PNContainer.Size = new System.Drawing.Size(556, 324);
             this.PNContainer.TabIndex = 3;
             // 
             // RTBConsole
@@ -71,9 +74,15 @@
             this.RTBConsole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RTBConsole.Location = new System.Drawing.Point(10, 10);
             this.RTBConsole.Name = "RTBConsole";
-            this.RTBConsole.Size = new System.Drawing.Size(536, 286);
+            this.RTBConsole.Size = new System.Drawing.Size(536, 304);
             this.RTBConsole.TabIndex = 1;
             this.RTBConsole.Text = "";
+            // 
+            // TMConsoleWrite
+            // 
+            this.TMConsoleWrite.Enabled = true;
+            this.TMConsoleWrite.Interval = 2500;
+            this.TMConsoleWrite.Tick += new System.EventHandler(this.TMConsoleWrite_Tick);
             // 
             // ProjectConsoleForm
             // 
@@ -82,6 +91,7 @@
             this.ClientSize = new System.Drawing.Size(556, 351);
             this.Controls.Add(this.PNContainer);
             this.Controls.Add(this.PNHead);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProjectConsoleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProjectConsoleForm";
@@ -96,5 +106,6 @@
         private System.Windows.Forms.Panel PNHead;
         private System.Windows.Forms.Panel PNContainer;
         private System.Windows.Forms.RichTextBox RTBConsole;
+        private System.Windows.Forms.Timer TMConsoleWrite;
     }
 }

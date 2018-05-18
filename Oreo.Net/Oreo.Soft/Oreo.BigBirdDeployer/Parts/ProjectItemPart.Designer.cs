@@ -75,7 +75,7 @@
             this.LBProjectName.Name = "LBProjectName";
             this.LBProjectName.Size = new System.Drawing.Size(181, 28);
             this.LBProjectName.TabIndex = 2;
-            this.LBProjectName.Text = "工程名称：某某管理系统后台";
+            this.LBProjectName.Text = "工程名称：某某某某某某";
             this.LBProjectName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LBStatus
@@ -105,9 +105,9 @@
             this.LBCpu.ForeColor = System.Drawing.Color.White;
             this.LBCpu.Location = new System.Drawing.Point(99, 53);
             this.LBCpu.Name = "LBCpu";
-            this.LBCpu.Size = new System.Drawing.Size(65, 12);
+            this.LBCpu.Size = new System.Drawing.Size(59, 12);
             this.LBCpu.TabIndex = 8;
-            this.LBCpu.Text = "CPU：100 %";
+            this.LBCpu.Text = "CPU：10 %";
             // 
             // LBRam
             // 
@@ -115,9 +115,9 @@
             this.LBRam.ForeColor = System.Drawing.Color.White;
             this.LBRam.Location = new System.Drawing.Point(173, 53);
             this.LBRam.Name = "LBRam";
-            this.LBRam.Size = new System.Drawing.Size(83, 12);
+            this.LBRam.Size = new System.Drawing.Size(71, 12);
             this.LBRam.TabIndex = 9;
-            this.LBRam.Text = "内存：9999 MB";
+            this.LBRam.Text = "内存：99 MB";
             // 
             // LBPort
             // 
