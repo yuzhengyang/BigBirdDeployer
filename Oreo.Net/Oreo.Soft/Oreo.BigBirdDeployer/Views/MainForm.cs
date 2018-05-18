@@ -36,9 +36,9 @@ namespace Oreo.BigBirdDeployer.Views
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LBVersion.Text = $"版本：{Application.ProductVersion}";
             TBPublishStorage.Text = R.Paths.PublishStorage == R.Paths.DefaultPublishStorage ? "" : R.Paths.PublishStorage;
             TBNewStorage.Text = R.Paths.NewStorage == R.Paths.DefaultNewStorage ? "" : R.Paths.NewStorage;
-            TBHighlightKeyword.Text = R.HighlightKeyword;
             TaskOfStatus();
         }
 
@@ -50,10 +50,6 @@ namespace Oreo.BigBirdDeployer.Views
         #region 方法
         private bool SaveSettings()
         {
-            //保存输出高亮关键字
-            R.HighlightKeyword = TBHighlightKeyword.Text;
-            IniTool.WriteValue(R.Files.Settings, "Console", "HighlightKeyword", R.HighlightKeyword);
-
             bool flag = false;
             if (StringTool.Ok(TBPublishStorage.Text))
             {
@@ -156,7 +152,7 @@ namespace Oreo.BigBirdDeployer.Views
                             string appram = ByteConvertTool.Fmt(AppInfoTool.RAM() * 1024);
                             Invoke(new Action(() =>
                             {
-                                TSSLCpuRam.Text = $"CPU: {(int)cpu}% , RAM: {ram} [ cpu: {appcpu}% , ram: {appram} ]";
+                                LBStatus.Text = $"CPU: {(int)cpu}% , RAM: {ram} [ cpu: {appcpu}% , ram: {appram} ]";
                             }));
                         }
                         catch { }

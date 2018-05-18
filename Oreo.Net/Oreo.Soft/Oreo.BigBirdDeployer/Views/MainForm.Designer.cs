@@ -53,8 +53,6 @@
             this.project14 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.project15 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.TPSettings = new System.Windows.Forms.TabPage();
-            this.TBHighlightKeyword = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.BTOpenNewStorage = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,9 +67,9 @@
             this.CMSMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMIExit = new System.Windows.Forms.ToolStripMenuItem();
             this.PNFooter = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.TSSLCpuRam = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LBStatus = new System.Windows.Forms.Label();
             this.PNContainer = new System.Windows.Forms.Panel();
+            this.LBVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -83,7 +81,6 @@
             this.TPSettings.SuspendLayout();
             this.CMSMain.SuspendLayout();
             this.PNFooter.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.PNContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +88,7 @@
             // 
             this.BigIconFormLBHeadTitle.ForeColor = System.Drawing.Color.White;
             this.BigIconFormLBHeadTitle.Size = new System.Drawing.Size(508, 68);
-            this.BigIconFormLBHeadTitle.Text = "Big Bird Deployer Java 服务启动管理工具";
+            this.BigIconFormLBHeadTitle.Text = "    Java 服务启动管理工具";
             // 
             // BigIconFormPBHeadIcon
             // 
@@ -340,8 +337,6 @@
             // 
             // TPSettings
             // 
-            this.TPSettings.Controls.Add(this.TBHighlightKeyword);
-            this.TPSettings.Controls.Add(this.label5);
             this.TPSettings.Controls.Add(this.BTOpenNewStorage);
             this.TPSettings.Controls.Add(this.label4);
             this.TPSettings.Controls.Add(this.label3);
@@ -360,25 +355,9 @@
             this.TPSettings.Text = " 【设置】 ";
             this.TPSettings.UseVisualStyleBackColor = true;
             // 
-            // TBHighlightKeyword
-            // 
-            this.TBHighlightKeyword.Location = new System.Drawing.Point(210, 44);
-            this.TBHighlightKeyword.Name = "TBHighlightKeyword";
-            this.TBHighlightKeyword.Size = new System.Drawing.Size(235, 21);
-            this.TBHighlightKeyword.TabIndex = 28;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(69, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 12);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "输出窗口高亮关键字";
-            // 
             // BTOpenNewStorage
             // 
-            this.BTOpenNewStorage.Location = new System.Drawing.Point(481, 185);
+            this.BTOpenNewStorage.Location = new System.Drawing.Point(479, 136);
             this.BTOpenNewStorage.Name = "BTOpenNewStorage";
             this.BTOpenNewStorage.Size = new System.Drawing.Size(195, 23);
             this.BTOpenNewStorage.TabIndex = 26;
@@ -390,7 +369,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(479, 153);
+            this.label4.Location = new System.Drawing.Point(477, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(173, 12);
             this.label4.TabIndex = 25;
@@ -400,7 +379,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(479, 98);
+            this.label3.Location = new System.Drawing.Point(477, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(197, 12);
             this.label3.TabIndex = 24;
@@ -409,7 +388,7 @@
             // LBDesc
             // 
             this.LBDesc.AutoSize = true;
-            this.LBDesc.Location = new System.Drawing.Point(69, 236);
+            this.LBDesc.Location = new System.Drawing.Point(67, 187);
             this.LBDesc.Name = "LBDesc";
             this.LBDesc.Size = new System.Drawing.Size(77, 12);
             this.LBDesc.TabIndex = 23;
@@ -417,7 +396,7 @@
             // 
             // BTCancel
             // 
-            this.BTCancel.Location = new System.Drawing.Point(559, 310);
+            this.BTCancel.Location = new System.Drawing.Point(557, 261);
             this.BTCancel.Name = "BTCancel";
             this.BTCancel.Size = new System.Drawing.Size(75, 23);
             this.BTCancel.TabIndex = 22;
@@ -426,7 +405,7 @@
             // 
             // TBNewStorage
             // 
-            this.TBNewStorage.Location = new System.Drawing.Point(210, 150);
+            this.TBNewStorage.Location = new System.Drawing.Point(208, 101);
             this.TBNewStorage.Name = "TBNewStorage";
             this.TBNewStorage.Size = new System.Drawing.Size(235, 21);
             this.TBNewStorage.TabIndex = 21;
@@ -434,7 +413,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 153);
+            this.label2.Location = new System.Drawing.Point(67, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 12);
             this.label2.TabIndex = 20;
@@ -442,7 +421,7 @@
             // 
             // TBPublishStorage
             // 
-            this.TBPublishStorage.Location = new System.Drawing.Point(210, 95);
+            this.TBPublishStorage.Location = new System.Drawing.Point(208, 46);
             this.TBPublishStorage.Name = "TBPublishStorage";
             this.TBPublishStorage.Size = new System.Drawing.Size(235, 21);
             this.TBPublishStorage.TabIndex = 19;
@@ -450,7 +429,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 98);
+            this.label1.Location = new System.Drawing.Point(67, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 18;
@@ -458,7 +437,7 @@
             // 
             // BTSave
             // 
-            this.BTSave.Location = new System.Drawing.Point(427, 310);
+            this.BTSave.Location = new System.Drawing.Point(425, 261);
             this.BTSave.Name = "BTSave";
             this.BTSave.Size = new System.Drawing.Size(75, 23);
             this.BTSave.TabIndex = 17;
@@ -490,28 +469,22 @@
             // 
             // PNFooter
             // 
-            this.PNFooter.Controls.Add(this.statusStrip1);
+            this.PNFooter.Controls.Add(this.LBVersion);
+            this.PNFooter.Controls.Add(this.LBStatus);
             this.PNFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PNFooter.Location = new System.Drawing.Point(0, 443);
             this.PNFooter.Name = "PNFooter";
             this.PNFooter.Size = new System.Drawing.Size(775, 22);
             this.PNFooter.TabIndex = 6;
             // 
-            // statusStrip1
+            // LBStatus
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSSLCpuRam});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 0);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(775, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // TSSLCpuRam
-            // 
-            this.TSSLCpuRam.Name = "TSSLCpuRam";
-            this.TSSLCpuRam.Size = new System.Drawing.Size(275, 17);
-            this.TSSLCpuRam.Text = "CPU: 10% , RAM: 2GB [ cpu: 5% , ram: 50MB ]";
+            this.LBStatus.AutoSize = true;
+            this.LBStatus.Location = new System.Drawing.Point(6, 4);
+            this.LBStatus.Name = "LBStatus";
+            this.LBStatus.Size = new System.Drawing.Size(263, 12);
+            this.LBStatus.TabIndex = 0;
+            this.LBStatus.Text = "CPU: 10% , RAM: 2GB [ cpu: 5% , ram: 50MB ]";
             // 
             // PNContainer
             // 
@@ -521,6 +494,15 @@
             this.PNContainer.Name = "PNContainer";
             this.PNContainer.Size = new System.Drawing.Size(775, 443);
             this.PNContainer.TabIndex = 7;
+            // 
+            // LBVersion
+            // 
+            this.LBVersion.AutoSize = true;
+            this.LBVersion.Location = new System.Drawing.Point(644, 5);
+            this.LBVersion.Name = "LBVersion";
+            this.LBVersion.Size = new System.Drawing.Size(83, 12);
+            this.LBVersion.TabIndex = 1;
+            this.LBVersion.Text = "版本：6.6.6.6";
             // 
             // MainForm
             // 
@@ -549,8 +531,6 @@
             this.CMSMain.ResumeLayout(false);
             this.PNFooter.ResumeLayout(false);
             this.PNFooter.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.PNContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -595,9 +575,7 @@
         private Parts.ProjectItemPart project15;
         private System.Windows.Forms.Panel PNContainer;
         private System.Windows.Forms.Panel PNFooter;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel TSSLCpuRam;
-        private System.Windows.Forms.TextBox TBHighlightKeyword;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LBStatus;
+        private System.Windows.Forms.Label LBVersion;
     }
 }

@@ -75,7 +75,7 @@
             this.LBProjectName.Name = "LBProjectName";
             this.LBProjectName.Size = new System.Drawing.Size(181, 28);
             this.LBProjectName.TabIndex = 2;
-            this.LBProjectName.Text = "工程名称：某某某某某某";
+            this.LBProjectName.Text = "工程名称：某某";
             this.LBProjectName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LBStatus
