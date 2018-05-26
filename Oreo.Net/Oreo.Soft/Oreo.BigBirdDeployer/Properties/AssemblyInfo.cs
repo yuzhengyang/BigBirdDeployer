@@ -34,8 +34,14 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.0.2")]
+[assembly: AssemblyVersion("1.0.0.3")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.0.3（2018年5月25日）
+// + 设置窗口名称
+// + 支持带空格程序路径
+// + 扩展项目支持个数
+
 
 // v 1.0.0.2（2018年5月18日）
 // @ 优化输出内容策略（降低卡顿）

@@ -63,13 +63,27 @@
             this.TBPublishStorage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BTSave = new System.Windows.Forms.Button();
+            this.TPPage4 = new System.Windows.Forms.TabPage();
             this.NIMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.CMSMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMIExit = new System.Windows.Forms.ToolStripMenuItem();
             this.PNFooter = new System.Windows.Forms.Panel();
+            this.LBVersion = new System.Windows.Forms.Label();
             this.LBStatus = new System.Windows.Forms.Label();
             this.PNContainer = new System.Windows.Forms.Panel();
-            this.LBVersion = new System.Windows.Forms.Label();
+            this.TPPage5 = new System.Windows.Forms.TabPage();
+            this.project24 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project23 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project19 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project22 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project20 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project21 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project30 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project29 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project25 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project28 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project26 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
+            this.project27 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -79,9 +93,11 @@
             this.TPPage2.SuspendLayout();
             this.TPPage3.SuspendLayout();
             this.TPSettings.SuspendLayout();
+            this.TPPage4.SuspendLayout();
             this.CMSMain.SuspendLayout();
             this.PNFooter.SuspendLayout();
             this.PNContainer.SuspendLayout();
+            this.TPPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // BigIconFormLBHeadTitle
@@ -135,6 +151,8 @@
             this.tabControl1.Controls.Add(this.TPPage1);
             this.tabControl1.Controls.Add(this.TPPage2);
             this.tabControl1.Controls.Add(this.TPPage3);
+            this.tabControl1.Controls.Add(this.TPPage4);
+            this.tabControl1.Controls.Add(this.TPPage5);
             this.tabControl1.Controls.Add(this.TPSettings);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -219,7 +237,7 @@
             this.TPPage2.Location = new System.Drawing.Point(4, 22);
             this.TPPage2.Name = "TPPage2";
             this.TPPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.TPPage2.Size = new System.Drawing.Size(963, 413);
+            this.TPPage2.Size = new System.Drawing.Size(767, 417);
             this.TPPage2.TabIndex = 1;
             this.TPPage2.Text = " 【第二页】 ";
             // 
@@ -283,7 +301,7 @@
             this.TPPage3.Location = new System.Drawing.Point(4, 22);
             this.TPPage3.Name = "TPPage3";
             this.TPPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.TPPage3.Size = new System.Drawing.Size(963, 413);
+            this.TPPage3.Size = new System.Drawing.Size(767, 417);
             this.TPPage3.TabIndex = 3;
             this.TPPage3.Text = " 【第三页】 ";
             // 
@@ -350,7 +368,7 @@
             this.TPSettings.Location = new System.Drawing.Point(4, 22);
             this.TPSettings.Name = "TPSettings";
             this.TPSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.TPSettings.Size = new System.Drawing.Size(963, 413);
+            this.TPSettings.Size = new System.Drawing.Size(767, 417);
             this.TPSettings.TabIndex = 2;
             this.TPSettings.Text = " 【设置】 ";
             this.TPSettings.UseVisualStyleBackColor = true;
@@ -445,6 +463,22 @@
             this.BTSave.UseVisualStyleBackColor = true;
             this.BTSave.Click += new System.EventHandler(this.BTSave_Click);
             // 
+            // TPPage4
+            // 
+            this.TPPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(199)))), ((int)(((byte)(255)))));
+            this.TPPage4.Controls.Add(this.project24);
+            this.TPPage4.Controls.Add(this.project23);
+            this.TPPage4.Controls.Add(this.project19);
+            this.TPPage4.Controls.Add(this.project22);
+            this.TPPage4.Controls.Add(this.project20);
+            this.TPPage4.Controls.Add(this.project21);
+            this.TPPage4.Location = new System.Drawing.Point(4, 22);
+            this.TPPage4.Name = "TPPage4";
+            this.TPPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.TPPage4.Size = new System.Drawing.Size(767, 417);
+            this.TPPage4.TabIndex = 4;
+            this.TPPage4.Text = " 【第四页】";
+            // 
             // NIMain
             // 
             this.NIMain.ContextMenuStrip = this.CMSMain;
@@ -477,6 +511,15 @@
             this.PNFooter.Size = new System.Drawing.Size(775, 22);
             this.PNFooter.TabIndex = 6;
             // 
+            // LBVersion
+            // 
+            this.LBVersion.AutoSize = true;
+            this.LBVersion.Location = new System.Drawing.Point(644, 5);
+            this.LBVersion.Name = "LBVersion";
+            this.LBVersion.Size = new System.Drawing.Size(83, 12);
+            this.LBVersion.TabIndex = 1;
+            this.LBVersion.Text = "版本：6.6.6.6";
+            // 
             // LBStatus
             // 
             this.LBStatus.AutoSize = true;
@@ -495,14 +538,117 @@
             this.PNContainer.Size = new System.Drawing.Size(775, 443);
             this.PNContainer.TabIndex = 7;
             // 
-            // LBVersion
+            // TPPage5
             // 
-            this.LBVersion.AutoSize = true;
-            this.LBVersion.Location = new System.Drawing.Point(644, 5);
-            this.LBVersion.Name = "LBVersion";
-            this.LBVersion.Size = new System.Drawing.Size(83, 12);
-            this.LBVersion.TabIndex = 1;
-            this.LBVersion.Text = "版本：6.6.6.6";
+            this.TPPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.TPPage5.Controls.Add(this.project30);
+            this.TPPage5.Controls.Add(this.project29);
+            this.TPPage5.Controls.Add(this.project25);
+            this.TPPage5.Controls.Add(this.project28);
+            this.TPPage5.Controls.Add(this.project26);
+            this.TPPage5.Controls.Add(this.project27);
+            this.TPPage5.Location = new System.Drawing.Point(4, 22);
+            this.TPPage5.Name = "TPPage5";
+            this.TPPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.TPPage5.Size = new System.Drawing.Size(767, 417);
+            this.TPPage5.TabIndex = 5;
+            this.TPPage5.Text = " 【第五页】";
+            // 
+            // project24
+            // 
+            this.project24.BackColor = System.Drawing.Color.DimGray;
+            this.project24.Location = new System.Drawing.Point(401, 290);
+            this.project24.Name = "project24";
+            this.project24.Size = new System.Drawing.Size(324, 116);
+            this.project24.TabIndex = 34;
+            // 
+            // project23
+            // 
+            this.project23.BackColor = System.Drawing.Color.DimGray;
+            this.project23.Location = new System.Drawing.Point(33, 290);
+            this.project23.Name = "project23";
+            this.project23.Size = new System.Drawing.Size(324, 116);
+            this.project23.TabIndex = 33;
+            // 
+            // project19
+            // 
+            this.project19.BackColor = System.Drawing.Color.DimGray;
+            this.project19.Location = new System.Drawing.Point(33, 16);
+            this.project19.Name = "project19";
+            this.project19.Size = new System.Drawing.Size(324, 116);
+            this.project19.TabIndex = 29;
+            // 
+            // project22
+            // 
+            this.project22.BackColor = System.Drawing.Color.DimGray;
+            this.project22.Location = new System.Drawing.Point(401, 153);
+            this.project22.Name = "project22";
+            this.project22.Size = new System.Drawing.Size(324, 116);
+            this.project22.TabIndex = 32;
+            // 
+            // project20
+            // 
+            this.project20.BackColor = System.Drawing.Color.DimGray;
+            this.project20.Location = new System.Drawing.Point(401, 16);
+            this.project20.Name = "project20";
+            this.project20.Size = new System.Drawing.Size(324, 116);
+            this.project20.TabIndex = 30;
+            // 
+            // project21
+            // 
+            this.project21.BackColor = System.Drawing.Color.DimGray;
+            this.project21.Location = new System.Drawing.Point(33, 153);
+            this.project21.Name = "project21";
+            this.project21.Size = new System.Drawing.Size(324, 116);
+            this.project21.TabIndex = 31;
+            // 
+            // project30
+            // 
+            this.project30.BackColor = System.Drawing.Color.DimGray;
+            this.project30.Location = new System.Drawing.Point(401, 290);
+            this.project30.Name = "project30";
+            this.project30.Size = new System.Drawing.Size(324, 116);
+            this.project30.TabIndex = 40;
+            // 
+            // project29
+            // 
+            this.project29.BackColor = System.Drawing.Color.DimGray;
+            this.project29.Location = new System.Drawing.Point(33, 290);
+            this.project29.Name = "project29";
+            this.project29.Size = new System.Drawing.Size(324, 116);
+            this.project29.TabIndex = 39;
+            // 
+            // project25
+            // 
+            this.project25.BackColor = System.Drawing.Color.DimGray;
+            this.project25.Location = new System.Drawing.Point(33, 16);
+            this.project25.Name = "project25";
+            this.project25.Size = new System.Drawing.Size(324, 116);
+            this.project25.TabIndex = 35;
+            // 
+            // project28
+            // 
+            this.project28.BackColor = System.Drawing.Color.DimGray;
+            this.project28.Location = new System.Drawing.Point(401, 153);
+            this.project28.Name = "project28";
+            this.project28.Size = new System.Drawing.Size(324, 116);
+            this.project28.TabIndex = 38;
+            // 
+            // project26
+            // 
+            this.project26.BackColor = System.Drawing.Color.DimGray;
+            this.project26.Location = new System.Drawing.Point(401, 16);
+            this.project26.Name = "project26";
+            this.project26.Size = new System.Drawing.Size(324, 116);
+            this.project26.TabIndex = 36;
+            // 
+            // project27
+            // 
+            this.project27.BackColor = System.Drawing.Color.DimGray;
+            this.project27.Location = new System.Drawing.Point(33, 153);
+            this.project27.Name = "project27";
+            this.project27.Size = new System.Drawing.Size(324, 116);
+            this.project27.TabIndex = 37;
             // 
             // MainForm
             // 
@@ -513,7 +659,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "Java 服务启动管理工具";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Controls.SetChildIndex(this.BigIconFormPNHead, 0);
@@ -528,10 +674,12 @@
             this.TPPage3.ResumeLayout(false);
             this.TPSettings.ResumeLayout(false);
             this.TPSettings.PerformLayout();
+            this.TPPage4.ResumeLayout(false);
             this.CMSMain.ResumeLayout(false);
             this.PNFooter.ResumeLayout(false);
             this.PNFooter.PerformLayout();
             this.PNContainer.ResumeLayout(false);
+            this.TPPage5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -577,5 +725,19 @@
         private System.Windows.Forms.Panel PNFooter;
         private System.Windows.Forms.Label LBStatus;
         private System.Windows.Forms.Label LBVersion;
+        private System.Windows.Forms.TabPage TPPage4;
+        private System.Windows.Forms.TabPage TPPage5;
+        private Parts.ProjectItemPart project24;
+        private Parts.ProjectItemPart project23;
+        private Parts.ProjectItemPart project19;
+        private Parts.ProjectItemPart project22;
+        private Parts.ProjectItemPart project20;
+        private Parts.ProjectItemPart project21;
+        private Parts.ProjectItemPart project30;
+        private Parts.ProjectItemPart project29;
+        private Parts.ProjectItemPart project25;
+        private Parts.ProjectItemPart project28;
+        private Parts.ProjectItemPart project26;
+        private Parts.ProjectItemPart project27;
     }
 }

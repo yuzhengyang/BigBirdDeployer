@@ -174,8 +174,8 @@ namespace Oreo.BigBirdDeployer.Parts
             Task.Factory.StartNew(() =>
             {
                 StatusUI(WorkStatus.正在启动);
-                string cmd = $"java -jar {JarFileTool.PathGenerate(Project)}";
-                CMDProcessTool.StartExecute(cmd,
+                string cmd = $"java -jar \"{JarFileTool.PathGenerate(Project)}\"";
+                CMDProcessTool.Execute(cmd,
                     new Action<string>((s) =>
                     {
                         if (ConsoleCodeTool.IsLunchSuccess(s))
