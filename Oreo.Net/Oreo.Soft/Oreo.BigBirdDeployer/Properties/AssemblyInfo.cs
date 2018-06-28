@@ -34,8 +34,12 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.0.3")]
+[assembly: AssemblyVersion("1.0.0.4")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.0.4（2018年5月30日）
+// + 输出增加时间标志
+// + 限制输出大小
 
 // v 1.0.0.3（2018年5月25日）
 // + 设置窗口名称

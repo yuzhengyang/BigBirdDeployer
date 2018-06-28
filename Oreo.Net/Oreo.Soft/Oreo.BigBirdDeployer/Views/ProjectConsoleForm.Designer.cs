@@ -31,17 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectConsoleForm));
             this.BTClean = new System.Windows.Forms.Button();
             this.PNHead = new System.Windows.Forms.Panel();
+            this.CBNumber = new System.Windows.Forms.CheckBox();
             this.CBNotWrite = new System.Windows.Forms.CheckBox();
             this.PNContainer = new System.Windows.Forms.Panel();
             this.RTBConsole = new System.Windows.Forms.RichTextBox();
-            this.CBNumber = new System.Windows.Forms.CheckBox();
+            this.CBTime = new System.Windows.Forms.CheckBox();
             this.PNHead.SuspendLayout();
             this.PNContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // BTClean
             // 
-            this.BTClean.Location = new System.Drawing.Point(313, 2);
+            this.BTClean.Location = new System.Drawing.Point(377, 2);
             this.BTClean.Name = "BTClean";
             this.BTClean.Size = new System.Drawing.Size(75, 23);
             this.BTClean.TabIndex = 1;
@@ -51,19 +52,30 @@
             // 
             // PNHead
             // 
+            this.PNHead.Controls.Add(this.CBTime);
             this.PNHead.Controls.Add(this.CBNumber);
             this.PNHead.Controls.Add(this.CBNotWrite);
             this.PNHead.Controls.Add(this.BTClean);
             this.PNHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.PNHead.Location = new System.Drawing.Point(0, 0);
             this.PNHead.Name = "PNHead";
-            this.PNHead.Size = new System.Drawing.Size(556, 27);
+            this.PNHead.Size = new System.Drawing.Size(584, 27);
             this.PNHead.TabIndex = 2;
+            // 
+            // CBNumber
+            // 
+            this.CBNumber.AutoSize = true;
+            this.CBNumber.Location = new System.Drawing.Point(13, 6);
+            this.CBNumber.Name = "CBNumber";
+            this.CBNumber.Size = new System.Drawing.Size(72, 16);
+            this.CBNumber.TabIndex = 3;
+            this.CBNumber.Text = "显示序号";
+            this.CBNumber.UseVisualStyleBackColor = true;
             // 
             // CBNotWrite
             // 
             this.CBNotWrite.AutoSize = true;
-            this.CBNotWrite.Location = new System.Drawing.Point(119, 6);
+            this.CBNotWrite.Location = new System.Drawing.Point(247, 6);
             this.CBNotWrite.Name = "CBNotWrite";
             this.CBNotWrite.Size = new System.Drawing.Size(72, 16);
             this.CBNotWrite.TabIndex = 2;
@@ -77,7 +89,7 @@
             this.PNContainer.Location = new System.Drawing.Point(0, 27);
             this.PNContainer.Name = "PNContainer";
             this.PNContainer.Padding = new System.Windows.Forms.Padding(5);
-            this.PNContainer.Size = new System.Drawing.Size(556, 324);
+            this.PNContainer.Size = new System.Drawing.Size(584, 384);
             this.PNContainer.TabIndex = 3;
             // 
             // RTBConsole
@@ -86,25 +98,25 @@
             this.RTBConsole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RTBConsole.Location = new System.Drawing.Point(5, 5);
             this.RTBConsole.Name = "RTBConsole";
-            this.RTBConsole.Size = new System.Drawing.Size(546, 314);
+            this.RTBConsole.Size = new System.Drawing.Size(574, 374);
             this.RTBConsole.TabIndex = 1;
             this.RTBConsole.Text = "";
             // 
-            // CBNumber
+            // CBTime
             // 
-            this.CBNumber.AutoSize = true;
-            this.CBNumber.Location = new System.Drawing.Point(13, 6);
-            this.CBNumber.Name = "CBNumber";
-            this.CBNumber.Size = new System.Drawing.Size(72, 16);
-            this.CBNumber.TabIndex = 3;
-            this.CBNumber.Text = "显示序号";
-            this.CBNumber.UseVisualStyleBackColor = true;
+            this.CBTime.AutoSize = true;
+            this.CBTime.Location = new System.Drawing.Point(130, 6);
+            this.CBTime.Name = "CBTime";
+            this.CBTime.Size = new System.Drawing.Size(72, 16);
+            this.CBTime.TabIndex = 4;
+            this.CBTime.Text = "显示时间";
+            this.CBTime.UseVisualStyleBackColor = true;
             // 
             // ProjectConsoleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 351);
+            this.ClientSize = new System.Drawing.Size(584, 411);
             this.Controls.Add(this.PNContainer);
             this.Controls.Add(this.PNHead);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -126,5 +138,6 @@
         private System.Windows.Forms.RichTextBox RTBConsole;
         private System.Windows.Forms.CheckBox CBNotWrite;
         private System.Windows.Forms.CheckBox CBNumber;
+        private System.Windows.Forms.CheckBox CBTime;
     }
 }

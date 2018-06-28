@@ -1,4 +1,5 @@
 ﻿using Azylee.Core.DataUtils.CollectionUtils;
+using Azylee.Core.DataUtils.DateTimeUtils;
 using Azylee.Core.DataUtils.StringUtils;
 using Azylee.Core.DataUtils.UnitConvertUtils;
 using Oreo.BigBirdDeployer.Commons;
@@ -20,7 +21,7 @@ namespace Oreo.BigBirdDeployer.Views
     {
         private int ConsoleLine = 0;
         private int ConsoleLength = 0;
-        private int MaxLength = 500 * 1024;
+        private int MaxLength = 5 * 1024 * 1024;
         private bool IsWrite = false;
         private string Caption = "";
         private int WriteInterval = 1000;
@@ -53,6 +54,8 @@ namespace Oreo.BigBirdDeployer.Views
                     IsWrite = true;
                     while (!IsDisposed)
                     {
+                        //处理输出过长（截断到一半）
+                        UIConsoleCut();
                         if (Lines.Any() && Lines.Count > 0)
                         {
                             try
@@ -63,7 +66,10 @@ namespace Oreo.BigBirdDeployer.Views
                                     if (Lines.TryDequeue(out string s))
                                     {
                                         ConsoleLine++;
+                                        //显示行号
                                         if (CBNumber.Checked) sb.Append($"【{ConsoleLine}】");
+                                        //显示时间
+                                        if (CBTime.Checked) sb.Append($"【{DateTimeConvert.StandardString(DateTime.Now)}】");
                                         sb.Append(s);
                                         sb.Append(Environment.NewLine);
 
@@ -116,6 +122,24 @@ namespace Oreo.BigBirdDeployer.Views
                 }));
             }
             catch { }
+        }
+        private void UIConsoleCut()
+        {
+            if (ConsoleLength > MaxLength)
+            {
+                try
+                {
+
+                    Invoke(new Action(() =>
+                    {
+                        RTBConsole.Text = RTBConsole.Text.Substring(RTBConsole.TextLength / 2);//截断文本内容
+                        ConsoleLength = RTBConsole.TextLength;//更新文本长度
+                        RTBConsole.ScrollToCaret();//滚动到底部
+                        UICaption(Caption);//更新标题，带文本长度提示
+                    }));
+                }
+                catch { }
+            }
         }
         /// <summary>
         /// 高亮文本内容（已弃用，后期可考虑做搜索功能）
