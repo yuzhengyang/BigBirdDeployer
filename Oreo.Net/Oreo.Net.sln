@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2037
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oreo.Net", "Oreo.Net\Oreo.Net.csproj", "{9595BD58-BDD5-4B32-B97F-A47477ED8135}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oreo.BlueScreen", "Oreo.Soft\Oreo.BlueScreen\Oreo.BlueScreen.csproj", "{FF40B0B8-4159-419A-9FE2-7FC095D912A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2181B219-3720-494B-96F7-56922B477E99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oreo.PictureInfo", "Oreo.Soft\Oreo.PictureInfo\Oreo.PictureInfo.csproj", "{5543DA61-9B13-4951-8D63-7E0C67F70E34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{FF40B0B8-4159-419A-9FE2-7FC095D912A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF40B0B8-4159-419A-9FE2-7FC095D912A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF40B0B8-4159-419A-9FE2-7FC095D912A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5543DA61-9B13-4951-8D63-7E0C67F70E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5543DA61-9B13-4951-8D63-7E0C67F70E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5543DA61-9B13-4951-8D63-7E0C67F70E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5543DA61-9B13-4951-8D63-7E0C67F70E34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{09A73EF5-BA8F-4757-A3EA-303D82CEBC85} = {D88C2696-C108-4B51-8B85-F3BFAD82F30D}
 		{FF40B0B8-4159-419A-9FE2-7FC095D912A6} = {D88C2696-C108-4B51-8B85-F3BFAD82F30D}
+		{5543DA61-9B13-4951-8D63-7E0C67F70E34} = {D88C2696-C108-4B51-8B85-F3BFAD82F30D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {895790C9-EA3C-4905-87E6-75B493BAD7EB}
