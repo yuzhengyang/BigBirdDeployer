@@ -1,5 +1,5 @@
 # Oreo.BigBirdDeployer
-Java Web项目启动工具，版本控制工具
+Java Web项目启动工具，版本控制工具，方便服务器发布Java服务，查看输出控制台信息，控制Java服务的版本，方便回退版本。
 
 ### 一、起因
 最近开发Java Web项目，开发完后需要打包发布，因为项目分成了微服务，所以要运行的服务比较多，在服务器上就是这种样子，如图：
@@ -18,6 +18,7 @@ Java Web项目启动工具，版本控制工具
 4. CPU和RAM的占用情况
 
 截图如下：
+
 ![image](https://github.com/yuzhengyang/Oreo.BigBirdDeployer/blob/master/Documents/ScreenShot/2018725104118.png?raw=true)
 
 ### 三、使用
