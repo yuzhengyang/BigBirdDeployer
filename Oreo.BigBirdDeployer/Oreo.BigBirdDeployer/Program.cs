@@ -45,10 +45,10 @@ namespace Oreo.BigBirdDeployer
             DirTool.Create(R.Paths.DefaultPublishStorage);
             DirTool.Create(R.Paths.DefaultNewStorage);
 
-            R.Paths.PublishStorage = IniTool.GetStringValue(R.Files.Settings, "Paths", "PublishStorage", R.Paths.DefaultPublishStorage);
+            R.Paths.PublishStorage = IniTool.GetString(R.Files.Settings, "Paths", "PublishStorage", R.Paths.DefaultPublishStorage);
             if (string.IsNullOrWhiteSpace(R.Paths.PublishStorage)) R.Paths.PublishStorage = R.Paths.DefaultPublishStorage;
 
-            R.Paths.NewStorage = IniTool.GetStringValue(R.Files.Settings, "Paths", "NewStorage", R.Paths.DefaultNewStorage);
+            R.Paths.NewStorage = IniTool.GetString(R.Files.Settings, "Paths", "NewStorage", R.Paths.DefaultNewStorage);
             if (string.IsNullOrWhiteSpace(R.Paths.NewStorage)) R.Paths.NewStorage = R.Paths.DefaultNewStorage;
         }
     }
