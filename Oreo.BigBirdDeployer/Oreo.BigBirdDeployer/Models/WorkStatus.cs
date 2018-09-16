@@ -7,6 +7,8 @@ namespace Oreo.BigBirdDeployer.Models
 {
     enum WorkStatus
     {
+        空项目 = -99,
+
         准备就绪 = 0,
         启动成功 = 1,
 

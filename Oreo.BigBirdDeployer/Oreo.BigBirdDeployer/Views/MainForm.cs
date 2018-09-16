@@ -115,7 +115,9 @@ namespace Oreo.BigBirdDeployer.Views
         {
             try
             {
+                WindowState = FormWindowState.Normal;
                 Show();
+                Activate();
             }
             catch { }
         }

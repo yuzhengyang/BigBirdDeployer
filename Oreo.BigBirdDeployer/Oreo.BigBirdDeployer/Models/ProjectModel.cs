@@ -36,6 +36,10 @@ namespace Oreo.BigBirdDeployer.Models
         /// </summary>
         public int VersionCache { get; set; }
         /// <summary>
+        /// 自动启动
+        /// </summary>
+        public bool AutoStart { get; set; }
+        /// <summary>
         /// 所有版本列表
         /// </summary>
         public List<VersionModel> Versions { get; set; }

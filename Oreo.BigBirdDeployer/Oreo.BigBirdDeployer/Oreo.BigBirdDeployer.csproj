@@ -39,8 +39,8 @@
     <ApplicationIcon>Images\Icons\icon_1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Azylee.Core">
-      <HintPath>..\Dlls\Azylee.Core.dll</HintPath>
+    <Reference Include="Azylee.Core, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azylee.Core.1.0.0.3\lib\Azylee.Core.dll</HintPath>
     </Reference>
     <Reference Include="Azylee.Core.Plus">
       <HintPath>..\Dlls\Azylee.Core.Plus.dll</HintPath>
@@ -121,6 +121,7 @@
     <EmbeddedResource Include="Views\ProjectConsoleForm.resx">
       <DependentUpon>ProjectConsoleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

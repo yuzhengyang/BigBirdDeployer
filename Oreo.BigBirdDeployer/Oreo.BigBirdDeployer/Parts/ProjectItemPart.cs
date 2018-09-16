@@ -31,6 +31,7 @@ namespace Oreo.BigBirdDeployer.Parts
     public partial class ProjectItemPart : UserControl
     {
         const int STATUS_INTERVAL = 2500;//刷新状态时间间隔
+        private DateTime StartTime { get; set; }
         private WorkStatus Status { get; set; }
         private ProjectModel Project { get; set; }
         private Process Process { get; set; }
@@ -157,6 +158,9 @@ namespace Oreo.BigBirdDeployer.Parts
         /// <returns></returns>
         private void Start()
         {
+            StatusUI(WorkStatus.正在启动);
+            StartTime = DateTime.Now;
+
             //端口号是0，玩个蛋
             if (Project.Port == 0)
             {
@@ -173,7 +177,6 @@ namespace Oreo.BigBirdDeployer.Parts
             //存在版本，准备启动
             Task.Factory.StartNew(() =>
             {
-                StatusUI(WorkStatus.正在启动);
                 string cmd = $"java -jar \"{JarFileTool.PathGenerate(Project)}\"";
                 CMDProcessTool.Execute(cmd,
                     new Action<string>((s) =>
@@ -186,7 +189,6 @@ namespace Oreo.BigBirdDeployer.Parts
                             {
                                 ToastForm.Display("启动成功", $"启动 {Project.Name} 工程成功", 'i', 5000);
                             }));
-                            GetProcess();
                         }
 
                         string log = ConsoleCodeTool.GetLogInfo(s);
@@ -199,7 +201,7 @@ namespace Oreo.BigBirdDeployer.Parts
                         }
                     }));
 
-                if (Status == WorkStatus.启动成功 || Status == WorkStatus.端口占用)
+                if (Status == WorkStatus.启动成功 || Status == WorkStatus.端口占用 || Status == WorkStatus.正在关闭)
                 {
                     StatusUI(WorkStatus.正在关闭);
                     Stop();
@@ -216,6 +218,8 @@ namespace Oreo.BigBirdDeployer.Parts
         /// <returns></returns>
         private void Stop()
         {
+            StatusUI(WorkStatus.正在关闭);
+
             Task.Factory.StartNew(() =>
             {
                 try
@@ -244,25 +248,36 @@ namespace Oreo.BigBirdDeployer.Parts
                 {
                     try
                     {
-                        if (Process != null && !Process.HasExited)
+                        if (File.Exists(DirTool.Combine(R.Paths.Projects, Name)))
                         {
-                            BeginInvoke(new Action(() =>
-                            {
-                                double cpu = AppInfoTool.CalcCpuRate(Process, ref begin, STATUS_INTERVAL);
-                                LBCpu.Text = $"CPU：{Math.Round(cpu, 1)} %";
-                                LBRam.Text = $"内存：{AppInfoTool.RAM(Process.Id) / 1024} MB";
-
-
-                            }));
-                        }
-                        else
-                        {
-                            BeginInvoke(new Action(() =>
-                            {
-                                LBCpu.Text = $"CPU：0 %";
-                                LBRam.Text = $"内存：0 MB";
-                            }));
                             GetProcess();
+                            if (Process != null && !Process.HasExited)
+                            {
+                                BeginInvoke(new Action(() =>
+                                {
+                                    double cpu = AppInfoTool.CalcCpuRate(Process, ref begin, STATUS_INTERVAL);
+                                    LBCpu.Text = $"CPU：{Math.Round(cpu, 1)} %";
+                                    LBRam.Text = $"内存：{AppInfoTool.RAM(Process.Id) / 1024} MB";
+                                }));
+                                if (Status == WorkStatus.启动成功)
+                                    StatusUI(WorkStatus.启动成功);
+                                else
+                                    StatusUI(WorkStatus.端口占用);
+                            }
+                            else
+                            {
+                                BeginInvoke(new Action(() =>
+                                {
+                                    LBCpu.Text = $"CPU：0 %";
+                                    LBRam.Text = $"内存：0 MB";
+                                }));
+                                if (Status == WorkStatus.正在启动) StatusUI(WorkStatus.正在启动);
+                                else if (Status == WorkStatus.启动失败) StatusUI(WorkStatus.启动失败);
+                                else StatusUI(WorkStatus.准备就绪);
+
+                                if (Status == WorkStatus.准备就绪 && Project.AutoStart && StartTime.Year < 2000)
+                                    Start();
+                            }
                         }
                     }
                     catch { }
@@ -494,6 +509,13 @@ namespace Oreo.BigBirdDeployer.Parts
                             UIEnable(CBVersion);//允许选择启动版本
                             break;
                     }
+
+                    StringBuilder tip = new StringBuilder();
+                    if (StartTime.Year > 2000)
+                        tip.AppendLine($"启动时间：{StartTime.ToString("yyyy年MM月dd日 HH时mm分ss秒")}");
+                    else
+                        tip.AppendLine($"启动时间：未使用程序启动");
+                    TTInfo.SetToolTip(LBStatus, tip.ToString());
                 }));
             }
             catch { }

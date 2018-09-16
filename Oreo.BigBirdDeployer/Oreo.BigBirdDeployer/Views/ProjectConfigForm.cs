@@ -28,6 +28,7 @@ namespace Oreo.BigBirdDeployer.Views
             TBJarFile.Text = Project.JarFile;
             TBPort.Text = Project.Port.ToString();
             TBVersionCache.Text = Project.VersionCache.ToString();
+            CBAutoStart.Checked = Project.AutoStart;
         }
 
         private void BTSave_Click(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace Oreo.BigBirdDeployer.Views
                 string jar = TBJarFile.Text;
                 int port = int.Parse(TBPort.Text);
                 int cache = int.Parse(TBVersionCache.Text);
+                bool auto_start = CBAutoStart.Checked;
 
                 if (!string.IsNullOrWhiteSpace(name) &&
                     !string.IsNullOrWhiteSpace(folder) &&
@@ -60,6 +62,7 @@ namespace Oreo.BigBirdDeployer.Views
                     Project.JarFile = jar;
                     Project.Port = port;
                     Project.VersionCache = cache;
+                    Project.AutoStart = auto_start;
                     Project.LastVersion = Project.LastVersion;
                     Project.CurrentVersion = Project.CurrentVersion;
                     ProjectItem.SetProject(Project);

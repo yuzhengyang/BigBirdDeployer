@@ -43,11 +43,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.LBDesc = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.CBAutoStart = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BTSave
             // 
-            this.BTSave.Location = new System.Drawing.Point(262, 268);
+            this.BTSave.Location = new System.Drawing.Point(261, 244);
             this.BTSave.Name = "BTSave";
             this.BTSave.Size = new System.Drawing.Size(75, 23);
             this.BTSave.TabIndex = 0;
@@ -58,7 +60,7 @@
             // BTCancel
             // 
             this.BTCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTCancel.Location = new System.Drawing.Point(368, 268);
+            this.BTCancel.Location = new System.Drawing.Point(342, 244);
             this.BTCancel.Name = "BTCancel";
             this.BTCancel.Size = new System.Drawing.Size(75, 23);
             this.BTCancel.TabIndex = 1;
@@ -69,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 34);
+            this.label1.Location = new System.Drawing.Point(25, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 2;
@@ -78,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 79);
+            this.label2.Location = new System.Drawing.Point(25, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 3;
@@ -86,43 +88,43 @@
             // 
             // TBName
             // 
-            this.TBName.Location = new System.Drawing.Point(140, 30);
+            this.TBName.Location = new System.Drawing.Point(114, 20);
             this.TBName.Name = "TBName";
             this.TBName.Size = new System.Drawing.Size(303, 21);
             this.TBName.TabIndex = 4;
             // 
             // TBFolder
             // 
-            this.TBFolder.Location = new System.Drawing.Point(140, 75);
+            this.TBFolder.Location = new System.Drawing.Point(114, 47);
             this.TBFolder.Name = "TBFolder";
             this.TBFolder.Size = new System.Drawing.Size(303, 21);
             this.TBFolder.TabIndex = 5;
             // 
             // TBJarFile
             // 
-            this.TBJarFile.Location = new System.Drawing.Point(140, 120);
+            this.TBJarFile.Location = new System.Drawing.Point(114, 74);
             this.TBJarFile.Name = "TBJarFile";
             this.TBJarFile.Size = new System.Drawing.Size(303, 21);
             this.TBJarFile.TabIndex = 6;
             // 
             // TBPort
             // 
-            this.TBPort.Location = new System.Drawing.Point(140, 165);
+            this.TBPort.Location = new System.Drawing.Point(114, 101);
             this.TBPort.Name = "TBPort";
-            this.TBPort.Size = new System.Drawing.Size(303, 21);
+            this.TBPort.Size = new System.Drawing.Size(142, 21);
             this.TBPort.TabIndex = 7;
             // 
             // TBVersionCache
             // 
-            this.TBVersionCache.Location = new System.Drawing.Point(140, 210);
+            this.TBVersionCache.Location = new System.Drawing.Point(114, 128);
             this.TBVersionCache.Name = "TBVersionCache";
-            this.TBVersionCache.Size = new System.Drawing.Size(303, 21);
+            this.TBVersionCache.Size = new System.Drawing.Size(142, 21);
             this.TBVersionCache.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 124);
+            this.label3.Location = new System.Drawing.Point(25, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 12);
             this.label3.TabIndex = 10;
@@ -131,7 +133,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 169);
+            this.label4.Location = new System.Drawing.Point(25, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 11;
@@ -140,7 +142,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 214);
+            this.label5.Location = new System.Drawing.Point(25, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 12;
@@ -149,7 +151,7 @@
             // LBDesc
             // 
             this.LBDesc.AutoSize = true;
-            this.LBDesc.Location = new System.Drawing.Point(29, 278);
+            this.LBDesc.Location = new System.Drawing.Point(29, 244);
             this.LBDesc.Name = "LBDesc";
             this.LBDesc.Size = new System.Drawing.Size(77, 12);
             this.LBDesc.TabIndex = 13;
@@ -159,11 +161,30 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(138, 234);
+            this.label6.Location = new System.Drawing.Point(262, 132);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 12);
             this.label6.TabIndex = 14;
             this.label6.Text = "0：不清除历史版本";
+            // 
+            // CBAutoStart
+            // 
+            this.CBAutoStart.AutoSize = true;
+            this.CBAutoStart.Location = new System.Drawing.Point(114, 159);
+            this.CBAutoStart.Name = "CBAutoStart";
+            this.CBAutoStart.Size = new System.Drawing.Size(156, 16);
+            this.CBAutoStart.TabIndex = 15;
+            this.CBAutoStart.Text = "程序运行，自动启动服务";
+            this.CBAutoStart.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 159);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "自动启动";
             // 
             // ProjectConfigForm
             // 
@@ -171,7 +192,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTCancel;
-            this.ClientSize = new System.Drawing.Size(475, 321);
+            this.ClientSize = new System.Drawing.Size(450, 284);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.CBAutoStart);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LBDesc);
             this.Controls.Add(this.label5);
@@ -192,7 +215,7 @@
             this.MinimizeBox = false;
             this.Name = "ProjectConfigForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "工程配置";
+            this.Text = "项目工程配置";
             this.Load += new System.EventHandler(this.ProjectConfigForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -215,5 +238,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LBDesc;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox CBAutoStart;
+        private System.Windows.Forms.Label label7;
     }
 }

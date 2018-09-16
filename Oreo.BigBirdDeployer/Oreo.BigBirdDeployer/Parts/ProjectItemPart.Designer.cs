@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BTStartOrStop = new System.Windows.Forms.Button();
             this.BTConfig = new System.Windows.Forms.Button();
             this.LBProjectName = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@
             this.BTAddNew = new System.Windows.Forms.Button();
             this.CBVersion = new System.Windows.Forms.ComboBox();
             this.BTConsole = new System.Windows.Forms.Button();
+            this.TTInfo = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +77,7 @@
             this.LBProjectName.Name = "LBProjectName";
             this.LBProjectName.Size = new System.Drawing.Size(181, 28);
             this.LBProjectName.TabIndex = 2;
-            this.LBProjectName.Text = "工程名称：某某";
+            this.LBProjectName.Text = "工程名：未配置";
             this.LBProjectName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LBStatus
@@ -199,5 +201,6 @@
         private System.Windows.Forms.Button BTAddNew;
         private System.Windows.Forms.ComboBox CBVersion;
         private System.Windows.Forms.Button BTConsole;
+        private System.Windows.Forms.ToolTip TTInfo;
     }
 }
