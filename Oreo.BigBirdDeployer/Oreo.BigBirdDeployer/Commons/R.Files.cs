@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Oreo.BigBirdDeployer.Commons
 {
@@ -10,6 +11,7 @@ namespace Oreo.BigBirdDeployer.Commons
     {
         public static class Files
         {
+            public static string App = Application.ExecutablePath;
             public static string Settings = DirTool.Combine(Paths.Settings, "Settings.ini");
         }
     }

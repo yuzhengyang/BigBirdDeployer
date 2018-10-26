@@ -34,8 +34,18 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.0.5")]
+[assembly: AssemblyVersion("1.0.0.8")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.0.8（2018年10月26日）
+// # 修复阻止系统关机的事件
+
+// v 1.0.0.7（2018年10月26日）
+// # 修复未加载时的启动错误
+// + 右下角菜单添加显示主界面
+
+// v 1.0.0.6（2018年10月25日）
+// - 运行时自动启动
 
 // v 1.0.0.5（2018年9月16日）
 // @ 优化所有状态情景

@@ -8,6 +8,7 @@ using Azylee.WinformSkin.FormUI.CustomTitle;
 using Azylee.WinformSkin.FormUI.Toast;
 using Oreo.BigBirdDeployer.Commons;
 using Oreo.BigBirdDeployer.Models;
+using Oreo.BigBirdDeployer.Views.HelpViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -103,12 +104,36 @@ namespace Oreo.BigBirdDeployer.Views
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
+            Hide();
+            switch (e.CloseReason)
             {
-                Hide();
-                e.Cancel = true;
+                case CloseReason.None:
+                    e.Cancel = true;//阻止关闭
+                    R.Log.i("AccessSecurity::关闭事件：阻止：闭包的原因未定义，或者无法确定。");
+                    break;
+                case CloseReason.WindowsShutDown:
+                    R.Log.i("AccessSecurity::关闭事件：允许：操作系统正在关机之前关闭所有应用程序。");
+                    break;
+                case CloseReason.MdiFormClosing:
+                    e.Cancel = true;//阻止关闭
+                    R.Log.i("AccessSecurity::关闭事件:阻止：正在关闭此多文档界面 (MDI) 窗体的父窗体。");
+                    break;
+                case CloseReason.UserClosing:
+                    e.Cancel = true;//阻止关闭
+                    R.Log.i("AccessSecurity::关闭事件:阻止：用户是通过关闭窗体用户界面 (UI)，例如通过单击 关闭 窗体的窗口上的按钮选择 关闭 从窗口的控制菜单，或按 ALT + F4。");
+                    break;
+                case CloseReason.TaskManagerClosing:
+                    e.Cancel = true;//阻止关闭
+                    R.Log.i("AccessSecurity::关闭事件:阻止：Microsoft Windows 任务管理器正在关闭该应用程序。");
+                    break;
+                case CloseReason.FormOwnerClosing:
+                    e.Cancel = true;//阻止关闭
+                    R.Log.i("AccessSecurity::关闭事件:阻止：所有者窗体正在关闭。");
+                    break;
+                case CloseReason.ApplicationExitCall:
+                    R.Log.i("AccessSecurity::关闭事件:允许：System.Windows.Forms.Application.Exit 方法 System.Windows.Forms.Application 类调用。");
+                    break;
             }
-            catch { }
         }
 
         private void NIMain_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -122,15 +147,7 @@ namespace Oreo.BigBirdDeployer.Views
             catch { }
         }
 
-        private void TSMIExit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FormClosing -= MainForm_FormClosing;
-                Application.Exit();
-            }
-            catch { }
-        }
+
         #endregion
         #region 任务函数
         /// <summary>
@@ -164,5 +181,30 @@ namespace Oreo.BigBirdDeployer.Views
             }
         }
         #endregion
+
+        #region 菜单：右下角图标
+        private void TSMIExit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormClosing -= MainForm_FormClosing;
+                Application.Exit();
+            }
+            catch { }
+        }
+        private void 显示主界面ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+            Activate();
+        }
+        #endregion
+
+        private void BTUpdateLog_Click(object sender, EventArgs e)
+        {
+            R.FormMan.GetUnique<UpdateLogForm>().Show();
+            R.FormMan.GetUnique<UpdateLogForm>().WindowState = FormWindowState.Normal;
+            R.FormMan.GetUnique<UpdateLogForm>().Activate();
+        }
     }
 }

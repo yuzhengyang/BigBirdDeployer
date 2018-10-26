@@ -32,7 +32,9 @@ namespace Oreo.BigBirdDeployer
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainForm());
+
+                R.MainUI = new MainForm();
+                Application.Run(R.MainUI);
             }
         }
         /// <summary>

@@ -1,4 +1,6 @@
-﻿using Azylee.Core.LogUtils.SimpleLogUtils;
+﻿using Azylee.Core.FormUtils;
+using Azylee.Core.LogUtils.SimpleLogUtils;
+using Oreo.BigBirdDeployer.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +17,7 @@ namespace Oreo.BigBirdDeployer.Commons
         internal static Module Module = Assembly.GetExecutingAssembly().GetModules()[0];
         internal static Log Log { get; set; }
         internal static string AesKey = "12345678901234567890123456789012";
+        internal static MainForm MainUI;
+        internal static FormManTool FormMan = new FormManTool();//窗体管理器
     }
 }

@@ -165,12 +165,14 @@ namespace Oreo.BigBirdDeployer.Parts
             if (Project.Port == 0)
             {
                 ToastForm.Display("启动失败", $"没有为 {Project.Name} 工程配置正儿八经的端口号", 'e', 5000);
+                StatusUI(WorkStatus.启动失败);
                 return;
             }
             if (!(ListTool.HasElements(Project.Versions) && Project.CurrentVersion != 0 && Project.LastVersion != 0))
             {
                 //不存在版本或错误的版本（版本为0），不启动工程
                 ToastForm.Display("启动失败", $"没有发现 {Project.Name} 工程的相关文件", 'e', 5000);
+                StatusUI(WorkStatus.启动失败);
                 return;
             }
 
@@ -275,8 +277,8 @@ namespace Oreo.BigBirdDeployer.Parts
                                 else if (Status == WorkStatus.启动失败) StatusUI(WorkStatus.启动失败);
                                 else StatusUI(WorkStatus.准备就绪);
 
-                                if (Status == WorkStatus.准备就绪 && Project.AutoStart && StartTime.Year < 2000)
-                                    Start();
+                                //if (Status == WorkStatus.准备就绪 && Project.AutoStart && StartTime.Year < 2000)
+                                //    Start();
                             }
                         }
                     }
