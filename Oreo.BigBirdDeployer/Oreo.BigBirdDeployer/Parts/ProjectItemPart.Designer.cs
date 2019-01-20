@@ -30,18 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             this.BTStartOrStop = new System.Windows.Forms.Button();
-            this.BTConfig = new System.Windows.Forms.Button();
             this.LBProjectName = new System.Windows.Forms.Label();
             this.LBStatus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LBCpu = new System.Windows.Forms.Label();
             this.LBRam = new System.Windows.Forms.Label();
             this.LBPort = new System.Windows.Forms.Label();
             this.BTAddNew = new System.Windows.Forms.Button();
             this.CBVersion = new System.Windows.Forms.ComboBox();
-            this.BTConsole = new System.Windows.Forms.Button();
             this.TTInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.CpCpuRate = new Oreo.BigBirdDeployer.Controls.ColorfulProgressControl();
+            this.LBCpu = new System.Windows.Forms.Label();
+            this.CmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.输出窗口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工程配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.过程日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.浏览运行目录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.浏览装载目录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
+            this.CmsMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // BTStartOrStop
@@ -56,29 +65,19 @@
             this.BTStartOrStop.UseVisualStyleBackColor = false;
             this.BTStartOrStop.Click += new System.EventHandler(this.BTStartOrStop_Click);
             // 
-            // BTConfig
-            // 
-            this.BTConfig.BackColor = System.Drawing.Color.White;
-            this.BTConfig.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTConfig.Location = new System.Drawing.Point(266, 84);
-            this.BTConfig.Name = "BTConfig";
-            this.BTConfig.Size = new System.Drawing.Size(47, 23);
-            this.BTConfig.TabIndex = 1;
-            this.BTConfig.Text = "配置";
-            this.BTConfig.UseVisualStyleBackColor = false;
-            this.BTConfig.Click += new System.EventHandler(this.BTConfig_Click);
-            // 
             // LBProjectName
             // 
             this.LBProjectName.BackColor = System.Drawing.Color.Gray;
+            this.LBProjectName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LBProjectName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBProjectName.ForeColor = System.Drawing.Color.White;
             this.LBProjectName.Location = new System.Drawing.Point(0, 0);
             this.LBProjectName.Name = "LBProjectName";
             this.LBProjectName.Size = new System.Drawing.Size(181, 28);
             this.LBProjectName.TabIndex = 2;
-            this.LBProjectName.Text = "工程名：未配置";
+            this.LBProjectName.Text = "点击此处配置工程";
             this.LBProjectName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LBProjectName.Click += new System.EventHandler(this.LBProjectName_Click);
             // 
             // LBStatus
             // 
@@ -101,21 +100,11 @@
             this.panel1.Size = new System.Drawing.Size(248, 28);
             this.panel1.TabIndex = 4;
             // 
-            // LBCpu
-            // 
-            this.LBCpu.AutoSize = true;
-            this.LBCpu.ForeColor = System.Drawing.Color.White;
-            this.LBCpu.Location = new System.Drawing.Point(99, 53);
-            this.LBCpu.Name = "LBCpu";
-            this.LBCpu.Size = new System.Drawing.Size(59, 12);
-            this.LBCpu.TabIndex = 8;
-            this.LBCpu.Text = "CPU：10 %";
-            // 
             // LBRam
             // 
             this.LBRam.AutoSize = true;
             this.LBRam.ForeColor = System.Drawing.Color.White;
-            this.LBRam.Location = new System.Drawing.Point(173, 53);
+            this.LBRam.Location = new System.Drawing.Point(193, 90);
             this.LBRam.Name = "LBRam";
             this.LBRam.Size = new System.Drawing.Size(71, 12);
             this.LBRam.TabIndex = 9;
@@ -125,7 +114,7 @@
             // 
             this.LBPort.AutoSize = true;
             this.LBPort.ForeColor = System.Drawing.Color.White;
-            this.LBPort.Location = new System.Drawing.Point(12, 53);
+            this.LBPort.Location = new System.Drawing.Point(12, 90);
             this.LBPort.Name = "LBPort";
             this.LBPort.Size = new System.Drawing.Size(71, 12);
             this.LBPort.TabIndex = 11;
@@ -135,7 +124,7 @@
             // 
             this.BTAddNew.BackColor = System.Drawing.Color.White;
             this.BTAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTAddNew.Location = new System.Drawing.Point(213, 85);
+            this.BTAddNew.Location = new System.Drawing.Point(266, 50);
             this.BTAddNew.Name = "BTAddNew";
             this.BTAddNew.Size = new System.Drawing.Size(47, 23);
             this.BTAddNew.TabIndex = 12;
@@ -147,42 +136,114 @@
             // 
             this.CBVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBVersion.FormattingEnabled = true;
-            this.CBVersion.Location = new System.Drawing.Point(14, 87);
+            this.CBVersion.Location = new System.Drawing.Point(12, 51);
             this.CBVersion.Name = "CBVersion";
-            this.CBVersion.Size = new System.Drawing.Size(189, 20);
+            this.CBVersion.Size = new System.Drawing.Size(248, 20);
             this.CBVersion.TabIndex = 14;
             this.CBVersion.SelectedIndexChanged += new System.EventHandler(this.CBVersion_SelectedIndexChanged);
             // 
-            // BTConsole
+            // CpCpuRate
             // 
-            this.BTConsole.BackColor = System.Drawing.Color.White;
-            this.BTConsole.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTConsole.Location = new System.Drawing.Point(266, 48);
-            this.BTConsole.Name = "BTConsole";
-            this.BTConsole.Size = new System.Drawing.Size(47, 23);
-            this.BTConsole.TabIndex = 15;
-            this.BTConsole.Text = "输出";
-            this.BTConsole.UseVisualStyleBackColor = false;
-            this.BTConsole.Click += new System.EventHandler(this.BTConsole_Click);
+            this.CpCpuRate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CpCpuRate.Location = new System.Drawing.Point(0, 120);
+            this.CpCpuRate.Name = "CpCpuRate";
+            this.CpCpuRate.Size = new System.Drawing.Size(325, 3);
+            this.CpCpuRate.TabIndex = 16;
+            // 
+            // LBCpu
+            // 
+            this.LBCpu.AutoSize = true;
+            this.LBCpu.ForeColor = System.Drawing.Color.White;
+            this.LBCpu.Location = new System.Drawing.Point(105, 90);
+            this.LBCpu.Name = "LBCpu";
+            this.LBCpu.Size = new System.Drawing.Size(59, 12);
+            this.LBCpu.TabIndex = 8;
+            this.LBCpu.Text = "CPU：10 %";
+            // 
+            // CmsMain
+            // 
+            this.CmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.输出窗口ToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.工程配置ToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.浏览运行目录ToolStripMenuItem,
+            this.浏览装载目录ToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.过程日志ToolStripMenuItem});
+            this.CmsMain.Name = "CmsMain";
+            this.CmsMain.ShowImageMargin = false;
+            this.CmsMain.Size = new System.Drawing.Size(124, 132);
+            // 
+            // 输出窗口ToolStripMenuItem
+            // 
+            this.输出窗口ToolStripMenuItem.Name = "输出窗口ToolStripMenuItem";
+            this.输出窗口ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.输出窗口ToolStripMenuItem.Text = "输出窗口";
+            this.输出窗口ToolStripMenuItem.Click += new System.EventHandler(this.输出窗口ToolStripMenuItem_Click);
+            // 
+            // 工程配置ToolStripMenuItem
+            // 
+            this.工程配置ToolStripMenuItem.Name = "工程配置ToolStripMenuItem";
+            this.工程配置ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.工程配置ToolStripMenuItem.Text = "工程配置";
+            this.工程配置ToolStripMenuItem.Click += new System.EventHandler(this.工程配置ToolStripMenuItem_Click);
+            // 
+            // 过程日志ToolStripMenuItem
+            // 
+            this.过程日志ToolStripMenuItem.Name = "过程日志ToolStripMenuItem";
+            this.过程日志ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.过程日志ToolStripMenuItem.Text = "过程日志";
+            this.过程日志ToolStripMenuItem.Click += new System.EventHandler(this.过程日志ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // 浏览运行目录ToolStripMenuItem
+            // 
+            this.浏览运行目录ToolStripMenuItem.Name = "浏览运行目录ToolStripMenuItem";
+            this.浏览运行目录ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.浏览运行目录ToolStripMenuItem.Text = "浏览运行目录";
+            this.浏览运行目录ToolStripMenuItem.Click += new System.EventHandler(this.浏览运行目录ToolStripMenuItem_Click);
+            // 
+            // 浏览装载目录ToolStripMenuItem
+            // 
+            this.浏览装载目录ToolStripMenuItem.Name = "浏览装载目录ToolStripMenuItem";
+            this.浏览装载目录ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.浏览装载目录ToolStripMenuItem.Text = "浏览装载目录";
+            this.浏览装载目录ToolStripMenuItem.Click += new System.EventHandler(this.浏览装载目录ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // ProjectItemPart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.Controls.Add(this.BTConsole);
+            this.ContextMenuStrip = this.CmsMain;
+            this.Controls.Add(this.CpCpuRate);
             this.Controls.Add(this.CBVersion);
             this.Controls.Add(this.BTAddNew);
             this.Controls.Add(this.LBPort);
             this.Controls.Add(this.LBRam);
             this.Controls.Add(this.LBCpu);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.BTConfig);
             this.Controls.Add(this.BTStartOrStop);
             this.Name = "ProjectItemPart";
             this.Size = new System.Drawing.Size(325, 123);
             this.Load += new System.EventHandler(this.ProjectItemPart_Load);
             this.panel1.ResumeLayout(false);
+            this.CmsMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,16 +252,24 @@
         #endregion
 
         private System.Windows.Forms.Button BTStartOrStop;
-        private System.Windows.Forms.Button BTConfig;
         private System.Windows.Forms.Label LBProjectName;
         private System.Windows.Forms.Label LBStatus;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label LBCpu;
         private System.Windows.Forms.Label LBRam;
         private System.Windows.Forms.Label LBPort;
         private System.Windows.Forms.Button BTAddNew;
         private System.Windows.Forms.ComboBox CBVersion;
-        private System.Windows.Forms.Button BTConsole;
         private System.Windows.Forms.ToolTip TTInfo;
+        private Controls.ColorfulProgressControl CpCpuRate;
+        private System.Windows.Forms.Label LBCpu;
+        private System.Windows.Forms.ContextMenuStrip CmsMain;
+        private System.Windows.Forms.ToolStripMenuItem 输出窗口ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 工程配置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 过程日志ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem 浏览运行目录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 浏览装载目录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

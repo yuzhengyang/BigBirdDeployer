@@ -67,6 +67,7 @@
             this.project26 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.project27 = new Oreo.BigBirdDeployer.Parts.ProjectItemPart();
             this.TPSettings = new System.Windows.Forms.TabPage();
+            this.BTUpdateLog = new System.Windows.Forms.Button();
             this.BTOpenNewStorage = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.LBVersion = new System.Windows.Forms.Label();
             this.LBStatus = new System.Windows.Forms.Label();
             this.PNContainer = new System.Windows.Forms.Panel();
-            this.BTUpdateLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -499,10 +499,20 @@
             this.TPSettings.Location = new System.Drawing.Point(4, 22);
             this.TPSettings.Name = "TPSettings";
             this.TPSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.TPSettings.Size = new System.Drawing.Size(767, 417);
+            this.TPSettings.Size = new System.Drawing.Size(963, 413);
             this.TPSettings.TabIndex = 2;
             this.TPSettings.Text = " 【设置】 ";
             this.TPSettings.UseVisualStyleBackColor = true;
+            // 
+            // BTUpdateLog
+            // 
+            this.BTUpdateLog.Location = new System.Drawing.Point(69, 363);
+            this.BTUpdateLog.Name = "BTUpdateLog";
+            this.BTUpdateLog.Size = new System.Drawing.Size(174, 23);
+            this.BTUpdateLog.TabIndex = 27;
+            this.BTUpdateLog.Text = "查看更新日志";
+            this.BTUpdateLog.UseVisualStyleBackColor = true;
+            this.BTUpdateLog.Click += new System.EventHandler(this.BTUpdateLog_Click);
             // 
             // BTOpenNewStorage
             // 
@@ -600,7 +610,7 @@
             this.NIMain.Icon = ((System.Drawing.Icon)(resources.GetObject("NIMain.Icon")));
             this.NIMain.Text = "BigBirdDeployer";
             this.NIMain.Visible = true;
-            this.NIMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NIMain_MouseDoubleClick);
+            this.NIMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NIMain_MouseClick);
             // 
             // CMSMain
             // 
@@ -660,16 +670,6 @@
             this.PNContainer.Name = "PNContainer";
             this.PNContainer.Size = new System.Drawing.Size(775, 443);
             this.PNContainer.TabIndex = 7;
-            // 
-            // BTUpdateLog
-            // 
-            this.BTUpdateLog.Location = new System.Drawing.Point(69, 363);
-            this.BTUpdateLog.Name = "BTUpdateLog";
-            this.BTUpdateLog.Size = new System.Drawing.Size(174, 23);
-            this.BTUpdateLog.TabIndex = 27;
-            this.BTUpdateLog.Text = "查看更新日志";
-            this.BTUpdateLog.UseVisualStyleBackColor = true;
-            this.BTUpdateLog.Click += new System.EventHandler(this.BTUpdateLog_Click);
             // 
             // MainForm
             // 

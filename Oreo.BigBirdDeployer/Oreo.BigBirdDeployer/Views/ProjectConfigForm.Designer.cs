@@ -170,6 +170,8 @@
             // CBAutoStart
             // 
             this.CBAutoStart.AutoSize = true;
+            this.CBAutoStart.Enabled = false;
+            this.CBAutoStart.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.CBAutoStart.Location = new System.Drawing.Point(114, 159);
             this.CBAutoStart.Name = "CBAutoStart";
             this.CBAutoStart.Size = new System.Drawing.Size(156, 16);
@@ -180,6 +182,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Enabled = false;
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label7.Location = new System.Drawing.Point(25, 159);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);

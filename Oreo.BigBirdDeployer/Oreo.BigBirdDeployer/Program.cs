@@ -10,6 +10,7 @@ using Oreo.BigBirdDeployer.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -52,6 +53,8 @@ namespace Oreo.BigBirdDeployer
 
             R.Paths.NewStorage = IniTool.GetString(R.Files.Settings, "Paths", "NewStorage", R.Paths.DefaultNewStorage);
             if (string.IsNullOrWhiteSpace(R.Paths.NewStorage)) R.Paths.NewStorage = R.Paths.DefaultNewStorage;
+
+            if (!File.Exists(R.Files.NewStorageReadme)) TxtTool.Create(R.Files.NewStorageReadme, R.NewStorageReadmeTxt);
         }
     }
 }

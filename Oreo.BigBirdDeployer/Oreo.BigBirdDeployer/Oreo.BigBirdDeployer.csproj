@@ -69,6 +69,12 @@
     <Compile Include="Commons\R.Files.cs" />
     <Compile Include="Commons\R.Paths.cs" />
     <Compile Include="Commons\R.cs" />
+    <Compile Include="Controls\ColorfulProgressControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorfulProgressControl.Designer.cs">
+      <DependentUpon>ColorfulProgressControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\WorkStatus.cs" />
     <Compile Include="Models\ProjectModel.cs" />
     <Compile Include="Models\VersionModel.cs" />
@@ -118,6 +124,9 @@
     <Compile Include="Views\ProjectConsoleForm.Designer.cs">
       <DependentUpon>ProjectConsoleForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\ColorfulProgressControl.resx">
+      <DependentUpon>ColorfulProgressControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Parts\ProjectItemPart.resx">
       <DependentUpon>ProjectItemPart.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,7 +152,6 @@
     <EmbeddedResource Include="Views\ProjectConsoleForm.resx">
       <DependentUpon>ProjectConsoleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -165,6 +173,7 @@
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fody.2.0.0\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\..\packages\Fody.2.0.0\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

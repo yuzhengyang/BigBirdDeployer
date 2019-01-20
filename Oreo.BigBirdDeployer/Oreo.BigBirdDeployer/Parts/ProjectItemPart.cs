@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
@@ -15,16 +14,13 @@ using System.Threading;
 using Oreo.BigBirdDeployer.Views;
 using Azylee.Core.AppUtils;
 using Azylee.Core.IOUtils.DirUtils;
-using Azylee.Core.ProcessUtils;
 using Oreo.BigBirdDeployer.Utils;
 using Oreo.BigBirdDeployer.Commons;
 using System.IO;
-using Azylee.Core.IOUtils.FileUtils;
 using Azylee.WinformSkin.FormUI.Toast;
-using System.Collections;
-using Azylee.Core.DataUtils.DateTimeUtils;
 using Azylee.Core.Plus.DataUtils.JsonUtils;
 using Azylee.Core.IOUtils.TxtUtils;
+using Azylee.Core.WindowsUtils.APIUtils;
 
 namespace Oreo.BigBirdDeployer.Parts
 {
@@ -179,7 +175,7 @@ namespace Oreo.BigBirdDeployer.Parts
             //存在版本，准备启动
             Task.Factory.StartNew(() =>
             {
-                string cmd = $"java -jar \"{JarFileTool.PathGenerate(Project)}\"";
+                string cmd = $"java -jar \"{JarFileTool.GetFilePath(Project)}\"";
                 CMDProcessTool.Execute(cmd,
                     new Action<string>((s) =>
                     {
@@ -259,6 +255,7 @@ namespace Oreo.BigBirdDeployer.Parts
                                 {
                                     double cpu = AppInfoTool.CalcCpuRate(Process, ref begin, STATUS_INTERVAL);
                                     LBCpu.Text = $"CPU：{Math.Round(cpu, 1)} %";
+                                    CpCpuRate.SetValue((int)cpu);
                                     LBRam.Text = $"内存：{AppInfoTool.RAM(Process.Id) / 1024} MB";
                                 }));
                                 if (Status == WorkStatus.启动成功)
@@ -312,7 +309,7 @@ namespace Oreo.BigBirdDeployer.Parts
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BTConfig_Click(object sender, EventArgs e)
+        private void LBProjectName_Click(object sender, EventArgs e)
         {
             new ProjectConfigForm(this, Project).ShowDialog();
         }
@@ -402,11 +399,21 @@ namespace Oreo.BigBirdDeployer.Parts
             SetProject(Project);
         }
         /// <summary>
-        /// 打开控制台输出窗口
+        /// 选择要启动的版本
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BTConsole_Click(object sender, EventArgs e)
+        private void CBVersion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(CBVersion.SelectedValue.ToString(), out int v))
+            {
+                Project.CurrentVersion = v;
+            }
+        }
+        #endregion
+
+        #region 菜单功能
+        private void 输出窗口ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (ConsoleForm != null && !ConsoleForm.IsDisposed && ConsoleForm.Visible == true)
             {
@@ -423,17 +430,27 @@ namespace Oreo.BigBirdDeployer.Parts
                 ConsoleForm.UICaption(Project.Name);
             }
         }
-        /// <summary>
-        /// 选择要启动的版本
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CBVersion_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void 工程配置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(CBVersion.SelectedValue.ToString(), out int v))
-            {
-                Project.CurrentVersion = v;
-            }
+            new ProjectConfigForm(this, Project).ShowDialog();
+        }
+
+        private void 浏览运行目录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExplorerAPI.ExplorerFile(JarFileTool.GetFilePath(Project));
+            ToastForm.Display("浏览", $"正在打开运行目录，请稍候...", 'i', 5000);
+        }
+
+        private void 浏览装载目录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExplorerAPI.ExplorerFile(R.Files.NewStorageReadme);
+            ToastForm.Display("浏览", $"正在打开装载目录，请稍候...", 'i', 5000);
+        }
+
+        private void 过程日志ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
 
@@ -455,7 +472,7 @@ namespace Oreo.BigBirdDeployer.Parts
                             BTStartOrStop.Text = "启动";
                             UIEnable(BTStartOrStop);//允许启动/关闭
                             UIEnable(BTAddNew);//允许装载新版本
-                            UIEnable(BTConfig);//允许配置工程
+                            //UIEnable(BTConfig);//允许配置工程
                             UIEnable(CBVersion);//允许选择启动版本
                             break;
                         case WorkStatus.启动成功:
@@ -465,7 +482,7 @@ namespace Oreo.BigBirdDeployer.Parts
                             BTStartOrStop.Text = "停止";
                             UIEnable(BTStartOrStop);//允许启动/关闭
                             UIEnable(BTAddNew, false);//禁止装载新版本
-                            UIEnable(BTConfig, false);//禁止配置工程
+                            //UIEnable(BTConfig, false);//禁止配置工程
                             UIEnable(CBVersion, false);//禁止选择启动版本
                             break;
 
@@ -476,7 +493,7 @@ namespace Oreo.BigBirdDeployer.Parts
                             BTStartOrStop.Text = "启~";
                             UIEnable(BTStartOrStop, false);//禁止启动/关闭
                             UIEnable(BTAddNew, false);//禁止装载新版本
-                            UIEnable(BTConfig, false);//禁止配置工程
+                            //UIEnable(BTConfig, false);//禁止配置工程
                             UIEnable(CBVersion, false);//禁止选择启动版本
                             break;
                         case WorkStatus.正在关闭:
@@ -486,7 +503,7 @@ namespace Oreo.BigBirdDeployer.Parts
                             BTStartOrStop.Text = "关~";
                             UIEnable(BTStartOrStop, false);//禁止启动/关闭
                             UIEnable(BTAddNew, false);//禁止装载新版本
-                            UIEnable(BTConfig, false);//禁止配置工程
+                            //UIEnable(BTConfig, false);//禁止配置工程
                             UIEnable(CBVersion, false);//禁止选择启动版本
                             break;
 
@@ -497,7 +514,7 @@ namespace Oreo.BigBirdDeployer.Parts
                             BTStartOrStop.Text = "停止";
                             UIEnable(BTStartOrStop);//允许启动/关闭
                             UIEnable(BTAddNew, false);//禁止装载新版本
-                            UIEnable(BTConfig);//允许配置工程
+                            //UIEnable(BTConfig);//允许配置工程
                             UIEnable(CBVersion, false);//禁止选择启动版本
                             break;
                         case WorkStatus.启动失败:
@@ -507,7 +524,7 @@ namespace Oreo.BigBirdDeployer.Parts
                             BTStartOrStop.Text = "启动";
                             UIEnable(BTStartOrStop);//允许启动/关闭
                             UIEnable(BTAddNew);//允许装载新版本
-                            UIEnable(BTConfig);//允许配置工程
+                            //UIEnable(BTConfig);//允许配置工程
                             UIEnable(CBVersion);//允许选择启动版本
                             break;
                     }
@@ -545,8 +562,8 @@ namespace Oreo.BigBirdDeployer.Parts
             }
             catch { }
         }
-        #endregion
 
+        #endregion
 
     }
 }

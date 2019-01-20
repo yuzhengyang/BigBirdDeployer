@@ -34,8 +34,15 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.0.8")]
+[assembly: AssemblyVersion("1.0.0.9")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.0.9（2019年1月20日）
+// + 启动时请求管理员权限运行
+// + 显示运行权限状态
+// + 添加CPU占用百分比图示
+// + 添加右键菜单扩展功能
+// - 删除app.config文件
 
 // v 1.0.0.8（2018年10月26日）
 // # 修复阻止系统关机的事件

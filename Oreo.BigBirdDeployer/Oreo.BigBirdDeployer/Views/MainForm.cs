@@ -7,17 +7,10 @@ using Azylee.Core.WindowsUtils.InfoUtils;
 using Azylee.WinformSkin.FormUI.CustomTitle;
 using Azylee.WinformSkin.FormUI.Toast;
 using Oreo.BigBirdDeployer.Commons;
-using Oreo.BigBirdDeployer.Models;
 using Oreo.BigBirdDeployer.Views.HelpViews;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,6 +30,7 @@ namespace Oreo.BigBirdDeployer.Views
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            BigIconFormLBHeadTitle.Text = $"{R.AppNameCn}  {(R.IsAdministrator ? "(管理员)" : "(受限权限)")}";
             LBVersion.Text = $"版本：{Application.ProductVersion}";
             TBPublishStorage.Text = R.Paths.PublishStorage == R.Paths.DefaultPublishStorage ? "" : R.Paths.PublishStorage;
             TBNewStorage.Text = R.Paths.NewStorage == R.Paths.DefaultNewStorage ? "" : R.Paths.NewStorage;
@@ -135,19 +129,19 @@ namespace Oreo.BigBirdDeployer.Views
                     break;
             }
         }
-
-        private void NIMain_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void NIMain_MouseClick(object sender, MouseEventArgs e)
         {
             try
             {
-                WindowState = FormWindowState.Normal;
-                Show();
-                Activate();
+                if (e.Button == MouseButtons.Left)
+                {
+                    WindowState = FormWindowState.Normal;
+                    Show();
+                    Activate();
+                }
             }
             catch { }
         }
-
-
         #endregion
         #region 任务函数
         /// <summary>

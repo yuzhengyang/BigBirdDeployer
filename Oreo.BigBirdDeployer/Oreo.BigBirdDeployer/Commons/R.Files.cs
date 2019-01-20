@@ -13,6 +13,7 @@ namespace Oreo.BigBirdDeployer.Commons
         {
             public static string App = Application.ExecutablePath;
             public static string Settings = DirTool.Combine(Paths.Settings, "Settings.ini");
+            public static string NewStorageReadme = DirTool.Combine(Paths.NewStorage, "readme.txt");
         }
     }
 }

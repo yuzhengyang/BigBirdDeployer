@@ -14,9 +14,14 @@ namespace Oreo.BigBirdDeployer.Utils
         /// 执行Jar文件路径生成
         /// </summary>
         /// <returns></returns>
-        public static string PathGenerate(ProjectModel project)
+        public static string GetFilePath(ProjectModel project)
         {
             string file = DirTool.Combine(R.Paths.PublishStorage, project.Folder, project.CurrentVersion.ToString(), project.JarFile);
+            return file;
+        }
+        public static string GetPath(ProjectModel project)
+        {
+            string file = DirTool.Combine(R.Paths.PublishStorage, project.Folder, project.CurrentVersion.ToString());
             return file;
         }
         /// <summary>
