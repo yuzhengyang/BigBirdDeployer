@@ -19,7 +19,7 @@ namespace BigBirdConsole.Commons
             internal static List<ProjectStatusModel> ProjectStatusList = new List<ProjectStatusModel>();
             internal static List<SystemStatusModel> SystemStatusList = new List<SystemStatusModel>();
 
-            internal static short ReadQueueInterval = 1000;
+            internal static short ReadQueueInterval = 1;
         }
     }
 }

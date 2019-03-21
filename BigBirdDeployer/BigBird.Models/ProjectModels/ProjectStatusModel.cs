@@ -13,5 +13,8 @@ namespace BigBird.Models.ProjectModels
         public int Port { get; set; }
         public int Cpu { get; set; }
         public long UseRam { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime NowTime { get; set; }
+        public bool IsRun { get; set; }
     }
 }

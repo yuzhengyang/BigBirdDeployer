@@ -21,7 +21,7 @@ namespace BigBirdConsole
         {
             if (appUnique.IsUnique("BigBirdConsole"))
             {
-                R.Log = new Log(true);//启动日志记录
+                R.Log = new Log();//启动日志记录
                 SystemSleepAPI.PreventSleep(false);//禁用计算机息屏和待机
                 //InitIni();//初始化Ini配置信息
 

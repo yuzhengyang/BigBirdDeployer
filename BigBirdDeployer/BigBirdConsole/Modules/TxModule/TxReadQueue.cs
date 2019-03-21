@@ -1,5 +1,6 @@
 ﻿using Azylee.Core.DataUtils.StringUtils;
 using Azylee.Core.ThreadUtils.SleepUtils;
+using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBirdConsole.Commons;
 using System;
 using System.Collections.Concurrent;
@@ -13,7 +14,7 @@ namespace BigBirdConsole.Modules.TxModule
     {
         private static bool IsStart = false;
         private static CancellationTokenSource ConnectCancelToken = new CancellationTokenSource();
-        private static ConcurrentQueue<Tuple<int, string>> Queue = new ConcurrentQueue<Tuple<int, string>>();
+        private static ConcurrentQueue<Tuple<string, TcpDataModel>> Queue = new ConcurrentQueue<Tuple<string, TcpDataModel>>();
         public static void Start()
         {
             if (!IsStart)
@@ -26,17 +27,10 @@ namespace BigBirdConsole.Modules.TxModule
         {
             try
             {
-                if (Queue.Any(x => x.Item1 == type && x.Item2 == value))
-                {
-                    R.Log.v($"SocketSendQueue:[{Queue.Count}]:Add:IsExist:" + type + value);
-                }
-                else
-                {
-                    Queue.Enqueue(new Tuple<int, string>(type, value));
-                    R.Log.v($"SocketSendQueue:[{Queue.Count}]:Add:OK:" + type + value);
-                }
+                Queue.Enqueue(new Tuple<string, TcpDataModel>(host, model));
+                R.Log.v($"SocketReadQueue:[{Queue.Count}]:Add:OK:[{host}]:[{model.Type}]");
             }
-            catch { R.Log.v($"SocketSendQueue:[{Queue.Count}]:Add:Error"); }
+            catch { R.Log.v($"SocketReadQueue:[{Queue.Count}]:Add:Error"); }
         }
         private static void StartReadQueue()
         {
@@ -54,23 +48,12 @@ namespace BigBirdConsole.Modules.TxModule
                         {
                             try
                             {
-                                Tuple<int, string> model = null;
+                                Tuple<string, TcpDataModel> model = null;
                                 if (Queue.TryDequeue(out model))
                                 {
-                                    //读取成功后，发送相关指令
-                                    bool flag = TxHelper.Send(model.Item1, model.Item2);
-                                    if (flag)
-                                    {
-                                        R.Tx.LastSendTime = DateTime.Now;//记录最后一次发送成功时间
-                                        R.Log.v(string.Format("socket send ok : {0} : {1}", model.Item1, model.Item2));
-                                    }
-                                    else
-                                    {
-                                        R.Log.v(string.Format("socket send error : {0} : {1}", model.Item1, model.Item2));
-                                        //通信失败，延迟等待，跳出当前循环操作
-                                        Sleep.S(R.Tx.ReadQueueErrorInterval);
-                                        break;
-                                    }
+                                    //读取成功后，进行相关处理
+                                    TxHelper.ExecuteMessage(model.Item1, model.Item2);
+                                    R.Log.v($"SocketReadQueue:Execute:[{model.Item1}]");
                                 }
                             }
                             catch { }

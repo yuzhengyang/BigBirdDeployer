@@ -260,6 +260,7 @@ namespace BigBirdDeployer.Parts
                                     CpCpuRate.SetValue((int)cpu);
                                     LBRam.Text = $"内存：{AppInfoTool.RAM(Process.Id) / 1024} MB";
 
+                                    //发送正常启动状态的项目信息
                                     ProjectStatusModel model = new ProjectStatusModel()
                                     {
                                         IP = R.Tx.LocalIP,
@@ -267,10 +268,12 @@ namespace BigBirdDeployer.Parts
                                         Name = Project.Name,
                                         CurrentVersion = Project.CurrentVersion,
                                         Cpu = (int)cpu,
-                                        UseRam = AppInfoTool.RAM(Process.Id) / 1024
+                                        UseRam = AppInfoTool.RAM(Process.Id) / 1024,
+                                        StartTime = StartTime,
+                                        IsRun = true,
+                                        NowTime = DateTime.Now
                                     };
                                     TxSendQueue.Add(20003000, Json.Object2String(model));
-
                                 }));
                                 if (Status == WorkStatus.启动成功)
                                     StatusUI(WorkStatus.启动成功);
@@ -283,6 +286,21 @@ namespace BigBirdDeployer.Parts
                                 {
                                     LBCpu.Text = $"CPU：0 %";
                                     LBRam.Text = $"内存：0 MB";
+
+                                    //发送未启动状态的项目信息
+                                    ProjectStatusModel model = new ProjectStatusModel()
+                                    {
+                                        IP = R.Tx.LocalIP,
+                                        Port = Project.Port,
+                                        Name = Project.Name,
+                                        CurrentVersion = Project.CurrentVersion,
+                                        Cpu = 0,
+                                        UseRam =0,
+                                        StartTime = StartTime,
+                                        IsRun = false,
+                                        NowTime = DateTime.Now
+                                    };
+                                    TxSendQueue.Add(20003000, Json.Object2String(model));
                                 }));
                                 if (Status == WorkStatus.正在启动) StatusUI(WorkStatus.正在启动);
                                 else if (Status == WorkStatus.启动失败) StatusUI(WorkStatus.启动失败);

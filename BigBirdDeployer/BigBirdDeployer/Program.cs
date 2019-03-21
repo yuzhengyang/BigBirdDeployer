@@ -51,6 +51,8 @@ namespace BigBirdDeployer
 
             R.Tx.IP = IniTool.GetString(R.Files.Settings, "Console", "IP", "");
             R.Tx.Port = IniTool.GetInt(R.Files.Settings, "Console", "Port", 0);
+            R.Tx.LocalIP = IniTool.GetString(R.Files.Settings, "Local", "IP", "");
+            R.Tx.LocalName = IniTool.GetString(R.Files.Settings, "Local", "Name", "");
 
             if (!File.Exists(R.Files.NewStorageReadme)) TxtTool.Create(R.Files.NewStorageReadme, R.NewStorageReadmeTxt);
         }

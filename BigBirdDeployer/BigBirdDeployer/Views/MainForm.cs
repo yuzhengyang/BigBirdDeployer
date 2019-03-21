@@ -39,6 +39,8 @@ namespace BigBirdDeployer.Views
             TBNewStorage.Text = R.Paths.NewStorage == R.Paths.DefaultNewStorage ? "" : R.Paths.NewStorage;
             TBConsoleIP.Text = R.Tx.IP;
             TBConsolePort.Text = R.Tx.Port == 0 ? "" : $"{R.Tx.Port}";
+            TBLocalIP.Text = R.Tx.LocalIP;
+            TBLocalName.Text = R.Tx.LocalName;
             TaskOfStatus();
             TxHelper.Connect();
         }
@@ -116,7 +118,7 @@ namespace BigBirdDeployer.Views
             if (Str.Ok(TBLocalName.Text))
             {
                 R.Tx.LocalName = TBLocalName.Text;
-                IniTool.Set(R.Files.Settings, "Local", "Name", R.Tx.IP);
+                IniTool.Set(R.Files.Settings, "Local", "Name", R.Tx.LocalName);
             }
             return flag;
         }
@@ -207,6 +209,7 @@ namespace BigBirdDeployer.Views
                                 FreeRam = (long)ComputerInfoTool.AvailablePhysicalMemory() / 1024,
                                 AppCpu = appcpu,
                                 AppUseRam = AppInfoTool.RAM() / 1024,
+                                NowTime = DateTime.Now
                             };
                             TxSendQueue.Add(20002000, Json.Object2String(model));
 

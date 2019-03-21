@@ -34,8 +34,11 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.1.1")]
+[assembly: AssemblyVersion("1.0.1.2")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.1.2（2019年3月16日）
+// # 修复服务器名称存储问题
 
 // v 1.0.1.1（2019年3月16日）
 // + 支持状态信息发送到指定服务器

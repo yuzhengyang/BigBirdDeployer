@@ -66,7 +66,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons\R.cs" />
+    <Compile Include="Commons\R.TimeInterval.cs" />
     <Compile Include="Commons\R.Tx.cs" />
+    <Compile Include="Controls\ProjectListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProjectListControl.Designer.cs">
+      <DependentUpon>ProjectListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SystemListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SystemListControl.Designer.cs">
+      <DependentUpon>SystemListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TxConsoleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TxConsoleControl.Designer.cs">
+      <DependentUpon>TxConsoleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\PlanTaskModule\PlanTaskCore.cs" />
+    <Compile Include="Modules\PlanTaskModule\PlanTaskOnce.cs" />
+    <Compile Include="Modules\PlanTaskModule\PlanTaskM5.cs" />
+    <Compile Include="Modules\PlanTaskModule\PlanTaskM10.cs" />
+    <Compile Include="Modules\PlanTaskModule\PlanTaskM180.cs" />
+    <Compile Include="Modules\PlanTaskModule\PlanTaskM1.cs" />
     <Compile Include="Modules\TxModule\TxHelper.cs" />
     <Compile Include="Modules\TxModule\TxReadQueue.cs" />
     <Compile Include="Program.cs" />
@@ -77,6 +102,15 @@
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\ProjectListControl.resx">
+      <DependentUpon>ProjectListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SystemListControl.resx">
+      <DependentUpon>SystemListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TxConsoleControl.resx">
+      <DependentUpon>TxConsoleControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -101,7 +135,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\" />
     <Folder Include="Images\" />
     <Folder Include="Parts\" />
   </ItemGroup>

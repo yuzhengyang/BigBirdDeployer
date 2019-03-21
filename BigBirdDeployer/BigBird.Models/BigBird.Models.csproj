@@ -43,8 +43,6 @@
     <Compile Include="ProjectModels\ProjectStatusModel.cs" />
     <Compile Include="ProjectModels\ProjectVersionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemModels\SystemModel.cs" />
-    <Compile Include="SystemModels\SystemProjectModel.cs" />
     <Compile Include="SystemModels\SystemStatusModel.cs" />
     <Compile Include="WorkModels\WorkStatus.cs" />
   </ItemGroup>

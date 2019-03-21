@@ -3,6 +3,8 @@ using Azylee.Core.LogUtils.SimpleLogUtils;
 using Azylee.Core.WindowsUtils.CMDUtils;
 using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
+using BigBird.Models.ProjectModels;
+using BigBird.Models.SystemModels;
 using BigBirdConsole.Commons;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -105,24 +107,28 @@ namespace BigBirdConsole.Modules.TxModule
                         break;
                     //系统状态
                     case 20002000: /* 系统状态 */
-                        //TxHelper.TcppServer.Write(host, 20002000, "~");
-                        R.MainUI.UITxLog(host, model.Type, $"{Json.Byte2Object<string>(model.Data)}");
-                        break;
+                        {
+                            //TxHelper.TcppServer.Write(host, 20002000, "~");
+                            string data = Json.Byte2Object<string>(model.Data);
+                            var status = Json.String2Object<SystemStatusModel>(data);
+                            R.MainUI.systemListControl1.AddOrUpdate(status);
+                            R.MainUI.txConsoleControl1.Write(host, model.Type, $"{Json.Byte2Object<string>(model.Data)}");
+                            break;
+                        }
                     //服务信息
                     case 20003000: /* 服务状态 */
-                        //TxHelper.TcppServer.Write(host, 20003000, "~");
-                        R.MainUI.UITxLog(host, model.Type, $"{Json.Byte2Object<string>(model.Data)}");
-                        break;
-
+                        {
+                            //TxHelper.TcppServer.Write(host, 20003000, "~");
+                            string data = Json.Byte2Object<string>(model.Data);
+                            var status = Json.String2Object<ProjectStatusModel>(data);
+                            R.MainUI.projectListControl1.AddOrUpdate(status);
+                            R.MainUI.txConsoleControl1.Write(host, model.Type, $"{data}");
+                            break;
+                        } 
                     default:
-                        R.MainUI.UITxLog(host, model.Type, $"{model.Data.Length}");
+                        R.MainUI.txConsoleControl1.Write(host, model.Type, $"{model.Data.Length}");
                         break;
                 }
-            }
-            else
-            {
-                if (model.Type == 10001000)
-                    Authentication(host, model);//身份认证
             }
         }
 

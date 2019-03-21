@@ -21,7 +21,7 @@ namespace BigBirdDeployer.Views
     {
         private int ConsoleLine = 0;
         private int ConsoleLength = 0;
-        private int MaxLength = 10 * 1024 * 1024;
+        private int MaxLength = 5 * 1024 * 1024;
         private bool IsWrite = false;
         private string Caption = "";
         private int WriteInterval = 1000;
