@@ -112,7 +112,7 @@ namespace BigBirdDeployer.Views
             if (Str.Ok(TBLocalIP.Text))
             {
                 R.Tx.LocalIP = TBLocalIP.Text;
-                IniTool.Set(R.Files.Settings, "Local", "IP", R.Tx.IP);
+                IniTool.Set(R.Files.Settings, "Local", "IP", R.Tx.LocalIP);
             }
 
             if (Str.Ok(TBLocalName.Text))

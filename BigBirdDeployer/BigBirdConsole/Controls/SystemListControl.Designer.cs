@@ -60,7 +60,7 @@
             this.DgvSystemList.ReadOnly = true;
             this.DgvSystemList.RowHeadersVisible = false;
             this.DgvSystemList.RowTemplate.Height = 23;
-            this.DgvSystemList.Size = new System.Drawing.Size(569, 324);
+            this.DgvSystemList.Size = new System.Drawing.Size(774, 340);
             this.DgvSystemList.TabIndex = 3;
             // 
             // ClmName
@@ -117,7 +117,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.DgvSystemList);
             this.Name = "SystemListControl";
-            this.Size = new System.Drawing.Size(569, 324);
+            this.Size = new System.Drawing.Size(774, 340);
             ((System.ComponentModel.ISupportInitialize)(this.DgvSystemList)).EndInit();
             this.ResumeLayout(false);
 
