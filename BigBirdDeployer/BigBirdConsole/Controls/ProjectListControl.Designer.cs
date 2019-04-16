@@ -62,7 +62,7 @@
             this.DgvProjectList.ReadOnly = true;
             this.DgvProjectList.RowHeadersVisible = false;
             this.DgvProjectList.RowTemplate.Height = 23;
-            this.DgvProjectList.Size = new System.Drawing.Size(713, 392);
+            this.DgvProjectList.Size = new System.Drawing.Size(774, 372);
             this.DgvProjectList.TabIndex = 2;
             // 
             // ClmIP
@@ -125,7 +125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.DgvProjectList);
             this.Name = "ProjectListControl";
-            this.Size = new System.Drawing.Size(713, 392);
+            this.Size = new System.Drawing.Size(774, 372);
             ((System.ComponentModel.ISupportInitialize)(this.DgvProjectList)).EndInit();
             this.ResumeLayout(false);
 
