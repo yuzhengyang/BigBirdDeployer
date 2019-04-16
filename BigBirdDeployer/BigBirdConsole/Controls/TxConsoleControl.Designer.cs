@@ -30,8 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.RtbTxLog = new System.Windows.Forms.RichTextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.LBTextLength = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -54,15 +54,6 @@
             this.panel2.Size = new System.Drawing.Size(538, 292);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.LBTextLength);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 314);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(538, 18);
-            this.panel3.TabIndex = 1;
-            // 
             // RtbTxLog
             // 
             this.RtbTxLog.BackColor = System.Drawing.Color.Gainsboro;
@@ -73,6 +64,15 @@
             this.RtbTxLog.Size = new System.Drawing.Size(538, 292);
             this.RtbTxLog.TabIndex = 0;
             this.RtbTxLog.Text = "";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.LBTextLength);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 314);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(538, 18);
+            this.panel3.TabIndex = 1;
             // 
             // LBTextLength
             // 
