@@ -539,7 +539,7 @@
         </member>
         <member name="M:Azylee.YeahWeb.SocketUtils.TcpUtils.TcpDataModel.ToByte">
             <summary>
-            转换为 byte 数组
+            将当前模型转换为 byte 数组
             </summary>
             <returns></returns>
         </member>

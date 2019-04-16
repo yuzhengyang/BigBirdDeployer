@@ -174,6 +174,33 @@
             <param name="list"></param>
             <returns></returns>
         </member>
+        <member name="T:Azylee.Core.DataUtils.CompressionUtils.Compression">
+            <summary>
+            压缩工具
+            </summary>
+        </member>
+        <member name="M:Azylee.Core.DataUtils.CompressionUtils.Compression.Compress(System.Byte[])">
+            <summary>
+            压缩字节
+            1.创建压缩的数据流 
+            2.设定compressStream为存放被压缩的文件流,并设定为压缩模式
+            3.将需要压缩的字节写到被压缩的文件流
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.DataUtils.CompressionUtils.Compression.Decompress(System.Byte[])">
+            <summary>
+            解压缩字节
+            1.创建被压缩的数据流
+            2.创建zipStream对象，并传入解压的文件流
+            3.创建目标流
+            4.zipStream拷贝到目标流
+            5.返回目标流输出字节
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
         <member name="T:Azylee.Core.DataUtils.CurrencyUtils.RMB">
             <summary> 
             RMB 的摘要说明。 
@@ -1393,13 +1420,6 @@
             </summary>
             <param name="log"></param>
         </member>
-        <member name="M:Azylee.Core.LogUtils.SimpleLogUtils.Log.GetFilePath(Azylee.Core.LogUtils.SimpleLogUtils.LogType)">
-            <summary>
-            根据分类分配目录
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
         <member name="M:Azylee.Core.LogUtils.SimpleLogUtils.Log.Cleaner(Azylee.Core.LogUtils.SimpleLogUtils.LogType)">
             <summary>
             清理过多的日志文件
@@ -1582,6 +1602,21 @@
             </summary>
             <param name="mac"></param>
             <returns></returns>
+        </member>
+        <member name="T:Azylee.Core.NetUtils.NetAddressUtils.DNSTool">
+            <summary>
+            DNS 工具类
+            </summary>
+        </member>
+        <member name="F:Azylee.Core.NetUtils.NetAddressUtils.DNSTool.AliDNS">
+            <summary>
+            阿里DNS
+            </summary>
+        </member>
+        <member name="F:Azylee.Core.NetUtils.NetAddressUtils.DNSTool.BaiduDNS">
+            <summary>
+            百度DNS
+            </summary>
         </member>
         <member name="P:Azylee.Core.NetUtils.NetFlowService.NetProcessInfoList">
             <summary>
@@ -1990,6 +2025,24 @@
             禁用设备（不支持XP系统）
             </summary>
             <param name="network"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Azylee.Core.NetUtils.PingTool">
+            <summary>
+            Ping 工具
+            </summary>
+        </member>
+        <member name="M:Azylee.Core.NetUtils.PingTool.Ping(System.String)">
+            <summary>
+            Ping 指定 IP 地址
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.NetUtils.PingTool.Internet">
+            <summary>
+            判断是否连接互联网
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Azylee.Core.NetUtils.WifiManUtils.Wlan">
@@ -3755,6 +3808,45 @@
             <param name="password"></param>
             <returns></returns>
         </member>
+        <member name="T:Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel">
+            <summary>
+            Windows 系统账号信息
+            </summary>
+        </member>
+        <member name="P:Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel.Domain">
+            <summary>
+            域
+            </summary>
+        </member>
+        <member name="P:Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel.UserName">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel.#ctor(System.String,System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="domain"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel.Check">
+            <summary>
+            验证账号密码正确性
+            </summary>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel.CheckAdmin(System.String)">
+            <summary>
+            验证账号密码为管理员账号
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Azylee.Core.WindowsUtils.APIUtils.ApplicationAPI">
             <summary>
             应用程序API
@@ -4361,25 +4453,46 @@
             <param name="start">起始端口</param>
             <returns></returns>
         </member>
-        <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDProcessTool.GetProcess(System.String)">
+        <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDProcessTool.GetProcess(System.String,Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel)">
             <summary>
             创建cmd的进程
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDProcessTool.Execute(System.String,System.Action{System.String})">
+        <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDProcessTool.Execute(System.String,System.Action{System.String},Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel)">
             <summary>
             开始运行CMD命令
             </summary>
             <param name="cmd"></param>
             <param name="output">输出动作</param>
         </member>
-        <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDProcessTool.Execute(System.String)">
+        <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDProcessTool.Execute(System.String,Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel)">
             <summary>
             运行CMD并读取结果（建议执行返回数据较小的命令）
             </summary>
             <param name="cmd"></param>
             <returns></returns>
+        </member>
+        <member name="T:Azylee.Core.WindowsUtils.CMDUtils.CMDServiceTool">
+            <summary>
+            CMD 系统服务工具类
+            </summary>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDServiceTool.Install(System.String,System.String,Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel)">
+            <summary>
+            安装服务（安装、运行、设置自启，一条龙服务）
+            </summary>
+            <param name="name">服务名</param>
+            <param name="path">应用程序路径</param>
+            <param name="account">运行账户信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDServiceTool.Uninstall(System.String,Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel)">
+            <summary>
+            卸载服务（关闭、删除，一条龙服务）
+            </summary>
+            <param name="name"></param>
+            <param name="account">运行账户信息</param>
         </member>
         <member name="T:Azylee.Core.WindowsUtils.ConsoleUtils.Cons">
             <summary>
