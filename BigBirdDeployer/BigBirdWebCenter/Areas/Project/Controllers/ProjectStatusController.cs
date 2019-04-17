@@ -15,16 +15,9 @@ namespace BigBirdWebCenter.Areas.Project.Controllers
         public JsonResult<List<ProjectStatusModel>> List()
         {
             List<ProjectStatusModel> list = new List<ProjectStatusModel>();
-            if (R.Store.ProjectStatus.Any())
+            foreach(var item in R.Store.ProjectStatus)
             {
-                for (int i = 0; i < R.Store.ProjectStatus.Count; i++)
-                {
-                    ProjectStatusModel status = null;
-                    if (R.Store.ProjectStatus.TryDequeue(out status))
-                    {
-                        list.Add(status);
-                    }
-                }
+                list.Add(item.Value);
             }
             return Json(list);
         }

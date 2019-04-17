@@ -1,4 +1,5 @@
 ﻿using Azylee.Core.DataUtils.CollectionUtils;
+using Azylee.Core.DataUtils.StringUtils;
 using Azylee.Core.WindowsUtils.CMDUtils;
 using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
@@ -107,19 +108,47 @@ namespace BigBirdWebCenter.Modules.TxModule
                     //系统状态
                     case 20002000: /* 系统状态 */
                         {
-                            //TxHelper.TcppServer.Write(host, 20002000, "~");
-                            string data = Json.Byte2Object<string>(model.Data);
-                            var status = Json.String2Object<SystemStatusModel>(data);
-                            R.Store.SystemStatus.Enqueue(status);
+                            try
+                            {
+                                //TxHelper.TcppServer.Write(host, 20002000, "~");
+                                string data = Json.Byte2Object<string>(model.Data);
+                                var status = Json.String2Object<SystemStatusModel>(data);
+                                if (Str.Ok(status.IP))
+                                {
+                                    if (R.Store.SystemStatus.TryGetValue(status.IP, out SystemStatusModel _status))
+                                    {
+                                        bool a = R.Store.SystemStatus.TryUpdate(status.IP, status, _status);
+                                    }
+                                    else
+                                    {
+                                        bool b = R.Store.SystemStatus.TryAdd(status.IP, status);
+                                    }
+                                }
+                            }
+                            catch { }
                             break;
                         }
                     //服务信息
                     case 20003000: /* 服务状态 */
                         {
-                            //TxHelper.TcppServer.Write(host, 20003000, "~");
-                            string data = Json.Byte2Object<string>(model.Data);
-                            var status = Json.String2Object<ProjectStatusModel>(data);
-                            R.Store.ProjectStatus.Enqueue(status);
+                            try
+                            {
+                                //TxHelper.TcppServer.Write(host, 20003000, "~");
+                                string data = Json.Byte2Object<string>(model.Data);
+                                var status = Json.String2Object<ProjectStatusModel>(data);
+                                if (Str.Ok(status.IP))
+                                {
+                                    if (R.Store.ProjectStatus.TryGetValue(status.IP, out ProjectStatusModel _status))
+                                    {
+                                        bool a = R.Store.ProjectStatus.TryUpdate(status.IP, status, _status);
+                                    }
+                                    else
+                                    {
+                                        bool b = R.Store.ProjectStatus.TryAdd(status.IP, status);
+                                    }
+                                }
+                            }
+                            catch { }
                             break;
                         }
                     default:

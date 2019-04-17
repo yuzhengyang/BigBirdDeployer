@@ -10,8 +10,10 @@ namespace BigBirdWebCenter.Commons
     {
         public static class Store
         {
-            internal static ConcurrentQueue<ProjectStatusModel> ProjectStatus = new ConcurrentQueue<ProjectStatusModel>();
-            internal static ConcurrentQueue<SystemStatusModel> SystemStatus = new ConcurrentQueue<SystemStatusModel>();
+            internal static ConcurrentDictionary<string, ProjectStatusModel> ProjectStatus = new ConcurrentDictionary<string, ProjectStatusModel>();
+            internal static ConcurrentDictionary<string, SystemStatusModel> SystemStatus = new ConcurrentDictionary<string, SystemStatusModel>();
+
+
         }
     }
 }

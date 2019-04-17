@@ -12,19 +12,12 @@ namespace BigBirdWebCenter.Areas.System.Controllers
 {
     public class SystemStatusController : ApiController
     {
-        public JsonResult<List<SystemStatusModel>> Get()
+        public JsonResult<List<SystemStatusModel>> List()
         {
             List<SystemStatusModel> list = new List<SystemStatusModel>();
-            if (R.Store.SystemStatus.Any())
+            foreach (var item in R.Store.SystemStatus)
             {
-                for (int i = 0; i < R.Store.SystemStatus.Count; i++)
-                {
-                    SystemStatusModel status = null;
-                    if (R.Store.SystemStatus.TryDequeue(out status))
-                    {
-                        list.Add(status);
-                    }
-                }
+                list.Add(item.Value);
             }
             return Json(list);
         }
