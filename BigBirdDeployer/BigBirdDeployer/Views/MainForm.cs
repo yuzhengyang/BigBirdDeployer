@@ -209,7 +209,9 @@ namespace BigBirdDeployer.Views
                                 FreeRam = (long)ComputerInfoTool.AvailablePhysicalMemory() / 1024,
                                 AppCpu = appcpu,
                                 AppUseRam = AppInfoTool.RAM() / 1024,
-                                NowTime = DateTime.Now
+                                NowTime = DateTime.Now,
+                                DriveTotal = R.DriveTotal,
+                                DriveAvail = R.DriveAvail
                             };
                             TxSendQueue.Add(20002000, Json.Object2String(model));
 

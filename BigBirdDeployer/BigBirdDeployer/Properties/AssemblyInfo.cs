@@ -34,8 +34,11 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.1.2")]
+[assembly: AssemblyVersion("1.0.1.3")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.1.3（2019年4月18日）
+// + 增加磁盘用量检测
 
 // v 1.0.1.2（2019年3月16日）
 // # 修复服务器名称存储问题

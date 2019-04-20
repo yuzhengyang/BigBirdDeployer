@@ -13,7 +13,7 @@ namespace BigBirdConsole.Controls
     {
         private bool IsWrite = false;
         private short WriteInterval = 1000;
-        private int MaxLength = 1 * 1024 * 1024;
+        private int MaxLength = 1 * 200 * 1024;
 
         public TxConsoleControl()
         {

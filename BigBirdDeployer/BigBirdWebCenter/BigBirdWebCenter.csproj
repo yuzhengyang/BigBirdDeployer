@@ -161,8 +161,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\DashboardPage\Controllers\ProjectController.cs" />
-    <Compile Include="Areas\DashboardPage\DashboardPageAreaRegistration.cs" />
+    <Compile Include="Areas\Deployer\Controllers\DeployerStatusController.cs" />
+    <Compile Include="Areas\Deployer\DeployerAreaRegistration.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelloController.cs" />
@@ -192,10 +192,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Areas\Project\Controllers\ProjectStatusController.cs" />
-    <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
-    <Compile Include="Areas\System\Controllers\SystemStatusController.cs" />
-    <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Commons\R.cs" />
     <Compile Include="Commons\R.Store.cs" />
     <Compile Include="Commons\R.TimeInterval.cs" />
@@ -205,6 +201,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Modules\TxModule\TxFunction.cs" />
     <Compile Include="Modules\TxModule\TxHelper.cs" />
     <Compile Include="Modules\TxModule\TxReadQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,9 +237,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\DashboardPage\Views\web.config" />
-    <Content Include="Areas\Project\Views\web.config" />
-    <Content Include="Areas\System\Views\web.config" />
+    <Content Include="Areas\Deployer\Views\web.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -266,12 +262,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\DashboardPage\Models\" />
-    <Folder Include="Areas\DashboardPage\Views\Shared\" />
-    <Folder Include="Areas\Project\Models\" />
-    <Folder Include="Areas\Project\Views\Shared\" />
-    <Folder Include="Areas\System\Models\" />
-    <Folder Include="Areas\System\Views\Shared\" />
+    <Folder Include="Areas\Deployer\Models\" />
+    <Folder Include="Areas\Deployer\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

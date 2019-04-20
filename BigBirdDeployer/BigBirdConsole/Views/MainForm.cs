@@ -4,6 +4,7 @@ using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBirdConsole.Commons;
 using BigBirdConsole.Modules.PlanTaskModule;
+using BigBirdConsole.Modules.TxConvertModule;
 using BigBirdConsole.Modules.TxModule;
 using System;
 using System.Collections.Concurrent;
@@ -28,12 +29,14 @@ namespace BigBirdConsole.Views
         private void MainForm_Load(object sender, EventArgs e)
         {
             TxHelper.Start();
+            TxConvertHelper.Connect();
             TxReadQueue.Start();
             PlanTaskCore.Start();
         }
         private void TmMain_Tick(object sender, EventArgs e)
         {
             TsslConnectCount.Text = $"已连接 : {R.Tx.Hosts.Count} 台主机";
+            TsslWebCenterConnect.Text = R.TxConvert.IsConnect ? "已连接服务器" : "未连接服务器";
         }
 
         #region UI 处理

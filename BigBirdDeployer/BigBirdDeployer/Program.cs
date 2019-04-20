@@ -4,6 +4,7 @@ using Azylee.Core.IOUtils.TxtUtils;
 using Azylee.Core.LogUtils.SimpleLogUtils;
 using Azylee.Core.WindowsUtils.APIUtils;
 using BigBirdDeployer.Commons;
+using BigBirdDeployer.Modules.PlanTaskModule;
 using BigBirdDeployer.Views;
 using System;
 using System.IO;
@@ -22,9 +23,11 @@ namespace BigBirdDeployer
         {
             if (appUnique.IsUnique("BigBirdDeployer"))
             {
-                R.Log = new Log(true);//启动日志记录
+                R.Log = new Log();//启动日志记录
                 SystemSleepAPI.PreventSleep(false);//禁用计算机息屏和待机
+
                 InitIni();//初始化Ini配置信息
+                PlanTaskCore.Start();//启动定时任务
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

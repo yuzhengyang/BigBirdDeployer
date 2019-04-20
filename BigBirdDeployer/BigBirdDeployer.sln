@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "网站应用", "网站应�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBirdWebCenter", "BigBirdWebCenter\BigBirdWebCenter.csproj", "{0D113E92-F484-4A2E-B10C-15C91A6A8110}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBirdConverge", "BigBirdConverge\BigBirdConverge.csproj", "{67583C4C-4C2B-414C-BE4F-2D37C3CADDEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0D113E92-F484-4A2E-B10C-15C91A6A8110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D113E92-F484-4A2E-B10C-15C91A6A8110}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D113E92-F484-4A2E-B10C-15C91A6A8110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67583C4C-4C2B-414C-BE4F-2D37C3CADDEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67583C4C-4C2B-414C-BE4F-2D37C3CADDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67583C4C-4C2B-414C-BE4F-2D37C3CADDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67583C4C-4C2B-414C-BE4F-2D37C3CADDEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{F0895F59-D50E-4EDD-8721-D09A09EE7F7C} = {040E358B-ADB2-4C43-8289-237C2E0CFE49}
 		{018BD762-5FF6-4A47-BD39-0EFEB2997408} = {9F4E8592-D4A6-4D21-844B-33AA952ADB21}
 		{0D113E92-F484-4A2E-B10C-15C91A6A8110} = {96ED7E5C-E15D-4AA8-9A03-B48B93F152C3}
+		{67583C4C-4C2B-414C-BE4F-2D37C3CADDEB} = {96ED7E5C-E15D-4AA8-9A03-B48B93F152C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {452815C0-60AD-4DF9-B227-951B0E50E074}

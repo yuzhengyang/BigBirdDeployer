@@ -45,6 +45,8 @@
             this.TpTxLog = new System.Windows.Forms.TabPage();
             this.txConsoleControl1 = new BigBirdConsole.Controls.TxConsoleControl();
             this.TmMain = new System.Windows.Forms.Timer(this.components);
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TsslWebCenterConnect = new System.Windows.Forms.ToolStripStatusLabel();
             this.SsMain.SuspendLayout();
             this.MsMain.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -56,7 +58,9 @@
             // SsMain
             // 
             this.SsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsslConnectCount});
+            this.TsslConnectCount,
+            this.toolStripStatusLabel1,
+            this.TsslWebCenterConnect});
             this.SsMain.Location = new System.Drawing.Point(0, 388);
             this.SsMain.Name = "SsMain";
             this.SsMain.Size = new System.Drawing.Size(740, 22);
@@ -150,7 +154,7 @@
             this.TpSystemStatus.Location = new System.Drawing.Point(4, 22);
             this.TpSystemStatus.Name = "TpSystemStatus";
             this.TpSystemStatus.Padding = new System.Windows.Forms.Padding(3);
-            this.TpSystemStatus.Size = new System.Drawing.Size(718, 341);
+            this.TpSystemStatus.Size = new System.Drawing.Size(732, 337);
             this.TpSystemStatus.TabIndex = 1;
             this.TpSystemStatus.Text = "主机列表";
             this.TpSystemStatus.UseVisualStyleBackColor = true;
@@ -160,7 +164,7 @@
             this.systemListControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.systemListControl1.Location = new System.Drawing.Point(3, 3);
             this.systemListControl1.Name = "systemListControl1";
-            this.systemListControl1.Size = new System.Drawing.Size(712, 335);
+            this.systemListControl1.Size = new System.Drawing.Size(726, 331);
             this.systemListControl1.TabIndex = 0;
             // 
             // TpTxLog
@@ -169,7 +173,7 @@
             this.TpTxLog.Location = new System.Drawing.Point(4, 22);
             this.TpTxLog.Name = "TpTxLog";
             this.TpTxLog.Padding = new System.Windows.Forms.Padding(3);
-            this.TpTxLog.Size = new System.Drawing.Size(718, 341);
+            this.TpTxLog.Size = new System.Drawing.Size(732, 337);
             this.TpTxLog.TabIndex = 2;
             this.TpTxLog.Text = "通信日志";
             this.TpTxLog.UseVisualStyleBackColor = true;
@@ -179,7 +183,7 @@
             this.txConsoleControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txConsoleControl1.Location = new System.Drawing.Point(3, 3);
             this.txConsoleControl1.Name = "txConsoleControl1";
-            this.txConsoleControl1.Size = new System.Drawing.Size(712, 335);
+            this.txConsoleControl1.Size = new System.Drawing.Size(726, 331);
             this.txConsoleControl1.TabIndex = 0;
             // 
             // TmMain
@@ -187,6 +191,18 @@
             this.TmMain.Enabled = true;
             this.TmMain.Interval = 2000;
             this.TmMain.Tick += new System.EventHandler(this.TmMain_Tick);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(19, 17);
+            this.toolStripStatusLabel1.Text = " | ";
+            // 
+            // TsslWebCenterConnect
+            // 
+            this.TsslWebCenterConnect.Name = "TsslWebCenterConnect";
+            this.TsslWebCenterConnect.Size = new System.Drawing.Size(80, 17);
+            this.TsslWebCenterConnect.Text = "未连接服务器";
             // 
             // MainForm
             // 
@@ -231,5 +247,7 @@
         public Controls.TxConsoleControl txConsoleControl1;
         public Controls.ProjectListControl projectListControl1;
         public Controls.SystemListControl systemListControl1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel TsslWebCenterConnect;
     }
 }

@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Commons\R.cs" />
     <Compile Include="Commons\R.TimeInterval.cs" />
+    <Compile Include="Commons\R.TxConvert.cs" />
     <Compile Include="Commons\R.Tx.cs" />
     <Compile Include="Controls\ProjectListControl.cs">
       <SubType>UserControl</SubType>
@@ -92,6 +93,9 @@
     <Compile Include="Modules\PlanTaskModule\PlanTaskM10.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskM180.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskM1.cs" />
+    <Compile Include="Modules\TxConvertModule\TxConvertHelper.cs" />
+    <Compile Include="Modules\TxConvertModule\TxConvertEvent.cs" />
+    <Compile Include="Modules\TxModule\TxFunction.cs" />
     <Compile Include="Modules\TxModule\TxHelper.cs" />
     <Compile Include="Modules\TxModule\TxReadQueue.cs" />
     <Compile Include="Program.cs" />

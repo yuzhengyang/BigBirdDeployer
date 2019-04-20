@@ -4779,6 +4779,30 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Azylee.Core.WindowsUtils.InfoUtils.DriveTool.GetSystemDriveTotalSize">
+            <summary>
+            获取系统盘总容量（单位：KB）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.InfoUtils.DriveTool.GetDriveTotalSize(System.String)">
+            <summary>
+            获取磁盘总容量（单位：KB）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.InfoUtils.DriveTool.GetSystemDriveAvailableSize">
+            <summary>
+            获取系统盘可用容量（单位：KB）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.InfoUtils.DriveTool.GetDriveAvailableSize(System.String)">
+            <summary>
+            获取磁盘可用容量（单位：KB）
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Azylee.Core.WindowsUtils.InfoUtils.NetCardInfoTool.GetNetworkCardInfo">
             <summary>
             获取网卡信息

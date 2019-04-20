@@ -15,5 +15,7 @@ namespace BigBird.Models.SystemModels
         public int AppCpu { get; set; }
         public long AppUseRam { get; set; }
         public DateTime NowTime { get; set; }
+        public long DriveTotal { get; set; }
+        public long DriveAvail { get; set; }
     }
 }

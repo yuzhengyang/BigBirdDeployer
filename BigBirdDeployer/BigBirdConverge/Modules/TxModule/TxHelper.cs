@@ -1,15 +1,15 @@
 ﻿using Azylee.Core.DataUtils.CollectionUtils;
-using Azylee.Core.DataUtils.StringUtils;
+using Azylee.Core.LogUtils.SimpleLogUtils;
 using Azylee.Core.WindowsUtils.CMDUtils;
 using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBird.Models.ProjectModels;
 using BigBird.Models.SystemModels;
-using BigBirdWebCenter.Commons;
+using BigBirdConverge.Commons;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BigBirdWebCenter.Modules.TxModule
+namespace BigBirdConverge.Modules.TxModule
 {
     public static class TxHelper
     {
@@ -17,7 +17,7 @@ namespace BigBirdWebCenter.Modules.TxModule
         {
             Task.Factory.StartNew(() =>
             {
-                List<int> ports = CMDNetstatTool.GetAvailablePorts(10, 52840);
+                List<int> ports = CMDNetstatTool.GetAvailablePorts(10, R.Tx.TcppPort);
                 if (Ls.Ok(ports))
                 {
                     foreach (var p in ports)
@@ -51,7 +51,6 @@ namespace BigBirdWebCenter.Modules.TxModule
             if (R.Tx.Hosts.Contains(host))
             {
                 R.Tx.Hosts.Remove(host);
-                //R.MainUI.UIConnectCount(R.Tx.Hosts.Count);
             }
         }
         /// <summary>
@@ -85,43 +84,9 @@ namespace BigBirdWebCenter.Modules.TxModule
                 if (!R.Tx.Hosts.Contains(host))
                 {
                     R.Tx.Hosts.Add(host);
-                    //R.MainUI.UIConnectCount(R.Tx.Hosts.Count);
                     R.Tx.TcppServer.Write(host, 10001000, key);
                 }
             }
         }
-        /// <summary>
-        /// 运行消息
-        /// </summary>
-        /// <param name="host"></param>
-        /// <param name="model"></param>
-        public static void ExecuteMessage(string host, TcpDataModel model)
-        {
-            if (R.Tx.Hosts.Contains(host))
-            {
-                switch (model.Type)
-                {
-                    //应答信息
-                    case 20001000: /* 普通应答 */
-                        R.Tx.TcppServer.Write(host, 20001000, "~");
-                        break;
-                    //系统状态
-                    case 20002000: /* 系统状态 */
-                        {
-                            TxFunction.SystemStatus(model);
-                            break;
-                        }
-                    //服务信息
-                    case 20003000: /* 服务状态 */
-                        {
-                            TxFunction.ProjectStatus(model);
-                            break;
-                        }
-                    default:
-                        break;
-                }
-            }
-        }
-
     }
 }

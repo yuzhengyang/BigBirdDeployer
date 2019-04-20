@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace BigBirdWebCenter.Areas.Project
+namespace BigBirdWebCenter.Areas.Deployer
 {
-    public class ProjectAreaRegistration : AreaRegistration 
+    public class DeployerAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Project";
+                return "Deployer";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Project_default",
-                "Project/{controller}/{action}/{id}",
+                "Deployer_default",
+                "Deployer/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

@@ -1,14 +1,14 @@
 ﻿using Azylee.Core.DataUtils.StringUtils;
 using Azylee.Core.ThreadUtils.SleepUtils;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
-using BigBirdConsole.Commons;
+using BigBirdConverge.Commons;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BigBirdConsole.Modules.TxModule
+namespace BigBirdConverge.Modules.TxModule
 {
     public static class TxReadQueue
     {
