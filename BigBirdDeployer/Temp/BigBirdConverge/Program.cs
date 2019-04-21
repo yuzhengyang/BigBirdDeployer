@@ -1,4 +1,5 @@
-﻿using BigBirdConverge.Commons;
+﻿using Azylee.Core.LogUtils.SimpleLogUtils;
+using BigBirdConverge.Commons;
 using BigBirdConverge.Modules.PlanTaskModule;
 using BigBirdConverge.Modules.TxModule;
 using BigBirdConverge.Views;
@@ -19,11 +20,16 @@ namespace BigBirdConverge
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            R.MainUI = new MainForm();
 
+            //初始化信息
+            R.Log = new Log();
+            //启动相应任务
             PlanTaskCore.Start();
             TxHelper.Start();
+            TxReadQueue.Start();
 
-            R.MainUI = new MainForm();
+            //启动程序
             Application.Run(R.MainUI);
         }
     }

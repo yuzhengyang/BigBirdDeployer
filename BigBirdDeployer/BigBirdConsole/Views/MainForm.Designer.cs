@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.SsMain = new System.Windows.Forms.StatusStrip();
             this.TsslConnectCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TsslWebCenterConnect = new System.Windows.Forms.ToolStripStatusLabel();
             this.MsMain = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,8 +47,6 @@
             this.TpTxLog = new System.Windows.Forms.TabPage();
             this.txConsoleControl1 = new BigBirdConsole.Controls.TxConsoleControl();
             this.TmMain = new System.Windows.Forms.Timer(this.components);
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TsslWebCenterConnect = new System.Windows.Forms.ToolStripStatusLabel();
             this.SsMain.SuspendLayout();
             this.MsMain.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -61,9 +61,9 @@
             this.TsslConnectCount,
             this.toolStripStatusLabel1,
             this.TsslWebCenterConnect});
-            this.SsMain.Location = new System.Drawing.Point(0, 388);
+            this.SsMain.Location = new System.Drawing.Point(0, 411);
             this.SsMain.Name = "SsMain";
-            this.SsMain.Size = new System.Drawing.Size(740, 22);
+            this.SsMain.Size = new System.Drawing.Size(716, 22);
             this.SsMain.TabIndex = 0;
             this.SsMain.Text = "statusStrip1";
             // 
@@ -72,6 +72,18 @@
             this.TsslConnectCount.Name = "TsslConnectCount";
             this.TsslConnectCount.Size = new System.Drawing.Size(56, 17);
             this.TsslConnectCount.Text = "暂无连接";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(19, 17);
+            this.toolStripStatusLabel1.Text = " | ";
+            // 
+            // TsslWebCenterConnect
+            // 
+            this.TsslWebCenterConnect.Name = "TsslWebCenterConnect";
+            this.TsslWebCenterConnect.Size = new System.Drawing.Size(80, 17);
+            this.TsslWebCenterConnect.Text = "未连接服务器";
             // 
             // MsMain
             // 
@@ -83,7 +95,7 @@
             this.帮助ToolStripMenuItem});
             this.MsMain.Location = new System.Drawing.Point(0, 0);
             this.MsMain.Name = "MsMain";
-            this.MsMain.Size = new System.Drawing.Size(740, 25);
+            this.MsMain.Size = new System.Drawing.Size(716, 25);
             this.MsMain.TabIndex = 1;
             this.MsMain.Text = "menuStrip1";
             // 
@@ -126,7 +138,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(740, 363);
+            this.tabControl1.Size = new System.Drawing.Size(716, 386);
             this.tabControl1.TabIndex = 2;
             // 
             // TpProjectStatus
@@ -135,7 +147,7 @@
             this.TpProjectStatus.Location = new System.Drawing.Point(4, 22);
             this.TpProjectStatus.Name = "TpProjectStatus";
             this.TpProjectStatus.Padding = new System.Windows.Forms.Padding(3);
-            this.TpProjectStatus.Size = new System.Drawing.Size(732, 337);
+            this.TpProjectStatus.Size = new System.Drawing.Size(708, 360);
             this.TpProjectStatus.TabIndex = 0;
             this.TpProjectStatus.Text = "项目列表";
             this.TpProjectStatus.UseVisualStyleBackColor = true;
@@ -145,7 +157,7 @@
             this.projectListControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.projectListControl1.Location = new System.Drawing.Point(3, 3);
             this.projectListControl1.Name = "projectListControl1";
-            this.projectListControl1.Size = new System.Drawing.Size(726, 331);
+            this.projectListControl1.Size = new System.Drawing.Size(702, 354);
             this.projectListControl1.TabIndex = 0;
             // 
             // TpSystemStatus
@@ -192,23 +204,11 @@
             this.TmMain.Interval = 2000;
             this.TmMain.Tick += new System.EventHandler(this.TmMain_Tick);
             // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(19, 17);
-            this.toolStripStatusLabel1.Text = " | ";
-            // 
-            // TsslWebCenterConnect
-            // 
-            this.TsslWebCenterConnect.Name = "TsslWebCenterConnect";
-            this.TsslWebCenterConnect.Size = new System.Drawing.Size(80, 17);
-            this.TsslWebCenterConnect.Text = "未连接服务器";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 410);
+            this.ClientSize = new System.Drawing.Size(716, 433);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.SsMain);
             this.Controls.Add(this.MsMain);

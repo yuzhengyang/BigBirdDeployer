@@ -1,7 +1,11 @@
 ﻿using Azylee.Core.AppUtils;
+using Azylee.Core.IOUtils.TxtUtils;
 using Azylee.Core.LogUtils.SimpleLogUtils;
 using Azylee.Core.WindowsUtils.APIUtils;
 using BigBirdConsole.Commons;
+using BigBirdConsole.Modules.PlanTaskModule;
+using BigBirdConsole.Modules.TxConvertModule;
+using BigBirdConsole.Modules.TxModule;
 using BigBirdConsole.Views;
 using System;
 using System.Collections.Generic;
@@ -29,6 +33,30 @@ namespace BigBirdConsole
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 R.MainUI = new MainForm();
+
+                //通讯接受 Tx
+                R.Tx.Port = IniTool.GetInt(R.Files.Settings, "Tx", "Port", 52830);
+                IniTool.Set(R.Files.Settings, "Tx", "Port", R.Tx.Port);
+
+                R.Tx.ConnectKey = IniTool.GetString(R.Files.Settings, "Tx", "ConnectKey", R.Tx.ConnectKey);
+                IniTool.Set(R.Files.Settings, "Tx", "ConnectKey", R.Tx.ConnectKey);
+
+                //通讯转发 TxConvert
+                R.TxConvert.IP = IniTool.GetString(R.Files.Settings, "TxConvert", "IP", "vaselee.com");
+                IniTool.Set(R.Files.Settings, "TxConvert", "IP", R.TxConvert.IP);
+
+                R.TxConvert.Port = IniTool.GetInt(R.Files.Settings, "TxConvert", "Port", 0);
+                IniTool.Set(R.Files.Settings, "TxConvert", "Port", R.TxConvert.Port);
+
+                R.TxConvert.ConnectKey = IniTool.GetString(R.Files.Settings, "TxConvert", "ConnectKey", R.TxConvert.ConnectKey);
+                IniTool.Set(R.Files.Settings, "TxConvert", "ConnectKey", R.TxConvert.ConnectKey);
+
+                //启动进程
+                TxHelper.Start();
+                TxConvertHelper.Connect();
+                TxReadQueue.Start();
+                PlanTaskCore.Start();
+
                 Application.Run(R.MainUI);
             }
         }

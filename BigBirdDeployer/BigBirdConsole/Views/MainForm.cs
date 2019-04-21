@@ -28,10 +28,6 @@ namespace BigBirdConsole.Views
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            TxHelper.Start();
-            TxConvertHelper.Connect();
-            TxReadQueue.Start();
-            PlanTaskCore.Start();
         }
         private void TmMain_Tick(object sender, EventArgs e)
         {

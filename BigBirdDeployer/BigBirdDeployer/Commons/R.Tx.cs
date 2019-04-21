@@ -22,7 +22,7 @@ namespace BigBirdDeployer.Commons
             internal static bool IsAuth = false;
 
             internal static bool AutoReConnect = true;
-            internal static short AutoReConnectInterval = 60; 
+            internal static short AutoReConnectInterval = 10; 
 
             internal static DateTime ConnectTime = DateTime.MinValue;
             internal static DateTime LastSendTime = DateTime.MinValue;

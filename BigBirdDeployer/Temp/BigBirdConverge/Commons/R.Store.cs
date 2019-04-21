@@ -62,8 +62,10 @@ namespace BigBirdConverge.Commons
             public static void Persistence()
             {
                 DirTool.Create(R.Paths.Store);
-                TxtTool.Create(R.Files.SystemStatus, Json.Object2String(SystemStatus));
-                TxtTool.Create(R.Files.ProjectStatus, Json.Object2String(ProjectStatus));
+                string ss = Json.Object2String(SystemStatus);
+                string ps = Json.Object2String(ProjectStatus);
+                bool ss_flag = TxtTool.Create(R.Files.SystemStatus, ss);
+                bool ps_flag = TxtTool.Create(R.Files.ProjectStatus, ps);
             }
         }
     }

@@ -12,13 +12,13 @@ namespace BigBirdConsole.Commons
     {
         public static class TxConvert
         {
-            internal static string IP = "vaselee.com";
-            internal static int Port = 52840;
+            internal static string IP = "";//vaselee.com
+            internal static int Port = 0;
             internal static bool IsConnect = false;
             internal static bool IsAuth = false;
 
             internal static bool AutoReConnect = true;
-            internal static short AutoReConnectInterval = 60;
+            internal static short AutoReConnectInterval = 10;
 
             internal static DateTime ConnectTime = DateTime.MinValue;
             internal static DateTime LastSendTime = DateTime.MinValue;
@@ -28,7 +28,7 @@ namespace BigBirdConsole.Commons
             internal static short SendQueueErrorInterval = 10;
 
             internal static TcppClient TcppClient = null;
-            internal static string ConnectKey = "BigBird.Converge.201904201215.tcpp";//Tcp通信连接认证密钥
+            internal static string ConnectKey = "BigBird.Console.201904201215.tcpp";//Tcp通信连接认证密钥
         }
     }
 }

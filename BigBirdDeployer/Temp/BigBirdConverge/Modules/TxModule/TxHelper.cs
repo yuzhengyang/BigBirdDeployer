@@ -51,6 +51,7 @@ namespace BigBirdConverge.Modules.TxModule
             if (R.Tx.Hosts.Contains(host))
             {
                 R.Tx.Hosts.Remove(host);
+                R.MainUI.UIConnect();
             }
         }
         /// <summary>
@@ -85,6 +86,7 @@ namespace BigBirdConverge.Modules.TxModule
                 {
                     R.Tx.Hosts.Add(host);
                     R.Tx.TcppServer.Write(host, 10001000, key);
+                    R.MainUI.UIConnect();
                 }
             }
         }

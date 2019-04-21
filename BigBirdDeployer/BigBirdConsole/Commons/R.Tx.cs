@@ -12,7 +12,7 @@ namespace BigBirdConsole.Commons
     {
         public static class Tx
         {
-            internal static int TcppPort = 52830;
+            internal static int Port = 0;
             internal static TcppServer TcppServer = null;
             internal static List<string> Hosts = new List<string>();
             internal static string ConnectKey = "BigBird.Deployer.201903151446.tcpp";//Tcp通信连接认证密钥

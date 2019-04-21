@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BigBirdConsole.Commons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,8 @@ namespace BigBirdConsole.Modules.PlanTaskModule
         /// </summary>
         public static void Do()
         {
-             
+
+            R.Store.Persistence();
         }
     }
 }

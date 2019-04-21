@@ -24,8 +24,8 @@ namespace BigBirdConsole.Modules.TxModule
                     {
                         try
                         {
-                            R.Tx.TcppPort = p;
-                            R.Tx.TcppServer = new TcppServer(R.Tx.TcppPort, ReceiveMessage,
+                            R.Tx.Port = p;
+                            R.Tx.TcppServer = new TcppServer(R.Tx.Port, ReceiveMessage,
                                         OnConnect, OnDisconnect);
                             R.Tx.TcppServer.Start();//启动 Socket Tcp 通信机制
                             break;

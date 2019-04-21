@@ -66,6 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons\R.cs" />
+    <Compile Include="Commons\R.Files.cs" />
+    <Compile Include="Commons\R.Paths.cs" />
+    <Compile Include="Commons\R.Store.cs" />
     <Compile Include="Commons\R.TimeInterval.cs" />
     <Compile Include="Commons\R.TxConvert.cs" />
     <Compile Include="Commons\R.Tx.cs" />

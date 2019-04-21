@@ -33,6 +33,7 @@ namespace BigBirdConsole.Modules.TxModule
                         {
                             //TxHelper.TcppServer.Write(host, 20002000, "~");
                             TxConvertHelper.Send(model);
+                            R.Store.AddSystemStatus(model);
 
                             string data = Json.Byte2Object<string>(model.Data);
                             var status = Json.String2Object<SystemStatusModel>(data);
@@ -45,6 +46,7 @@ namespace BigBirdConsole.Modules.TxModule
                         {
                             //TxHelper.TcppServer.Write(host, 20003000, "~");
                             TxConvertHelper.Send(model);
+                            R.Store.AddProjectStatus(model);
 
                             string data = Json.Byte2Object<string>(model.Data);
                             var status = Json.String2Object<ProjectStatusModel>(data);
