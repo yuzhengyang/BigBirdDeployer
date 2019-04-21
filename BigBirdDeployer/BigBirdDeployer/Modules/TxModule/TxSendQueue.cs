@@ -32,12 +32,12 @@ namespace BigBirdDeployer.Modules.TxModule
                 {
                     if (Queue.Any(x => x.Item1 == type && x.Item2 == value))
                     {
-                        R.Log.v($"SocketSendQueue:[{Queue.Count}]:Add:IsExist:" + type + value);
+                        //R.Log.v($"SocketSendQueue:[{Queue.Count}]:Add:IsExist:" + type + value);
                     }
                     else
                     {
                         Queue.Enqueue(new Tuple<int, string>(type, value));
-                        R.Log.v($"SocketSendQueue:[{Queue.Count}]:Add:OK:" + type + value);
+                        //R.Log.v($"SocketSendQueue:[{Queue.Count}]:Add:OK:" + type + value);
                     }
                 }
 
@@ -68,7 +68,7 @@ namespace BigBirdDeployer.Modules.TxModule
                                     if (flag)
                                     {
                                         R.Tx.LastSendTime = DateTime.Now;//记录最后一次发送成功时间
-                                        R.Log.v(string.Format("socket send ok : {0} : {1}", model.Item1, model.Item2));
+                                        //R.Log.v(string.Format("socket send ok : {0} : {1}", model.Item1, model.Item2));
                                     }
                                     else
                                     {

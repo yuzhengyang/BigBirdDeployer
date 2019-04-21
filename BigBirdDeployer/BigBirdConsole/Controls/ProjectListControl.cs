@@ -42,12 +42,12 @@ namespace BigBirdConsole.Controls
                                     //item.Cells[ClmIP.Name].Value = model.IP;
                                     //item.Cells[ClmPort.Name].Value = model.Port;
                                     item.Cells[ClmName.Name].Value = model.Name;
-                                    item.Cells[ClmVersion.Name].Value = model.CurrentVersion;
+                                    item.Cells[ClmVersion.Name].Value = model.Version;
                                     item.Cells[ClmCPU.Name].Value = model.Cpu;
-                                    item.Cells[ClmRam.Name].Value = model.UseRam;
+                                    item.Cells[ClmRam.Name].Value = model.Ram;
                                     item.Cells[ClmStartTime.Name].Value = model.StartTime;
                                     item.Cells[ClmIsRun.Name].Value = model.IsRun;
-                                    item.Cells[ClmTxTime.Name].Value = model.NowTime;
+                                    item.Cells[ClmTxTime.Name].Value = model.CreateTime;
                                     add = false;
                                 }
                             }
@@ -55,9 +55,9 @@ namespace BigBirdConsole.Controls
                         }
                     }
                     if (add) DgvProjectList.Rows.Add(
-                        model.IP, model.Port, model.Name, model.CurrentVersion,
-                        model.Cpu, model.UseRam, model.StartTime, model.IsRun,
-                         model.NowTime);
+                        model.IP, model.Port, model.Name, model.Version,
+                        model.Cpu, model.Ram, model.StartTime, model.IsRun,
+                         model.CreateTime);
                 }));
             }
             catch { }

@@ -206,10 +206,10 @@ namespace BigBirdDeployer.Views
                                 IP = R.Tx.LocalIP,
                                 Cpu = (int)cpu,
                                 Ram = (long)ComputerInfoTool.TotalPhysicalMemory() / 1024,
-                                FreeRam = (long)ComputerInfoTool.AvailablePhysicalMemory() / 1024,
+                                RamAvail = (long)ComputerInfoTool.AvailablePhysicalMemory() / 1024,
                                 AppCpu = appcpu,
-                                AppUseRam = AppInfoTool.RAM() / 1024,
-                                NowTime = DateTime.Now,
+                                AppRam = AppInfoTool.RAM() / 1024,
+                                CreateTime = DateTime.Now,
                                 DriveTotal = R.DriveTotal,
                                 DriveAvail = R.DriveAvail
                             };

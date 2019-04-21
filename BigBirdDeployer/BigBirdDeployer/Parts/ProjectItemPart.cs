@@ -266,12 +266,12 @@ namespace BigBirdDeployer.Parts
                                         IP = R.Tx.LocalIP,
                                         Port = Project.Port,
                                         Name = Project.Name,
-                                        CurrentVersion = Project.CurrentVersion,
+                                        Version = Project.CurrentVersion,
                                         Cpu = (int)cpu,
-                                        UseRam = AppInfoTool.RAM(Process.Id) / 1024,
+                                        Ram = AppInfoTool.RAM(Process.Id) / 1024,
                                         StartTime = StartTime,
                                         IsRun = true,
-                                        NowTime = DateTime.Now
+                                        CreateTime = DateTime.Now
                                     };
                                     TxSendQueue.Add(20003000, Json.Object2String(model));
                                 }));
@@ -293,12 +293,12 @@ namespace BigBirdDeployer.Parts
                                         IP = R.Tx.LocalIP,
                                         Port = Project.Port,
                                         Name = Project.Name,
-                                        CurrentVersion = Project.CurrentVersion,
+                                        Version = Project.CurrentVersion,
                                         Cpu = 0,
-                                        UseRam =0,
+                                        Ram =0,
                                         StartTime = StartTime,
                                         IsRun = false,
-                                        NowTime = DateTime.Now
+                                        CreateTime = DateTime.Now
                                     };
                                     TxSendQueue.Add(20003000, Json.Object2String(model));
                                 }));

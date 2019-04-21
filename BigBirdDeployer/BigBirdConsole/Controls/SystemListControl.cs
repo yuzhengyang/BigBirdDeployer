@@ -41,10 +41,10 @@ namespace BigBirdConsole.Controls
                                     //item.Cells[ClmIP.Name].Value = model.IP;
                                     item.Cells[ClmCPU.Name].Value = model.Cpu;
                                     item.Cells[ClmRam.Name].Value = model.Ram;
-                                    item.Cells[ClmFreeRam.Name].Value = model.FreeRam;
+                                    item.Cells[ClmFreeRam.Name].Value = model.RamAvail;
                                     item.Cells[ClmAppCpu.Name].Value = model.AppCpu;
-                                    item.Cells[ClmAppRam.Name].Value = model.AppUseRam;
-                                    item.Cells[ClmTxTime.Name].Value = model.NowTime;
+                                    item.Cells[ClmAppRam.Name].Value = model.AppRam;
+                                    item.Cells[ClmTxTime.Name].Value = model.CreateTime;
                                     add = false;
                                 }
                             }
@@ -53,7 +53,7 @@ namespace BigBirdConsole.Controls
                     }
                     if (add) DgvSystemList.Rows.Add(
                         model.Name, model.IP, model.Cpu, model.Ram,
-                        model.FreeRam, model.AppCpu, model.AppUseRam, model.NowTime);
+                        model.RamAvail, model.AppCpu, model.AppRam, model.CreateTime);
                 }));
             }
             catch { }

@@ -11,10 +11,10 @@ namespace BigBird.Models.SystemModels
         public string IP { get; set; }
         public int Cpu { get; set; }
         public long Ram { get; set; }
-        public long FreeRam { get; set; }
+        public long RamAvail { get; set; }
         public int AppCpu { get; set; }
-        public long AppUseRam { get; set; }
-        public DateTime NowTime { get; set; }
+        public long AppRam { get; set; }
+        public DateTime CreateTime { get; set; }
         public long DriveTotal { get; set; }
         public long DriveAvail { get; set; }
     }
