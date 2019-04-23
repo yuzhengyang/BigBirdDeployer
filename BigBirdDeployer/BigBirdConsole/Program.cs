@@ -4,6 +4,7 @@ using Azylee.Core.LogUtils.SimpleLogUtils;
 using Azylee.Core.WindowsUtils.APIUtils;
 using BigBirdConsole.Commons;
 using BigBirdConsole.Modules.PlanTaskModule;
+using BigBirdConsole.Modules.StoreModule;
 using BigBirdConsole.Modules.TxConvertModule;
 using BigBirdConsole.Modules.TxModule;
 using BigBirdConsole.Views;
@@ -39,6 +40,7 @@ namespace BigBirdConsole
                 TxConvertHelper.Connect();
                 TxReadQueue.Start();
                 PlanTaskCore.Start();
+                StorePersistanceTask.Start();
 
                 Application.Run(R.MainUI);
             }
