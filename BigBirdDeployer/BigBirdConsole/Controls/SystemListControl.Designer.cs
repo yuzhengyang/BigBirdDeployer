@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.DgvSystemList = new System.Windows.Forms.DataGridView();
             this.ClmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +38,8 @@
             this.ClmAppCpu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmAppRam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmTxTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmRefreshTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TmMain = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DgvSystemList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +56,8 @@
             this.ClmFreeRam,
             this.ClmAppCpu,
             this.ClmAppRam,
-            this.ClmTxTime});
+            this.ClmTxTime,
+            this.ClmRefreshTime});
             this.DgvSystemList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvSystemList.Location = new System.Drawing.Point(0, 0);
             this.DgvSystemList.Name = "DgvSystemList";
@@ -65,51 +69,78 @@
             // 
             // ClmName
             // 
+            this.ClmName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ClmName.HeaderText = "名称";
             this.ClmName.Name = "ClmName";
             this.ClmName.ReadOnly = true;
             // 
             // ClmIP
             // 
+            this.ClmIP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ClmIP.HeaderText = "IP地址";
             this.ClmIP.Name = "ClmIP";
             this.ClmIP.ReadOnly = true;
+            this.ClmIP.Width = 66;
             // 
             // ClmCPU
             // 
+            this.ClmCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ClmCPU.HeaderText = "CPU";
             this.ClmCPU.Name = "ClmCPU";
             this.ClmCPU.ReadOnly = true;
+            this.ClmCPU.Width = 48;
             // 
             // ClmRam
             // 
+            this.ClmRam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ClmRam.HeaderText = "RAM";
             this.ClmRam.Name = "ClmRam";
             this.ClmRam.ReadOnly = true;
+            this.ClmRam.Width = 48;
             // 
             // ClmFreeRam
             // 
+            this.ClmFreeRam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ClmFreeRam.HeaderText = "空闲RAM";
             this.ClmFreeRam.Name = "ClmFreeRam";
             this.ClmFreeRam.ReadOnly = true;
+            this.ClmFreeRam.Width = 72;
             // 
             // ClmAppCpu
             // 
+            this.ClmAppCpu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ClmAppCpu.HeaderText = "APP CPU";
             this.ClmAppCpu.Name = "ClmAppCpu";
             this.ClmAppCpu.ReadOnly = true;
+            this.ClmAppCpu.Width = 72;
             // 
             // ClmAppRam
             // 
+            this.ClmAppRam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ClmAppRam.HeaderText = "APP RAM";
             this.ClmAppRam.Name = "ClmAppRam";
             this.ClmAppRam.ReadOnly = true;
+            this.ClmAppRam.Width = 72;
             // 
             // ClmTxTime
             // 
+            this.ClmTxTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ClmTxTime.HeaderText = "通信时间";
             this.ClmTxTime.Name = "ClmTxTime";
             this.ClmTxTime.ReadOnly = true;
+            // 
+            // ClmRefreshTime
+            // 
+            this.ClmRefreshTime.HeaderText = "刷新时间";
+            this.ClmRefreshTime.Name = "ClmRefreshTime";
+            this.ClmRefreshTime.ReadOnly = true;
+            this.ClmRefreshTime.Visible = false;
+            // 
+            // TmMain
+            // 
+            this.TmMain.Enabled = true;
+            this.TmMain.Interval = 3000;
+            this.TmMain.Tick += new System.EventHandler(this.TmMain_Tick);
             // 
             // SystemListControl
             // 
@@ -134,5 +165,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmAppCpu;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmAppRam;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmTxTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmRefreshTime;
+        private System.Windows.Forms.Timer TmMain;
     }
 }

@@ -67,6 +67,10 @@
             this.project26 = new BigBirdDeployer.Parts.ProjectItemPart();
             this.project27 = new BigBirdDeployer.Parts.ProjectItemPart();
             this.TPSettings = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TBLocalName = new System.Windows.Forms.TextBox();
+            this.TBLocalIP = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.TBConsolePort = new System.Windows.Forms.TextBox();
             this.TBConsoleIP = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -90,10 +94,6 @@
             this.LBVersion = new System.Windows.Forms.Label();
             this.LBStatus = new System.Windows.Forms.Label();
             this.PNContainer = new System.Windows.Forms.Panel();
-            this.TBLocalIP = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TBLocalName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -514,10 +514,42 @@
             this.TPSettings.Location = new System.Drawing.Point(4, 22);
             this.TPSettings.Name = "TPSettings";
             this.TPSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.TPSettings.Size = new System.Drawing.Size(767, 417);
+            this.TPSettings.Size = new System.Drawing.Size(963, 413);
             this.TPSettings.TabIndex = 2;
             this.TPSettings.Text = " 【设置】 ";
             this.TPSettings.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(69, 76);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 12);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "本机备注名称";
+            // 
+            // TBLocalName
+            // 
+            this.TBLocalName.Location = new System.Drawing.Point(210, 73);
+            this.TBLocalName.Name = "TBLocalName";
+            this.TBLocalName.Size = new System.Drawing.Size(235, 21);
+            this.TBLocalName.TabIndex = 33;
+            // 
+            // TBLocalIP
+            // 
+            this.TBLocalIP.Location = new System.Drawing.Point(210, 37);
+            this.TBLocalIP.Name = "TBLocalIP";
+            this.TBLocalIP.Size = new System.Drawing.Size(235, 21);
+            this.TBLocalIP.TabIndex = 32;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(69, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "本机IP地址";
             // 
             // TBConsolePort
             // 
@@ -656,19 +688,19 @@
             this.显示主界面ToolStripMenuItem,
             this.TSMIExit});
             this.CMSMain.Name = "CMSMain";
-            this.CMSMain.Size = new System.Drawing.Size(137, 48);
+            this.CMSMain.Size = new System.Drawing.Size(153, 70);
             // 
             // 显示主界面ToolStripMenuItem
             // 
             this.显示主界面ToolStripMenuItem.Name = "显示主界面ToolStripMenuItem";
-            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.显示主界面ToolStripMenuItem.Text = "显示主界面";
             this.显示主界面ToolStripMenuItem.Click += new System.EventHandler(this.显示主界面ToolStripMenuItem_Click);
             // 
             // TSMIExit
             // 
             this.TSMIExit.Name = "TSMIExit";
-            this.TSMIExit.Size = new System.Drawing.Size(136, 22);
+            this.TSMIExit.Size = new System.Drawing.Size(152, 22);
             this.TSMIExit.Text = "退出程序";
             this.TSMIExit.Click += new System.EventHandler(this.TSMIExit_Click);
             // 
@@ -718,38 +750,6 @@
             this.PNContainer.Name = "PNContainer";
             this.PNContainer.Size = new System.Drawing.Size(775, 443);
             this.PNContainer.TabIndex = 7;
-            // 
-            // TBLocalIP
-            // 
-            this.TBLocalIP.Location = new System.Drawing.Point(210, 37);
-            this.TBLocalIP.Name = "TBLocalIP";
-            this.TBLocalIP.Size = new System.Drawing.Size(235, 21);
-            this.TBLocalIP.TabIndex = 32;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(69, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "本机IP地址";
-            // 
-            // TBLocalName
-            // 
-            this.TBLocalName.Location = new System.Drawing.Point(210, 73);
-            this.TBLocalName.Name = "TBLocalName";
-            this.TBLocalName.Size = new System.Drawing.Size(235, 21);
-            this.TBLocalName.TabIndex = 33;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(69, 76);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 12);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "本机备注名称";
             // 
             // MainForm
             // 

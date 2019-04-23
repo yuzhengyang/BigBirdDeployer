@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BigBird.Models.ProjectModels;
+using Azylee.Core.DataUtils.DateTimeUtils;
+using BigBirdConsole.Commons;
 
 namespace BigBirdConsole.Controls
 {
@@ -48,6 +50,7 @@ namespace BigBirdConsole.Controls
                                     item.Cells[ClmStartTime.Name].Value = model.StartTime;
                                     item.Cells[ClmIsRun.Name].Value = model.IsRun;
                                     item.Cells[ClmTxTime.Name].Value = model.CreateTime;
+                                    item.Cells[ClmRefreshTime.Name].Value = DateTime.Now;
                                     add = false;
                                 }
                             }
@@ -55,9 +58,43 @@ namespace BigBirdConsole.Controls
                         }
                     }
                     if (add) DgvProjectList.Rows.Add(
-                        model.IP, model.Port, model.Name, model.Version,
-                        model.Cpu, model.Ram, model.StartTime, model.IsRun,
-                         model.CreateTime);
+                        model.Name, model.IP, model.Port, model.Version,
+                        model.Cpu, model.Ram, model.IsRun, model.StartTime,
+                         model.CreateTime, DateTime.Now);
+                }));
+            }
+            catch { }
+        }
+        public void SetStyle()
+        {
+            if (!R.MainUI.Visible || DgvProjectList.Rows.Count == 0) return;
+            try
+            {
+                Invoke(new Action(() =>
+                {
+                    foreach (DataGridViewRow item in DgvProjectList.Rows)
+                    {
+                        if (DateTime.TryParse(item.Cells[ClmRefreshTime.Name].Value.ToString(), out DateTime dt))
+                        {
+                            long diff = TimeDiff.Sec(dt);
+                            if (diff > -3)
+                            {
+                                item.DefaultCellStyle.BackColor = Color.LightGreen;
+                            }
+                            else if (diff > -6)
+                            {
+                                item.DefaultCellStyle.BackColor = Color.Yellow;
+                            }
+                            else if (diff > -9)
+                            {
+                                item.DefaultCellStyle.BackColor = Color.Pink;
+                            }
+                            else
+                            {
+                                item.DefaultCellStyle.BackColor = Color.Red;
+                            }
+                        }
+                    }
                 }));
             }
             catch { }
@@ -72,6 +109,11 @@ namespace BigBirdConsole.Controls
                 }));
             }
             catch { }
+        }
+
+        private void TmMain_Tick(object sender, EventArgs e)
+        {
+            SetStyle();
         }
     }
 }

@@ -25,31 +25,14 @@ namespace BigBirdConsole
         {
             if (appUnique.IsUnique("BigBirdConsole"))
             {
-                R.Log = new Log();//启动日志记录
-                SystemSleepAPI.PreventSleep(false);//禁用计算机息屏和待机
-                //InitIni();//初始化Ini配置信息
-
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-
                 R.MainUI = new MainForm();
 
-                //通讯接受 Tx
-                R.Tx.Port = IniTool.GetInt(R.Files.Settings, "Tx", "Port", 52830);
-                IniTool.Set(R.Files.Settings, "Tx", "Port", R.Tx.Port);
-
-                R.Tx.ConnectKey = IniTool.GetString(R.Files.Settings, "Tx", "ConnectKey", R.Tx.ConnectKey);
-                IniTool.Set(R.Files.Settings, "Tx", "ConnectKey", R.Tx.ConnectKey);
-
-                //通讯转发 TxConvert
-                R.TxConvert.IP = IniTool.GetString(R.Files.Settings, "TxConvert", "IP", "vaselee.com");
-                IniTool.Set(R.Files.Settings, "TxConvert", "IP", R.TxConvert.IP);
-
-                R.TxConvert.Port = IniTool.GetInt(R.Files.Settings, "TxConvert", "Port", 0);
-                IniTool.Set(R.Files.Settings, "TxConvert", "Port", R.TxConvert.Port);
-
-                R.TxConvert.ConnectKey = IniTool.GetString(R.Files.Settings, "TxConvert", "ConnectKey", R.TxConvert.ConnectKey);
-                IniTool.Set(R.Files.Settings, "TxConvert", "ConnectKey", R.TxConvert.ConnectKey);
+                //初始化配置信息
+                InitConfig();
+                R.Log = new Log();//启动日志记录
+                SystemSleepAPI.PreventSleep(false);//禁用计算机息屏和待机
 
                 //启动进程
                 TxHelper.Start();
@@ -59,6 +42,25 @@ namespace BigBirdConsole
 
                 Application.Run(R.MainUI);
             }
+        }
+        private static void InitConfig()
+        {
+            //通讯接受 Tx
+            R.Tx.Port = IniTool.GetInt(R.Files.Settings, "Tx", "Port", 52830);
+            IniTool.Set(R.Files.Settings, "Tx", "Port", R.Tx.Port);
+
+            R.Tx.ConnectKey = IniTool.GetString(R.Files.Settings, "Tx", "ConnectKey", R.Tx.ConnectKey);
+            IniTool.Set(R.Files.Settings, "Tx", "ConnectKey", R.Tx.ConnectKey);
+
+            //通讯转发 TxConvert
+            R.TxConvert.IP = IniTool.GetString(R.Files.Settings, "TxConvert", "IP", "vaselee.com");
+            IniTool.Set(R.Files.Settings, "TxConvert", "IP", R.TxConvert.IP);
+
+            R.TxConvert.Port = IniTool.GetInt(R.Files.Settings, "TxConvert", "Port", 0);
+            IniTool.Set(R.Files.Settings, "TxConvert", "Port", R.TxConvert.Port);
+
+            R.TxConvert.ConnectKey = IniTool.GetString(R.Files.Settings, "TxConvert", "ConnectKey", R.TxConvert.ConnectKey);
+            IniTool.Set(R.Files.Settings, "TxConvert", "ConnectKey", R.TxConvert.ConnectKey);
         }
     }
 }

@@ -28,7 +28,6 @@ namespace BigBirdConsole.Modules.TxModule
             try
             {
                 Queue.Enqueue(new Tuple<string, TcpDataModel>(host, model));
-                R.Log.v($"SocketReadQueue:[{Queue.Count}]:Add:OK:[{host}]:[{model.Type}]");
             }
             catch { R.Log.v($"SocketReadQueue:[{Queue.Count}]:Add:Error"); }
         }
@@ -53,7 +52,6 @@ namespace BigBirdConsole.Modules.TxModule
                                 {
                                     //读取成功后，进行相关处理
                                     TxFunction.ExecuteMessage(model.Item1, model.Item2);
-                                    R.Log.v($"SocketReadQueue:Execute:[{model.Item1}]");
                                 }
                             }
                             catch { }

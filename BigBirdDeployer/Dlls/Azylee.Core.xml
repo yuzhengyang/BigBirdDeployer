@@ -254,11 +254,28 @@
             <param name="month"></param>
             <returns></returns>
         </member>
+        <member name="T:Azylee.Core.DataUtils.DateTimeUtils.TimeDiff">
+            <summary>
+            时间差
+            </summary>
+        </member>
+        <member name="M:Azylee.Core.DataUtils.DateTimeUtils.TimeDiff.Sec(System.DateTime)">
+            <summary>
+            当前时间差（秒）
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
         <member name="M:Azylee.Core.DataUtils.DateTimeUtils.TimeStampTool.Get">
             <summary>  
             获取时间戳  
             </summary>  
             <returns></returns>  
+        </member>
+        <member name="T:Azylee.Core.DataUtils.DateTimeUtils.TimeTool">
+            <summary>
+            时间计算工具类
+            </summary>
         </member>
         <member name="T:Azylee.Core.DataUtils.DateTimeUtils.WeekDayTool">
             <summary>
