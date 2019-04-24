@@ -48,7 +48,7 @@ namespace BigBirdConsole.Controls
                                     item.Cells[ClmCPU.Name].Value = model.Cpu;
                                     item.Cells[ClmRam.Name].Value = model.Ram;
                                     item.Cells[ClmStartTime.Name].Value = model.StartTime;
-                                    item.Cells[ClmIsRun.Name].Value = model.IsRun;
+                                    item.Cells[ClmIsRun.Name].Value = model.IsRun ? "√" : "×××";
                                     item.Cells[ClmTxTime.Name].Value = model.CreateTime;
                                     item.Cells[ClmRefreshTime.Name].Value = DateTime.Now;
                                     add = false;
@@ -59,7 +59,7 @@ namespace BigBirdConsole.Controls
                     }
                     if (add) DgvProjectList.Rows.Add(
                         model.Name, model.IP, model.Port, model.Version,
-                        model.Cpu, model.Ram, model.IsRun, model.StartTime,
+                        model.Cpu, model.Ram, model.IsRun ? "√" : "×××", model.StartTime,
                          model.CreateTime, DateTime.Now);
                 }));
             }

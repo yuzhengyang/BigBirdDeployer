@@ -63,13 +63,13 @@ namespace BigBirdDeployer.Modules.CleanerModule
             int all_log_count = Ls.Ok(all_log) ? all_log.Count : 0;
             int expire_log_count = Ls.Ok(expire_log) ? expire_log.Count : 0;
 
-            R.SystemStatus.AllLogCount = 0;
+            R.SystemStatus.AllLogCount = all_log_count;
             R.SystemStatus.AllLogSize = (long)ByteConvertTool.Cvt(allSize, "KB");
-            R.SystemStatus.ExpireLogCount = 0;
+            R.SystemStatus.ExpireLogCount = expire_log_count;
             R.SystemStatus.ExpireLogSize = (long)ByteConvertTool.Cvt(expireSize, "KB");
 
-            R.Log.I($"全部日志文件：{all_log_count} 个， 共计：{ByteConvertTool.Cvt(allSize, "GB")} GB");
-            R.Log.I($"过期日志文件：{expire_log_count} 个， 共计：{ByteConvertTool.Cvt(expireSize, "GB")} GB");
+            //R.Log.I($"全部日志文件：{all_log_count} 个， 共计：{ByteConvertTool.Cvt(allSize, "GB")} GB");
+            //R.Log.I($"过期日志文件：{expire_log_count} 个， 共计：{ByteConvertTool.Cvt(expireSize, "GB")} GB");
         }
         /// <summary>
         /// 清理日志文件
