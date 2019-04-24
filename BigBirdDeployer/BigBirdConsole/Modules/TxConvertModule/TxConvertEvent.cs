@@ -1,7 +1,10 @@
-﻿using Azylee.Jsons;
+﻿using Azylee.Core.DataUtils.CollectionUtils;
+using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBirdConsole.Commons;
+using BigBirdConsole.Modules.TxModule;
 using System;
+using System.Collections.Generic;
 
 namespace BigBirdConsole.Modules.TxConvertModule
 {
@@ -76,6 +79,36 @@ namespace BigBirdConsole.Modules.TxConvertModule
                     break;
                 case 30001000:
                     //R.MainUI.UIConsole(Json.Byte2Object<List<string>>(model.Data));
+                    break;
+
+                //指令操作
+                case 40001000: /* 清除过期日志 */
+                    try
+                    {
+                        string ss = Json.Byte2Object<string>(model.Data);
+                        Tuple<string> info = Json.String2Object<Tuple<string>>(ss);
+                        List<string> next_hosts = TxHostMapTool.GetHost(info.Item1);
+                        if (Ls.Ok(next_hosts))
+                        {
+                            foreach (var next in next_hosts)
+                                R.Tx.TcppServer.Write(next, 40001000, Json.Object2Byte(ss));
+                        }
+                    }
+                    catch { }
+                    break;
+                case 40002000: /* 重启服务 */
+                    try
+                    {
+                        string ss = Json.Byte2Object<string>(model.Data);
+                        Tuple<string, int> info = Json.String2Object<Tuple<string, int>>(ss);
+                        List<string> next_hosts = TxHostMapTool.GetHost(info.Item1);
+                        if (Ls.Ok(next_hosts))
+                        {
+                            foreach (var next in next_hosts)
+                                R.Tx.TcppServer.Write(next, 40002000, Json.Object2Byte(ss));
+                        }
+                    }
+                    catch { }
                     break;
 
                 default: break;

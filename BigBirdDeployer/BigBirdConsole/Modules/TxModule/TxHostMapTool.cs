@@ -14,14 +14,14 @@ namespace BigBirdConsole.Modules.TxModule
         /// </summary>
         private static List<Tuple<string, string>> HostMap = new List<Tuple<string, string>>();
 
-        public static List<string> GetHost(string ipport)
+        public static List<string> GetHost(string ip)
         {
             List<string> result = new List<string>();
             try
             {
                 if (Ls.Ok(R.Tx.Hosts))
                 {
-                    List<Tuple<string, string>> list = HostMap.Where(x => x.Item2 == ipport).ToList();
+                    List<Tuple<string, string>> list = HostMap.Where(x => x.Item2 == ip).ToList();
                     if (Ls.Ok(list))
                     {
                         foreach (var item in list)
@@ -35,11 +35,11 @@ namespace BigBirdConsole.Modules.TxModule
             return result;
         }
 
-        public static void AddHost(string host, string ipport)
+        public static void AddHost(string host, string ip)
         {
-            if (!HostMap.Any(x => x.Item1 == host && x.Item2 == ipport))
+            if (!HostMap.Any(x => x.Item1 == host && x.Item2 == ip))
             {
-                HostMap.Add(new Tuple<string, string>(host, ipport));
+                HostMap.Add(new Tuple<string, string>(host, ip));
             }
         }
         public static void DelHost(string host)

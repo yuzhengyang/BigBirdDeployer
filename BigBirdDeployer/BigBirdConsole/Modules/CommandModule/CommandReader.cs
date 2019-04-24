@@ -41,9 +41,9 @@ namespace BigBirdConsole.Modules.CommandModule
                                 int type = IniTool.GetInt(file, "Command", "Type", 0);
                                 string data = IniTool.GetString(file, "Command", "Data", "");
 
-                                if (Str.Ok(ip) && port > 0 && type > 0)
+                                if (Str.Ok(ip) && type > 0)
                                 {
-                                    List<string> hosts = TxHostMapTool.GetHost($"{ip}:{port}");
+                                    List<string> hosts = TxHostMapTool.GetHost($"{ip}");
                                     if (Ls.Ok(hosts))
                                     {
                                         foreach (var host in hosts)
@@ -54,6 +54,7 @@ namespace BigBirdConsole.Modules.CommandModule
                                         }
                                     }
                                 }
+                                R.Log.I($"处理指令：{type}，IP：{ip}，Port：{port}，Data：{data}");
                                 FileTool.Delete(file);
                             }
                         }

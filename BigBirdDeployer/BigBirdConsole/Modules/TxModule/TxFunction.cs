@@ -36,6 +36,7 @@ namespace BigBirdConsole.Modules.TxModule
                             var status = Json.String2Object<SystemStatusModel>(data);
 
                             R.Store.AddSystemStatus(status);
+                            TxHostMapTool.AddHost(host, $"{status.IP}");
                             R.MainUI.systemListControl1.AddOrUpdate(status);
                             R.MainUI.txConsoleControl1.Write(host, model.Type, $"{Json.Byte2Object<string>(model.Data)}");
                             break;
@@ -48,7 +49,6 @@ namespace BigBirdConsole.Modules.TxModule
                             var status = Json.String2Object<ProjectStatusModel>(data);
 
                             R.Store.AddProjectStatus(status);
-                            TxHostMapTool.AddHost(host, $"{status.IP}:{status.Port}");
                             R.MainUI.projectListControl1.AddOrUpdate(status);
                             R.MainUI.txConsoleControl1.Write(host, model.Type, $"{data}");
                             break;

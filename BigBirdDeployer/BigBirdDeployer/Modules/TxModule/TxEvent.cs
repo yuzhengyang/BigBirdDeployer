@@ -86,11 +86,13 @@ namespace BigBirdDeployer.Modules.TxModule
 
                 //指令操作
                 case 40001000: /* 清除过期日志 */
+                    R.Log.I("收到指令操作：40001000：清除过期日志：15天之前日志");
                     LogCleaner.CleanLogFile();
                     break;
                 case 40002000: /* 重启服务 */
                     try
                     {
+                        R.Log.I("收到指令操作：40002000：重启服务");
                         string ss = Json.Byte2Object<string>(model.Data);
                         Tuple<string, int> info = Json.String2Object<Tuple<string, int>>(ss);
                         if (R.Tx.LocalIP == info.Item1 && R.ProjectItems.Any(x => x.Port == info.Item2))
