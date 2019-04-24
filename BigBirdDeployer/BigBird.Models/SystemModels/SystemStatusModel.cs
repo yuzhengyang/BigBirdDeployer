@@ -17,5 +17,9 @@ namespace BigBird.Models.SystemModels
         public DateTime CreateTime { get; set; }
         public long DriveTotal { get; set; }
         public long DriveAvail { get; set; }
+        public int AllLogCount { get; set; }
+        public long AllLogSize { get; set; }
+        public int ExpireLogCount { get; set; }
+        public long ExpireLogSize { get; set; }
     }
 }

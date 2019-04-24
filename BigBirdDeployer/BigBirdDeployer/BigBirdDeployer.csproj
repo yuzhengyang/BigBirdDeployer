@@ -78,6 +78,8 @@
     <Compile Include="Controls\ColorfulProgressControl.Designer.cs">
       <DependentUpon>ColorfulProgressControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\CleanerModule\LogCleaner.cs" />
+    <Compile Include="Modules\CleanerModule\VersionCleaner.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskCore.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskM1.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskM10.cs" />

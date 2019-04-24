@@ -200,20 +200,15 @@ namespace BigBirdDeployer.Views
                             int appcpu = (int)AppInfoTool.CalcCpuRate(Process, ref beginTime, STATUS_INTERVAL);
                             string appram = ByteConvertTool.Fmt(AppInfoTool.RAM() * 1024);
 
-                            SystemStatusModel model = new SystemStatusModel()
-                            {
-                                Name = R.Tx.LocalName,
-                                IP = R.Tx.LocalIP,
-                                Cpu = (int)cpu,
-                                Ram = (long)ComputerInfoTool.TotalPhysicalMemory() / 1024,
-                                RamAvail = (long)ComputerInfoTool.AvailablePhysicalMemory() / 1024,
-                                AppCpu = appcpu,
-                                AppRam = AppInfoTool.RAM() / 1024,
-                                CreateTime = DateTime.Now,
-                                DriveTotal = R.DriveTotal,
-                                DriveAvail = R.DriveAvail
-                            };
-                            TxSendQueue.Add(20002000, Json.Object2String(model));
+                            R.SystemStatus.Name = R.Tx.LocalName;
+                            R.SystemStatus.IP = R.Tx.LocalIP;
+                            R.SystemStatus.Cpu = (int)cpu;
+                            R.SystemStatus.Ram = (long)ComputerInfoTool.TotalPhysicalMemory() / 1024;
+                            R.SystemStatus.RamAvail = (long)ComputerInfoTool.AvailablePhysicalMemory() / 1024;
+                            R.SystemStatus.AppCpu = appcpu;
+                            R.SystemStatus.AppRam = AppInfoTool.RAM() / 1024;
+                            R.SystemStatus.CreateTime = DateTime.Now;
+                            TxSendQueue.Add(20002000, Json.Object2String(R.SystemStatus));
 
                             Invoke(new Action(() =>
                             {

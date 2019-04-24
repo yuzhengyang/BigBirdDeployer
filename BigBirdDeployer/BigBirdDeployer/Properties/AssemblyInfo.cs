@@ -34,8 +34,13 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.1.3")]
+[assembly: AssemblyVersion("1.0.1.4")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.1.4（2019年4月24日）
+// + 增加日志文件信息反馈
+// + 增加日志清理
+// + 增加重启服务功能
 
 // v 1.0.1.3（2019年4月21日）
 // + 增加磁盘用量检测

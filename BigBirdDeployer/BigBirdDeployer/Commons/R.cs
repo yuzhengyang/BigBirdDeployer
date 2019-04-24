@@ -1,8 +1,12 @@
 ﻿using Azylee.Core.AppUtils;
 using Azylee.Core.FormUtils;
 using Azylee.Core.LogUtils.SimpleLogUtils;
+using Azylee.YeahWeb.SocketUtils.TcpUtils;
+using BigBird.Models.SystemModels;
+using BigBirdDeployer.Parts;
 using BigBirdDeployer.Views;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -24,6 +28,7 @@ namespace BigBirdDeployer.Commons
         internal static bool IsAdministrator = PermissionTool.IsAdministrator();
         internal static string NewStorageReadmeTxt = "请将要发布的项目文件夹复制到该目录，然后点击界面的装载按钮。";
 
-        internal static long DriveTotal = 0, DriveAvail = 0;
+        internal static SystemStatusModel SystemStatus = new SystemStatusModel();
+        internal static List<ProjectItemPart> ProjectItems = new List<ProjectItemPart>();
     }
 }

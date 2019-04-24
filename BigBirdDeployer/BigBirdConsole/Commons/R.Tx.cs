@@ -15,6 +15,7 @@ namespace BigBirdConsole.Commons
             internal static int Port = 0;
             internal static TcppServer TcppServer = null;
             internal static List<string> Hosts = new List<string>();
+
             internal static string ConnectKey = "BigBird.Deployer.201903151446.tcpp";//Tcp通信连接认证密钥
             internal static List<ProjectStatusModel> ProjectStatusList = new List<ProjectStatusModel>();
             internal static List<SystemStatusModel> SystemStatusList = new List<SystemStatusModel>();

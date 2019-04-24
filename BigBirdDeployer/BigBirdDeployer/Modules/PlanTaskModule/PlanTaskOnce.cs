@@ -1,5 +1,6 @@
 ﻿using Azylee.Core.WindowsUtils.InfoUtils;
 using BigBirdDeployer.Commons;
+using BigBirdDeployer.Modules.CleanerModule;
 
 namespace BigBirdDeployer.Modules.PlanTaskModule
 {
@@ -10,8 +11,9 @@ namespace BigBirdDeployer.Modules.PlanTaskModule
         /// </summary>
         public static void Do()
         {
-            R.DriveTotal = DriveTool.GetDriveTotalSize(R.Paths.App);
-            R.DriveAvail = DriveTool.GetDriveAvailableSize(R.Paths.App);
+            R.SystemStatus.DriveTotal = DriveTool.GetDriveTotalSize(R.Paths.App);
+            R.SystemStatus.DriveAvail = DriveTool.GetDriveAvailableSize(R.Paths.App);
+            LogCleaner.LogFileAnalyse();
 
             //string toMail = "yuzhyn@163.com";
             //string subject = $"服务器状态报表:日报:{DateTime.Now.ToString("yyyy年MM月dd日")}";
@@ -21,6 +23,7 @@ namespace BigBirdDeployer.Modules.PlanTaskModule
             //    toMail, subject, emailBody, 
             //    "bigbird_server","bigbird528");
             //et.Send();
+
         }
     }
 }

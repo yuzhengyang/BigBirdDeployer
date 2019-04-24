@@ -96,6 +96,7 @@
     <Compile Include="Controls\TxConsoleControl.Designer.cs">
       <DependentUpon>TxConsoleControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\CommandModule\CommandReader.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskCore.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskOnce.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskM5.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Modules\TxConvertModule\TxConvertEvent.cs" />
     <Compile Include="Modules\TxModule\TxFunction.cs" />
     <Compile Include="Modules\TxModule\TxHelper.cs" />
+    <Compile Include="Modules\TxModule\TxHostMapTool.cs" />
     <Compile Include="Modules\TxModule\TxReadQueue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

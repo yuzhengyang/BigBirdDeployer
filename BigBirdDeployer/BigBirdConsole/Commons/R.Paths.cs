@@ -24,6 +24,7 @@ namespace BigBirdConsole.Commons
             public static string NewStorage = DefaultNewStorage;
 
             public static string Store = DirTool.Combine(App, "Store");
+            public static string Command = DirTool.Combine(App, "Command");
         }
     }
 }

@@ -23,6 +23,7 @@ using Azylee.Jsons;
 using BigBird.Models.ProjectModels;
 using BigBird.Models.WorkModels;
 using BigBirdDeployer.Modules.TxModule;
+using Azylee.Core.ThreadUtils.SleepUtils;
 
 namespace BigBirdDeployer.Parts
 {
@@ -34,6 +35,8 @@ namespace BigBirdDeployer.Parts
         private ProjectModel Project { get; set; }
         private Process Process { get; set; }
         private ProjectConsoleForm ConsoleForm { get; set; }
+        public int Port { get { return Project.Port; } }
+
         public ProjectItemPart()
         {
             InitializeComponent();
@@ -56,6 +59,9 @@ namespace BigBirdDeployer.Parts
                 var p = Json.String2Object<ProjectModel>(txt);
                 if (p != null) SetProject(p);
             }
+
+            //将控件加入到管理列表中
+            R.ProjectItems.Add(this);
         }
 
         #region 功能方法
@@ -295,7 +301,7 @@ namespace BigBirdDeployer.Parts
                                         Name = Project.Name,
                                         Version = Project.CurrentVersion,
                                         Cpu = 0,
-                                        Ram =0,
+                                        Ram = 0,
                                         StartTime = StartTime,
                                         IsRun = false,
                                         CreateTime = DateTime.Now
@@ -314,6 +320,32 @@ namespace BigBirdDeployer.Parts
                     catch { }
                     Thread.Sleep(STATUS_INTERVAL);
                 }
+            });
+        }
+        /// <summary>
+        /// 强制重启服务
+        /// </summary>
+        public void Restart()
+        {
+            //端口号是0，玩个蛋
+            if (Project.Port == 0)
+            {
+                return;
+            }
+            if (!(ListTool.HasElements(Project.Versions) && Project.CurrentVersion != 0 && Project.LastVersion != 0))
+            {
+                //不存在版本或错误的版本（版本为0），不启动工程
+                return;
+            }
+
+            Task.Factory.StartNew(() =>
+            {
+                //停止服务
+                Stop();
+                //等待一下，防止未停止进程的情况发生
+                Sleep.S(3);
+                //没有端口占用则正常启动
+                if (!GetProcess()) Start();
             });
         }
         #endregion
@@ -462,24 +494,20 @@ namespace BigBirdDeployer.Parts
                 ConsoleForm.UICaption(Project.Name);
             }
         }
-
         private void 工程配置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ProjectConfigForm(this, Project).ShowDialog();
         }
-
         private void 浏览运行目录ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExplorerAPI.ExplorerFile(JarFileTool.GetFilePath(Project));
             ToastForm.Display("浏览", $"正在打开运行目录，请稍候...", 'i', 5000);
         }
-
         private void 浏览装载目录ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExplorerAPI.ExplorerFile(R.Files.NewStorageReadme);
             ToastForm.Display("浏览", $"正在打开装载目录，请稍候...", 'i', 5000);
         }
-
         private void 过程日志ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -594,8 +622,6 @@ namespace BigBirdDeployer.Parts
             }
             catch { }
         }
-
         #endregion
-
     }
 }

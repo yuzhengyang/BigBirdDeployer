@@ -1,5 +1,6 @@
 ﻿using Azylee.Core.AppUtils;
 using Azylee.Core.IOUtils.DirUtils;
+using Azylee.Core.IOUtils.FileUtils;
 using Azylee.Core.IOUtils.TxtUtils;
 using Azylee.Core.LogUtils.SimpleLogUtils;
 using Azylee.Core.LogUtils.StatusLogUtils;
@@ -21,7 +22,8 @@ namespace BigBirdDeployer
         /// </summary>
         [STAThread]
         static void Main()
-        {  
+        {
+            //var a = FileTool.GetAllFile(@"F:\Temp\logs", new[] { "*.log"});
             //解决进程互斥
             if (!AppUnique.IsUnique(R.AppName)) return;
 

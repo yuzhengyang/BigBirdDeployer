@@ -51,6 +51,7 @@ namespace BigBirdConsole.Modules.TxModule
             if (R.Tx.Hosts.Contains(host))
             {
                 R.Tx.Hosts.Remove(host);
+                TxHostMapTool.DelHost(host);
                 R.MainUI.UIConnectCount(R.Tx.Hosts.Count);
             }
         }

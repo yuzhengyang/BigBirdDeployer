@@ -1,8 +1,10 @@
 ﻿using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBirdDeployer.Commons;
+using BigBirdDeployer.Modules.CleanerModule;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BigBirdDeployer.Modules.TxModule
 {
@@ -80,6 +82,27 @@ namespace BigBirdDeployer.Modules.TxModule
                     break;
                 case 30001000:
                     //R.MainUI.UIConsole(Json.Byte2Object<List<string>>(model.Data));
+                    break;
+
+                //指令操作
+                case 40001000: /* 清除过期日志 */
+                    LogCleaner.CleanLogFile();
+                    break;
+                case 40002000: /* 重启服务 */
+                    try
+                    {
+                        string ss = Json.Byte2Object<string>(model.Data);
+                        Tuple<string, int> info = Json.String2Object<Tuple<string, int>>(ss);
+                        if (R.Tx.LocalIP == info.Item1 && R.ProjectItems.Any(x => x.Port == info.Item2))
+                        {
+                            Parts.ProjectItemPart item = R.ProjectItems.FirstOrDefault(x => x.Port == info.Item2);
+                            if (item != null)
+                            {
+                                item.Restart();
+                            }
+                        }
+                    }
+                    catch { }
                     break;
 
                 default: break;

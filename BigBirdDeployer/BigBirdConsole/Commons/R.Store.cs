@@ -5,8 +5,10 @@ using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBird.Models.ProjectModels;
 using BigBird.Models.SystemModels;
+using BigBirdConsole.Modules.TxModule;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BigBirdConsole.Commons
 {
@@ -16,13 +18,10 @@ namespace BigBirdConsole.Commons
         {
             internal static ConcurrentDictionary<string, ProjectStatusModel> ProjectStatus = new ConcurrentDictionary<string, ProjectStatusModel>();
             internal static ConcurrentDictionary<string, SystemStatusModel> SystemStatus = new ConcurrentDictionary<string, SystemStatusModel>();
-            public static void AddSystemStatus(TcpDataModel model)
+            public static void AddSystemStatus(SystemStatusModel status)
             {
                 try
                 {
-                    //TxHelper.TcppServer.Write(host, 20002000, "~");
-                    string data = Json.Byte2Object<string>(model.Data);
-                    var status = Json.String2Object<SystemStatusModel>(data);
                     if (Str.Ok(status.IP))
                     {
                         if (R.Store.SystemStatus.TryGetValue(status.IP, out SystemStatusModel _status))
@@ -37,13 +36,10 @@ namespace BigBirdConsole.Commons
                 }
                 catch { }
             }
-            public static void AddProjectStatus(TcpDataModel model)
+            public static void AddProjectStatus(ProjectStatusModel status)
             {
                 try
                 {
-                    //TxHelper.TcppServer.Write(host, 20003000, "~");
-                    string data = Json.Byte2Object<string>(model.Data);
-                    var status = Json.String2Object<ProjectStatusModel>(data);
                     if (Str.Ok(status.IP, status.Port.ToString()))
                     {
                         string key = $"{status.IP}-{status.Port}";
@@ -68,9 +64,9 @@ namespace BigBirdConsole.Commons
 
                 foreach (var item in SystemStatus.ToArray()) ssm.Add(item.Value);
                 foreach (var item in ProjectStatus.ToArray()) psm.Add(item.Value);
-                
-                string ss = Json.Object2String(ssm);
-                string ps = Json.Object2String(psm);
+
+                string ss = Json.Object2String(ssm.OrderBy(x => x.IP));
+                string ps = Json.Object2String(psm.OrderBy(x => x.IP).ThenBy(x => x.Port));
 
                 bool ss_flag = TxtTool.Create(R.Files.SystemStatus, ss);
                 bool ps_flag = TxtTool.Create(R.Files.ProjectStatus, ps);

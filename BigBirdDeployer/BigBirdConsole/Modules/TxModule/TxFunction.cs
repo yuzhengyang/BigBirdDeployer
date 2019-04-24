@@ -31,12 +31,11 @@ namespace BigBirdConsole.Modules.TxModule
                     //系统状态
                     case 20002000: /* 系统状态 */
                         {
-                            //TxHelper.TcppServer.Write(host, 20002000, "~");
-                            TxConvertHelper.Send(model);
-                            R.Store.AddSystemStatus(model);
-
+                            TxConvertHelper.Send(model);//转发给上游服务
                             string data = Json.Byte2Object<string>(model.Data);
                             var status = Json.String2Object<SystemStatusModel>(data);
+
+                            R.Store.AddSystemStatus(status);
                             R.MainUI.systemListControl1.AddOrUpdate(status);
                             R.MainUI.txConsoleControl1.Write(host, model.Type, $"{Json.Byte2Object<string>(model.Data)}");
                             break;
@@ -44,12 +43,12 @@ namespace BigBirdConsole.Modules.TxModule
                     //服务信息
                     case 20003000: /* 服务状态 */
                         {
-                            //TxHelper.TcppServer.Write(host, 20003000, "~");
-                            TxConvertHelper.Send(model);
-                            R.Store.AddProjectStatus(model);
-
+                            TxConvertHelper.Send(model);//转发给上游服务
                             string data = Json.Byte2Object<string>(model.Data);
                             var status = Json.String2Object<ProjectStatusModel>(data);
+
+                            R.Store.AddProjectStatus(status);
+                            TxHostMapTool.AddHost(host, $"{status.IP}:{status.Port}");
                             R.MainUI.projectListControl1.AddOrUpdate(status);
                             R.MainUI.txConsoleControl1.Write(host, model.Type, $"{data}");
                             break;

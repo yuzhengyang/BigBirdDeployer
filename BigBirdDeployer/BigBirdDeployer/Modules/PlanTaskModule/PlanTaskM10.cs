@@ -1,5 +1,6 @@
 ﻿using Azylee.Core.WindowsUtils.InfoUtils;
 using BigBirdDeployer.Commons;
+using BigBirdDeployer.Modules.CleanerModule;
 
 namespace BigBirdDeployer.Modules.PlanTaskModule
 {
@@ -10,8 +11,9 @@ namespace BigBirdDeployer.Modules.PlanTaskModule
         /// </summary>
         public static void Do()
         {
-            R.DriveTotal = DriveTool.GetDriveTotalSize(R.Paths.App);
-            R.DriveAvail = DriveTool.GetDriveAvailableSize(R.Paths.App);
+            R.SystemStatus.DriveTotal = DriveTool.GetDriveTotalSize(R.Paths.App);
+            R.SystemStatus.DriveAvail = DriveTool.GetDriveAvailableSize(R.Paths.App);
+            LogCleaner.LogFileAnalyse();
         }
     }
 }
