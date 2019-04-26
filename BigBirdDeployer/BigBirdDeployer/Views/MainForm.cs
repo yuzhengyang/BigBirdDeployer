@@ -34,7 +34,7 @@ namespace BigBirdDeployer.Views
         private void MainForm_Load(object sender, EventArgs e)
         {
             BigIconFormLBHeadTitle.Text = $"{R.AppNameCn}  {(R.IsAdministrator ? "(管理员)" : "(受限权限)")}";
-            LBVersion.Text = $"版本：{Application.ProductVersion}";
+            LBVersion.Text = $"版本：{R.Version}";
             TBPublishStorage.Text = R.Paths.PublishStorage == R.Paths.DefaultPublishStorage ? "" : R.Paths.PublishStorage;
             TBNewStorage.Text = R.Paths.NewStorage == R.Paths.DefaultNewStorage ? "" : R.Paths.NewStorage;
             TBConsoleIP.Text = R.Tx.IP;
@@ -208,6 +208,7 @@ namespace BigBirdDeployer.Views
                             R.SystemStatus.AppCpu = appcpu;
                             R.SystemStatus.AppRam = AppInfoTool.RAM() / 1024;
                             R.SystemStatus.CreateTime = DateTime.Now;
+                            R.SystemStatus.BigBirdVersion = R.Version;
                             TxSendQueue.Add(20002000, Json.Object2String(R.SystemStatus));
 
                             Invoke(new Action(() =>

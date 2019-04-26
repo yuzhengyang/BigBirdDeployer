@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Windows.Forms;
 
 namespace BigBirdDeployer.Commons
 {
@@ -18,6 +19,7 @@ namespace BigBirdDeployer.Commons
     {
         internal static string AppName = "BigBirdDeployer";
         internal static string AppNameCn = "    Java 服务启动管理工具";
+        internal static string Version = Application.ProductVersion;
         internal static DateTime StartTime = DateTime.Now;
         internal static string MachineName = Environment.MachineName;
         internal static Module Module = Assembly.GetExecutingAssembly().GetModules()[0];

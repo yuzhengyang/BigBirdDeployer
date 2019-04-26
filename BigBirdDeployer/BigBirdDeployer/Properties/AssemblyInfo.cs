@@ -34,11 +34,14 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.1.5")]
+[assembly: AssemblyVersion("1.0.1.6")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
 
+// v 1.0.1.6（2019年4月26日）
+// + 添加版本号反馈
+
 // v 1.0.1.5（2019年4月25日）
-// + 优化操作指令处理
+// @ 优化操作指令处理
 
 // v 1.0.1.4（2019年4月24日）
 // + 增加日志文件信息反馈
