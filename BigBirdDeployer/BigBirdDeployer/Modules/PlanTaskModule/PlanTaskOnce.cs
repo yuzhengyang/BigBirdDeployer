@@ -16,8 +16,8 @@ namespace BigBirdDeployer.Modules.PlanTaskModule
             R.SystemStatus.DriveAvail = DriveTool.GetDriveAvailableSize(R.Paths.App);
 
             LogCleaner.LogFileAnalyse();
-            R.Log.I($"全部日志文件：{R.SystemStatus.AllLogCount} 个， 共计：{ByteConvertTool.Cvt(R.SystemStatus.AllLogSize, "GB")} GB");
-            R.Log.I($"过期日志文件：{R.SystemStatus.ExpireLogCount} 个， 共计：{ByteConvertTool.Cvt(R.SystemStatus.ExpireLogSize, "GB")} GB");
+            R.Log.I($"全部日志文件：{R.SystemStatus.AllLogCount} 个， 共计：{ByteConvertTool.Cvt(R.SystemStatus.AllLogSize, "MB")} GB");
+            R.Log.I($"过期日志文件：{R.SystemStatus.ExpireLogCount} 个， 共计：{ByteConvertTool.Cvt(R.SystemStatus.ExpireLogSize, "MB")} GB");
 
             //string toMail = "yuzhyn@163.com";
             //string subject = $"服务器状态报表:日报:{DateTime.Now.ToString("yyyy年MM月dd日")}";
