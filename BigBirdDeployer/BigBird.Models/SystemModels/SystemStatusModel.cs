@@ -21,5 +21,6 @@ namespace BigBird.Models.SystemModels
         public long AllLogSize { get; set; }
         public int ExpireLogCount { get; set; }
         public long ExpireLogSize { get; set; }
+        public string BigBirdVersion { get; set; }
     }
 }
