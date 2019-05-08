@@ -7,6 +7,7 @@ namespace BigBird.Models.SystemModels
 {
     public class SystemStatusModel
     {
+        public string AppID { get; set; }
         public string Name { get; set; }
         public string IP { get; set; }
         public int Cpu { get; set; }

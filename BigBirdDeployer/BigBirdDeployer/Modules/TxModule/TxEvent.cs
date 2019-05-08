@@ -1,9 +1,16 @@
-﻿using Azylee.Jsons;
+﻿using Azylee.Core.DataUtils.StringUtils;
+using Azylee.Core.IOUtils.BinaryUtils;
+using Azylee.Core.IOUtils.DirUtils;
+using Azylee.Core.IOUtils.FileUtils;
+using Azylee.Core.IOUtils.TxtUtils;
+using Azylee.Core.ProcessUtils;
+using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBirdDeployer.Commons;
 using BigBirdDeployer.Modules.CleanerModule;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace BigBirdDeployer.Modules.TxModule
@@ -101,6 +108,39 @@ namespace BigBirdDeployer.Modules.TxModule
                             if (item != null)
                             {
                                 item.Restart();
+                            }
+                        }
+                    }
+                    catch { }
+                    break;
+                //更新操作
+                case 90001000:/* 获取更新文件基本信息 */
+                    try
+                    {
+                        Tuple<string, string> data = Json.Byte2Object<Tuple<string, string>>(model.Data);
+                        if (Str.Ok(data.Item1, data.Item2))
+                        {
+                            R.AppointName = data.Item1;
+                            R.AppointMD5 = data.Item2;
+                            TxSendQueue.Add(90001000, "Fire in the hole");
+                        }
+                    }
+                    catch { }
+                    break;
+                case 90002000:/* 获取更新文件 */
+                    try
+                    {
+                        if (Str.Ok(R.AppointName, R.AppointMD5))
+                        {
+                            if (File.Exists(DirTool.Combine(R.Paths.App, R.AppointName)))
+                                FileTool.Delete(DirTool.Combine(R.Paths.App, R.AppointName));
+
+                            if (BinaryFileTool.write(DirTool.Combine(R.Paths.App, R.AppointName), model.Data))
+                            {
+                                IniTool.Set(R.Files.Settings, "Appoint", "Name", R.AppointName);
+                                IniTool.Set(R.Files.Settings, "Appoint", "MD5", R.AppointMD5);
+                                ProcessTool.Start(R.Files.App);
+                                R.MainUI.UIExitApp();
                             }
                         }
                     }

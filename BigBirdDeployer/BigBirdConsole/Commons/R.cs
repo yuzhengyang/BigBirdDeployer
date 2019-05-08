@@ -23,5 +23,7 @@ namespace BigBirdConsole.Commons
         internal static FormManTool FormMan = new FormManTool();//窗体管理器
         internal static bool IsAdministrator = PermissionTool.IsAdministrator();
         internal static string NewStorageReadmeTxt = "请将要发布的项目文件夹复制到该目录，然后点击界面的装载按钮。";
+
+        internal static string AppointFile = "";
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 有关程序集的一般信息由以下
@@ -34,8 +33,13 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.1.6")]
+[assembly: AssemblyVersion("1.0.1.7")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.1.6（2019年5月8日）
+// + 新增AppID标记
+// + 增加启动指定版本功能
+// + 增加下载新版本功能
 
 // v 1.0.1.6（2019年4月26日）
 // + 添加版本号反馈

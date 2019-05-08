@@ -1,9 +1,13 @@
 ﻿using Azylee.Core.AppUtils;
+using Azylee.Core.DataUtils.GuidUtils;
+using Azylee.Core.DataUtils.StringUtils;
 using Azylee.Core.IOUtils.DirUtils;
 using Azylee.Core.IOUtils.FileUtils;
 using Azylee.Core.IOUtils.TxtUtils;
 using Azylee.Core.LogUtils.SimpleLogUtils;
 using Azylee.Core.LogUtils.StatusLogUtils;
+using Azylee.Core.ProcessUtils;
+using Azylee.Core.ThreadUtils.SleepUtils;
 using Azylee.Core.WindowsUtils.APIUtils;
 using BigBirdDeployer.Commons;
 using BigBirdDeployer.Modules.PlanTaskModule;
@@ -23,6 +27,21 @@ namespace BigBirdDeployer
         [STAThread]
         static void Main()
         {
+            //启动自动运行指定最新版本
+            string appoint_name = IniTool.GetString(R.Files.Settings, "Appoint", "Name", "");
+            string appoint_md5 = IniTool.GetString(R.Files.Settings, "Appoint", "MD5", "");
+            if (Str.Ok(appoint_name, appoint_md5))
+            {
+                string file = DirTool.Combine(R.Paths.App, appoint_name);
+                if (File.Exists(file) && FileTool.GetMD5(file) == appoint_md5)
+                {
+                    if (!R.AppointName.Contains($"[{R.Version}]"))
+                    {
+                        if (ProcessTool.Start(file)) return;
+                    }
+                }
+            }
+
             //var a = FileTool.GetAllFile(@"F:\Temp\logs", new[] { "*.log"});
             //解决进程互斥
             if (!AppUnique.IsUnique(R.AppName)) return;
@@ -76,6 +95,13 @@ namespace BigBirdDeployer
             R.Tx.Port = IniTool.GetInt(R.Files.Settings, "Console", "Port", 0);
             R.Tx.LocalIP = IniTool.GetString(R.Files.Settings, "Local", "IP", "");
             R.Tx.LocalName = IniTool.GetString(R.Files.Settings, "Local", "Name", "");
+            R.AppID = IniTool.GetString(R.Files.Settings, "App", "ID", "");
+
+            if (!Str.Ok(R.AppID))
+            {
+                R.AppID = GuidTool.Short();
+                IniTool.Set(R.Files.Settings, "App", "ID", R.AppID);
+            }
 
             if (!File.Exists(R.Files.NewStorageReadme)) TxtTool.Create(R.Files.NewStorageReadme, R.NewStorageReadmeTxt);
         }

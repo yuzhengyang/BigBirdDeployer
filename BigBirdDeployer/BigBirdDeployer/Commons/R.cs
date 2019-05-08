@@ -17,8 +17,11 @@ namespace BigBirdDeployer.Commons
 {
     public static partial class R
     {
+        internal static string AppID = "";
         internal static string AppName = "BigBirdDeployer";
         internal static string AppNameCn = "    Java 服务启动管理工具";
+        internal static string AppointName = "";
+        internal static string AppointMD5 = "";
         internal static string Version = Application.ProductVersion;
         internal static DateTime StartTime = DateTime.Now;
         internal static string MachineName = Environment.MachineName;

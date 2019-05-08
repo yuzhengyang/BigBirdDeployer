@@ -7,6 +7,7 @@ namespace BigBird.Models.ProjectModels
 {
     public class ProjectStatusModel
     {
+        public string AppID { get; set; }
         public string Name { get; set; }
         public int Version { get; set; }
         public string IP { get; set; }

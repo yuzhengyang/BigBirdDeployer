@@ -269,6 +269,7 @@ namespace BigBirdDeployer.Parts
                                     //发送正常启动状态的项目信息
                                     ProjectStatusModel model = new ProjectStatusModel()
                                     {
+                                        AppID = R.AppID,
                                         IP = R.Tx.LocalIP,
                                         Port = Project.Port,
                                         Name = Project.Name,

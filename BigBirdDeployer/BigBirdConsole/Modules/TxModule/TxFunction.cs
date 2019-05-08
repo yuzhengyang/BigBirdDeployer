@@ -1,4 +1,5 @@
-﻿using Azylee.Jsons;
+﻿using Azylee.Core.IOUtils.BinaryUtils;
+using Azylee.Jsons;
 using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBird.Models.ProjectModels;
 using BigBird.Models.SystemModels;
@@ -6,8 +7,10 @@ using BigBirdConsole.Commons;
 using BigBirdConsole.Modules.TxConvertModule;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BigBirdConsole.Modules.TxModule
 {
@@ -53,6 +56,25 @@ namespace BigBirdConsole.Modules.TxModule
                             R.MainUI.txConsoleControl1.Write(host, model.Type, $"{data}");
                             break;
                         }
+                    //程序更新
+                    case 90001000:
+                        {
+                            Task.Factory.StartNew(() =>
+                            {
+                                try
+                                {
+                                    string fire = Json.Byte2Object<string>(model.Data);
+                                    if (File.Exists(R.AppointFile))
+                                    {
+                                        byte[] data = BinaryFileTool.read(R.AppointFile);
+                                        R.Tx.TcppServer.Write(host, 90002000, data);
+                                    }
+                                }
+                                catch { }
+                            });
+                        }
+                        break;
+                    case 90002000: { } break;
                     default:
                         R.MainUI.txConsoleControl1.Write(host, model.Type, $"{model.Data.Length}");
                         break;

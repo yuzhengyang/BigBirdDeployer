@@ -200,6 +200,7 @@ namespace BigBirdDeployer.Views
                             int appcpu = (int)AppInfoTool.CalcCpuRate(Process, ref beginTime, STATUS_INTERVAL);
                             string appram = ByteConvertTool.Fmt(AppInfoTool.RAM() * 1024);
 
+                            R.SystemStatus.AppID = R.AppID;
                             R.SystemStatus.Name = R.Tx.LocalName;
                             R.SystemStatus.IP = R.Tx.LocalIP;
                             R.SystemStatus.Cpu = (int)cpu;
@@ -227,12 +228,7 @@ namespace BigBirdDeployer.Views
         #region 菜单：右下角图标
         private void TSMIExit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                FormClosing -= MainForm_FormClosing;
-                Application.Exit();
-            }
-            catch { }
+            UIExitApp();
         }
         private void 显示主界面ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -259,6 +255,18 @@ namespace BigBirdDeployer.Views
                 }));
             }
             catch { }
+        }
+        public void UIExitApp()
+        {
+            Invoke(new Action(() =>
+            {
+                try
+                {
+                    FormClosing -= MainForm_FormClosing;
+                    Application.Exit();
+                }
+                catch { }
+            }));
         }
     }
 }
