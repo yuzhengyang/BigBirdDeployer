@@ -16,7 +16,7 @@ namespace BigBirdConsole.Controls
     {
         public ProjectListControl()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         /// <summary>
@@ -113,7 +113,10 @@ namespace BigBirdConsole.Controls
 
         private void TmMain_Tick(object sender, EventArgs e)
         {
-            SetStyle();
+            if (!DesignMode)
+            {
+                SetStyle();
+            }
         }
     }
 }

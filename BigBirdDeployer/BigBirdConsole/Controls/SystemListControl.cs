@@ -17,6 +17,7 @@ namespace BigBirdConsole.Controls
         public SystemListControl()
         {
             InitializeComponent();
+            if (!DesignMode) TmMain.Enabled = true;
         }
         /// <summary>
         /// 添加或更新记录
@@ -109,7 +110,10 @@ namespace BigBirdConsole.Controls
 
         private void TmMain_Tick(object sender, EventArgs e)
         {
-            SetStyle();
+            if (!DesignMode)
+            {
+                SetStyle();
+            }
         }
     }
 }
