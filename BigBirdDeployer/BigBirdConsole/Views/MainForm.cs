@@ -1,4 +1,5 @@
 ﻿using BigBirdConsole.Commons;
+using BigBirdConsole.Views.UpdateViews;
 using System;
 using System.Windows.Forms;
 
@@ -64,6 +65,10 @@ namespace BigBirdConsole.Views
                 Application.Exit();
             }
             catch { }
+        }
+        private void 分发更新ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new UpdateForm().ShowDialog();
         }
         #endregion
 

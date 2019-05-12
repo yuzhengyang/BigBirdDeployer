@@ -136,6 +136,12 @@
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateViews\UpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateViews\UpdateForm.Designer.cs">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\ProjectListControl.resx">
       <DependentUpon>ProjectListControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +163,9 @@
     </Compile>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UpdateViews\UpdateForm.resx">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Images\Logos\logo_1.psd" />

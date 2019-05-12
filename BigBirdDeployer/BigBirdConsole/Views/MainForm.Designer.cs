@@ -59,6 +59,7 @@
             this.CmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.显示主界面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.分发更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SsMain.SuspendLayout();
             this.MsMain.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -126,6 +127,8 @@
             // 
             // 工具ToolStripMenuItem
             // 
+            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.分发更新ToolStripMenuItem});
             this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
             this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.工具ToolStripMenuItem.Text = "工具";
@@ -295,6 +298,13 @@
             this.退出程序ToolStripMenuItem.Text = "退出程序";
             this.退出程序ToolStripMenuItem.Click += new System.EventHandler(this.退出程序ToolStripMenuItem_Click);
             // 
+            // 分发更新ToolStripMenuItem
+            // 
+            this.分发更新ToolStripMenuItem.Name = "分发更新ToolStripMenuItem";
+            this.分发更新ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.分发更新ToolStripMenuItem.Text = "分发更新";
+            this.分发更新ToolStripMenuItem.Click += new System.EventHandler(this.分发更新ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -355,5 +365,6 @@
         private System.Windows.Forms.ContextMenuStrip CmsMain;
         private System.Windows.Forms.ToolStripMenuItem 显示主界面ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出程序ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 分发更新ToolStripMenuItem;
     }
 }

@@ -14,6 +14,7 @@ using BigBirdDeployer.Modules.PlanTaskModule;
 using BigBirdDeployer.Views;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BigBirdDeployer
@@ -27,15 +28,20 @@ namespace BigBirdDeployer
         [STAThread]
         static void Main()
         {
+            //taskkill /IM BigBirdDeployer-1.exe /F
             //启动自动运行指定最新版本
             string appoint_name = IniTool.GetString(R.Files.Settings, "Appoint", "Name", "");
             string appoint_md5 = IniTool.GetString(R.Files.Settings, "Appoint", "MD5", "");
+            string current_file = Path.GetFileName(R.Files.App);
             if (Str.Ok(appoint_name, appoint_md5))
             {
                 string file = DirTool.Combine(R.Paths.App, appoint_name);
                 if (File.Exists(file) && FileTool.GetMD5(file) == appoint_md5)
                 {
-                    if (!R.AppointName.Contains($"[{R.Version}]"))
+                    R.Log.V($"appoint:{appoint_name}   current:{current_file}");
+                    R.Log.V($"appoint:{file}   current:{R.Files.App}");
+
+                    if (appoint_name != current_file)
                     {
                         if (ProcessTool.Start(file)) return;
                     }
