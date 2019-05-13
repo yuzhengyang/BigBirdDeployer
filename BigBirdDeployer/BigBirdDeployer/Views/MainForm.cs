@@ -268,5 +268,23 @@ namespace BigBirdDeployer.Views
                 catch { }
             }));
         }
+
+        private void TMMain_Tick(object sender, EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                try
+                {
+                    string notify = "";
+                    notify += $"BigBirdDeployer [{R.Version}]{Environment.NewLine}";
+                    notify += $"{(R.Tx.IsConnect ? "已连接" : "未连接")}{Environment.NewLine}";
+                    notify += $"{Environment.NewLine}";
+                    notify += $"LocalIP : [{R.Tx.LocalIP}]";
+
+                    NIMain.Text = notify;
+                }
+                catch { }
+            }
+        }
     }
 }

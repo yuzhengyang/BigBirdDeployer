@@ -94,6 +94,7 @@
             this.LBVersion = new System.Windows.Forms.Label();
             this.LBStatus = new System.Windows.Forms.Label();
             this.PNContainer = new System.Windows.Forms.Panel();
+            this.TMMain = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -688,19 +689,19 @@
             this.显示主界面ToolStripMenuItem,
             this.TSMIExit});
             this.CMSMain.Name = "CMSMain";
-            this.CMSMain.Size = new System.Drawing.Size(153, 70);
+            this.CMSMain.Size = new System.Drawing.Size(137, 48);
             // 
             // 显示主界面ToolStripMenuItem
             // 
             this.显示主界面ToolStripMenuItem.Name = "显示主界面ToolStripMenuItem";
-            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.显示主界面ToolStripMenuItem.Text = "显示主界面";
             this.显示主界面ToolStripMenuItem.Click += new System.EventHandler(this.显示主界面ToolStripMenuItem_Click);
             // 
             // TSMIExit
             // 
             this.TSMIExit.Name = "TSMIExit";
-            this.TSMIExit.Size = new System.Drawing.Size(152, 22);
+            this.TSMIExit.Size = new System.Drawing.Size(136, 22);
             this.TSMIExit.Text = "退出程序";
             this.TSMIExit.Click += new System.EventHandler(this.TSMIExit_Click);
             // 
@@ -750,6 +751,12 @@
             this.PNContainer.Name = "PNContainer";
             this.PNContainer.Size = new System.Drawing.Size(775, 443);
             this.PNContainer.TabIndex = 7;
+            // 
+            // TMMain
+            // 
+            this.TMMain.Enabled = true;
+            this.TMMain.Interval = 5000;
+            this.TMMain.Tick += new System.EventHandler(this.TMMain_Tick);
             // 
             // MainForm
             // 
@@ -850,5 +857,6 @@
         private System.Windows.Forms.TextBox TBLocalName;
         private System.Windows.Forms.TextBox TBLocalIP;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer TMMain;
     }
 }

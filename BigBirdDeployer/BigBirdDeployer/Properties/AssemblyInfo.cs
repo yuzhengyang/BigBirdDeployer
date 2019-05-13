@@ -33,10 +33,13 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.1.7")]
+[assembly: AssemblyVersion("1.0.1.8")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
 
-// v 1.0.1.6（2019年5月8日）
+// v 1.0.1.8（2019年5月13日）
+// + 添加右下角图标显示信息
+
+// v 1.0.1.7（2019年5月13日）
 // + 新增AppID标记
 // + 增加启动指定版本功能
 // + 增加下载新版本功能

@@ -57,6 +57,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BtnUpdate);
             this.Name = "UpdateForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateForm";
             this.ResumeLayout(false);
             this.PerformLayout();
