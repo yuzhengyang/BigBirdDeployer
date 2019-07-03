@@ -24,6 +24,7 @@ using BigBird.Models.ProjectModels;
 using BigBird.Models.WorkModels;
 using BigBirdDeployer.Modules.TxModule;
 using Azylee.Core.ThreadUtils.SleepUtils;
+using BigBirdDeployer.Modules.CMDModule;
 
 namespace BigBirdDeployer.Parts
 {

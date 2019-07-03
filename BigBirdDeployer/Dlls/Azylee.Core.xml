@@ -3946,6 +3946,24 @@
             </summary>
             <param name="screen">阻止息屏</param>
         </member>
+        <member name="T:Azylee.Core.WindowsUtils.APIUtils.WallpaperUtils.WallpaperTool">
+            <summary>
+            系统桌面壁纸工具类
+            </summary>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.APIUtils.WallpaperUtils.WallpaperTool.Get">
+            <summary>
+            获取当前桌面壁纸路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.APIUtils.WallpaperUtils.WallpaperTool.Set(System.String)">
+            <summary>
+            设置当前桌面背景
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
         <member name="M:Azylee.Core.WindowsUtils.APIUtils.WindowsAPI.GetLastInputTime">
             <summary>
             获取计算机无操作时间
@@ -4003,237 +4021,237 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues">
+        <member name="T:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues">
             <summary>Values to pass to the GetDCEx method.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.Window">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.Window">
             <summary>DCX_WINDOW: Returns a DC that corresponds to the window rectangle rather
             than the client rectangle.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.Cache">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.Cache">
             <summary>DCX_CACHE: Returns a DC from the cache, rather than the OWNDC or CLASSDC
             window. Essentially overrides CS_OWNDC and CS_CLASSDC.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.NoResetAttrs">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.NoResetAttrs">
             <summary>DCX_NORESETATTRS: Does not reset the attributes of this DC to the
             default attributes when this DC is released.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.ClipChildren">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.ClipChildren">
             <summary>DCX_CLIPCHILDREN: Excludes the visible regions of all child windows
             below the window identified by hWnd.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.ClipSiblings">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.ClipSiblings">
             <summary>DCX_CLIPSIBLINGS: Excludes the visible regions of all sibling windows
             above the window identified by hWnd.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.ParentClip">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.ParentClip">
             <summary>DCX_PARENTCLIP: Uses the visible region of the parent window. The
             parent's WS_CLIPCHILDREN and CS_PARENTDC style bits are ignored. The origin is
             set to the upper-left corner of the window identified by hWnd.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.ExcludeRgn">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.ExcludeRgn">
             <summary>DCX_EXCLUDERGN: The clipping region identified by hrgnClip is excluded
             from the visible region of the returned DC.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.IntersectRgn">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.IntersectRgn">
             <summary>DCX_INTERSECTRGN: The clipping region identified by hrgnClip is
             intersected with the visible region of the returned DC.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.ExcludeUpdate">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.ExcludeUpdate">
             <summary>DCX_EXCLUDEUPDATE: Unknown...Undocumented</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.IntersectUpdate">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.IntersectUpdate">
             <summary>DCX_INTERSECTUPDATE: Unknown...Undocumented</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.LockWindowUpdate">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.LockWindowUpdate">
             <summary>DCX_LOCKWINDOWUPDATE: Allows drawing even if there is a LockWindowUpdate
             call in effect that would otherwise exclude this window. Used for drawing during
             tracking.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.UseStyle">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.UseStyle">
             <summary>DCX_USESTYLE: Undocumented, something related to WM_NCPAINT message.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.DeviceContextValues.Validate">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.DeviceContextValues.Validate">
             <summary>DCX_VALIDATE When specified with DCX_INTERSECTUPDATE, causes the DC to
             be completely validated. Using this function with both DCX_INTERSECTUPDATE and
             DCX_VALIDATE is identical to using the BeginPaint function.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.Invalidate">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.Invalidate">
             <summary>
             Invalidates the rectangle or region that you specify in lprcUpdate or hrgnUpdate.
             You can set only one of these parameters to a non-NULL value. If both are NULL, RDW_INVALIDATE invalidates the entire window.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.InternalPaint">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.InternalPaint">
             <summary>Causes the OS to post a WM_PAINT message to the window regardless of whether a portion of the window is invalid.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.Erase">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.Erase">
             <summary>
             Causes the window to receive a WM_ERASEBKGND message when the window is repainted.
             Specify this value in combination with the RDW_INVALIDATE value; otherwise, RDW_ERASE has no effect.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.Validate">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.Validate">
             <summary>
             Validates the rectangle or region that you specify in lprcUpdate or hrgnUpdate.
             You can set only one of these parameters to a non-NULL value. If both are NULL, RDW_VALIDATE validates the entire window.
             This value does not affect internal WM_PAINT messages.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.NoErase">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.NoErase">
             <summary>Suppresses any pending WM_ERASEBKGND messages.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.NoChildren">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.NoChildren">
             <summary>Excludes child windows, if any, from the repainting operation.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.AllChildren">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.AllChildren">
             <summary>Includes child windows, if any, in the repainting operation.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.UpdateNow">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.UpdateNow">
             <summary>Causes the affected windows, which you specify by setting the RDW_ALLCHILDREN and RDW_NOCHILDREN values, to receive WM_ERASEBKGND and WM_PAINT messages before the RedrawWindow returns, if necessary.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.RedrawWindowFlags.EraseNow">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.RedrawWindowFlags.EraseNow">
             <summary>
             Causes the affected windows, which you specify by setting the RDW_ALLCHILDREN and RDW_NOCHILDREN values, to receive WM_ERASEBKGND messages before RedrawWindow returns, if necessary.
             The affected windows receive WM_PAINT messages at the ordinary time.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.AsynWindowPos">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.AsynWindowPos">
             <summary>If the calling thread and the thread that owns the window are attached to different input queues,
             the system posts the request to the thread that owns the window. This prevents the calling thread from
             blocking its execution while other threads process the request.</summary>
             <remarks>SWP_ASYNCWINDOWPOS</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.DeferErase">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.DeferErase">
             <summary>Prevents generation of the WM_SYNCPAINT message.</summary>
             <remarks>SWP_DEFERERASE</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.DrawFrame">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.DrawFrame">
             <summary>Draws a frame (defined in the window's class description) around the window.</summary>
             <remarks>SWP_DRAWFRAME</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.FrameChanged">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.FrameChanged">
             <summary>Applies new frame styles set using the SetWindowLong function. Sends a WM_NCCALCSIZE message to
             the window, even if the window's size is not being changed. If this flag is not specified, WM_NCCALCSIZE
             is sent only when the window's size is being changed.</summary>
             <remarks>SWP_FRAMECHANGED</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.HideWindow">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.HideWindow">
             <summary>Hides the window.</summary>
             <remarks>SWP_HIDEWINDOW</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoActivate">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoActivate">
             <summary>Does not activate the window. If this flag is not set, the window is activated and moved to the
             top of either the topmost or non-topmost group (depending on the setting of the hWndInsertAfter
             parameter).</summary>
             <remarks>SWP_NOACTIVATE</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoCopyBits">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoCopyBits">
             <summary>Discards the entire contents of the client area. If this flag is not specified, the valid
             contents of the client area are saved and copied back into the client area after the window is sized or
             repositioned.</summary>
             <remarks>SWP_NOCOPYBITS</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoMove">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoMove">
             <summary>Retains the current position (ignores X and Y parameters).</summary>
             <remarks>SWP_NOMOVE</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoOwnerZOrder">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoOwnerZOrder">
             <summary>Does not change the owner window's position in the Z order.</summary>
             <remarks>SWP_NOOWNERZORDER</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoRedraw">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoRedraw">
             <summary>Does not redraw changes. If this flag is set, no repainting of any kind occurs. This applies to
             the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent
             window uncovered as a result of the window being moved. When this flag is set, the application must
             explicitly invalidate or redraw any parts of the window and parent window that need redrawing.</summary>
             <remarks>SWP_NOREDRAW</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoReposition">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoReposition">
             <summary>Same as the SWP_NOOWNERZORDER flag.</summary>
             <remarks>SWP_NOREPOSITION</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoSendChanging">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoSendChanging">
             <summary>Prevents the window from receiving the WM_WINDOWPOSCHANGING message.</summary>
             <remarks>SWP_NOSENDCHANGING</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoSize">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoSize">
             <summary>Retains the current size (ignores the cx and cy parameters).</summary>
             <remarks>SWP_NOSIZE</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.NoZOrder">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.NoZOrder">
             <summary>Retains the current Z order (ignores the hWndInsertAfter parameter).</summary>
             <remarks>SWP_NOZORDER</remarks>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowPosFlags.ShowWindow">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowPosFlags.ShowWindow">
             <summary>Displays the window.</summary>
             <remarks>SWP_SHOWWINDOW</remarks>
         </member>
-        <member name="T:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles">
+        <member name="T:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles">
             <summary>
             Window Styles.
             The following styles can be specified wherever a window style is required. After the control has been created, these styles cannot be modified, except as noted.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_BORDER">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_BORDER">
             <summary>The window has a thin-line border.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_CAPTION">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_CAPTION">
             <summary>The window has a title bar (includes the WS_BORDER style).</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_CHILD">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_CHILD">
             <summary>The window is a child window. A window with this style cannot have a menu bar. This style cannot be used with the WS_POPUP style.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_CLIPCHILDREN">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_CLIPCHILDREN">
             <summary>Excludes the area occupied by child windows when drawing occurs within the parent window. This style is used when creating the parent window.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_CLIPSIBLINGS">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_CLIPSIBLINGS">
             <summary>
             Clips child windows relative to each other; that is, when a particular child window receives a WM_PAINT message, the WS_CLIPSIBLINGS style clips all other overlapping child windows out of the region of the child window to be updated.
             If WS_CLIPSIBLINGS is not specified and child windows overlap, it is possible, when drawing within the client area of a child window, to draw within the client area of a neighboring child window.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_DISABLED">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_DISABLED">
             <summary>The window is initially disabled. A disabled window cannot receive input from the user. To change this after a window has been created, use the EnableWindow function.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_DLGFRAME">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_DLGFRAME">
             <summary>The window has a border of a style typically used with dialog boxes. A window with this style cannot have a title bar.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_GROUP">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_GROUP">
             <summary>
             The window is the first control of a group of controls. The group consists of this first control and all controls defined after it, up to the next control with the WS_GROUP style.
             The first control in each group usually has the WS_TABSTOP style so that the user can move from group to group. The user can subsequently change the keyboard focus from one control in the group to the next control in the group by using the direction keys.
             You can turn this style on and off to change dialog box navigation. To change this style after a window has been created, use the SetWindowLong function.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_HSCROLL">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_HSCROLL">
             <summary>The window has a horizontal scroll bar.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_MAXIMIZE">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_MAXIMIZE">
             <summary>The window is initially maximized.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_MAXIMIZEBOX">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_MAXIMIZEBOX">
             <summary>The window has a maximize button. Cannot be combined with the WS_EX_CONTEXTHELP style. The WS_SYSMENU style must also be specified.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_MINIMIZE">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_MINIMIZE">
             <summary>The window is initially minimized.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_MINIMIZEBOX">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_MINIMIZEBOX">
             <summary>The window has a minimize button. Cannot be combined with the WS_EX_CONTEXTHELP style. The WS_SYSMENU style must also be specified.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_OVERLAPPED">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_OVERLAPPED">
             <summary>The window is an overlapped window. An overlapped window has a title bar and a border.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_POPUP">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_POPUP">
             <summary>The window is a pop-up window. This style cannot be used with the WS_CHILD style.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_SIZEFRAME">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_SIZEFRAME">
             <summary>The window has a sizing border.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_SYSMENU">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_SYSMENU">
             <summary>The window has a window menu on its title bar. The WS_CAPTION style must also be specified.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_TABSTOP">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_TABSTOP">
             <summary>
             The window is a control that can receive the keyboard focus when the user presses the TAB key.
             Pressing the TAB key changes the keyboard focus to the next control with the WS_TABSTOP style.
@@ -4241,148 +4259,148 @@
             For user-created windows and modeless dialogs to work with tab stops, alter the message loop to call the IsDialogMessage function.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_VISIBLE">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_VISIBLE">
             <summary>The window is initially visible. This style can be turned on and off by using the ShowWindow or SetWindowPos function.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStyles.WS_VSCROLL">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStyles.WS_VSCROLL">
             <summary>The window has a vertical scroll bar.</summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_ACCEPTFILES">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_ACCEPTFILES">
             <summary>
             Specifies that a window created with this style accepts drag-drop files.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_APPWINDOW">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_APPWINDOW">
             <summary>
             Forces a top-level window onto the taskbar when the window is visible.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_CLIENTEDGE">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_CLIENTEDGE">
             <summary>
             Specifies that a window has a border with a sunken edge.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_COMPOSITED">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_COMPOSITED">
             <summary>
             Windows XP: Paints all descendants of a window in bottom-to-top painting order using double-buffering. For more information, see Remarks. This cannot be used if the window has a class style of either CS_OWNDC or CS_CLASSDC.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_CONTEXTHELP">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_CONTEXTHELP">
             <summary>
             Includes a question mark in the title bar of the window. When the user clicks the question mark, the cursor changes to a question mark with a pointer. If the user then clicks a child window, the child receives a WM_HELP message. The child window should pass the message to the parent window procedure, which should call the WinHelp function using the HELP_WM_HELP command. The Help application displays a pop-up window that typically contains help for the child window.
             WS_EX_CONTEXTHELP cannot be used with the WS_MAXIMIZEBOX or WS_MINIMIZEBOX styles.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_CONTROLPARENT">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_CONTROLPARENT">
             <summary>
             The window itself contains child windows that should take part in dialog box navigation. If this style is specified, the dialog manager recurses into children of this window when performing navigation operations such as handling the TAB key, an arrow key, or a keyboard mnemonic.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_DLGMODALFRAME">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_DLGMODALFRAME">
             <summary>
             Creates a window that has a double border; the window can, optionally, be created with a title bar by specifying the WS_CAPTION style in the dwStyle parameter.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_LAYERED">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_LAYERED">
             <summary>
             Windows 2000/XP: Creates a layered window. Note that this cannot be used for child windows. Also, this cannot be used if the window has a class style of either CS_OWNDC or CS_CLASSDC.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_LAYOUTRTL">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_LAYOUTRTL">
             <summary>
             Arabic and Hebrew versions of Windows 98/Me, Windows 2000/XP: Creates a window whose horizontal origin is on the right edge. Increasing horizontal values advance to the left.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_LEFT">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_LEFT">
             <summary>
             Creates a window that has generic left-aligned properties. This is the default.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_LEFTSCROLLBAR">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_LEFTSCROLLBAR">
             <summary>
             If the shell language is Hebrew, Arabic, or another language that supports reading order alignment, the vertical scroll bar (if present) is to the left of the client area. For other languages, the style is ignored.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_LTRREADING">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_LTRREADING">
             <summary>
             The window text is displayed using left-to-right reading-order properties. This is the default.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_MDICHILD">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_MDICHILD">
             <summary>
             Creates a multiple-document interface (MDI) child window.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_NOACTIVATE">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_NOACTIVATE">
             <summary>
             Windows 2000/XP: A top-level window created with this style does not become the foreground window when the user clicks it. The system does not bring this window to the foreground when the user minimizes or closes the foreground window.
             To activate the window, use the SetActiveWindow or SetForegroundWindow function.
             The window does not appear on the taskbar by default. To force the window to appear on the taskbar, use the WS_EX_APPWINDOW style.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_NOINHERITLAYOUT">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_NOINHERITLAYOUT">
             <summary>
             Windows 2000/XP: A window created with this style does not pass its window layout to its child windows.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_NOPARENTNOTIFY">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_NOPARENTNOTIFY">
             <summary>
             Specifies that a child window created with this style does not send the WM_PARENTNOTIFY message to its parent window when it is created or destroyed.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_OVERLAPPEDWINDOW">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_OVERLAPPEDWINDOW">
             <summary>
             Combines the WS_EX_CLIENTEDGE and WS_EX_WINDOWEDGE styles.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_PALETTEWINDOW">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_PALETTEWINDOW">
             <summary>
             Combines the WS_EX_WINDOWEDGE, WS_EX_TOOLWINDOW, and WS_EX_TOPMOST styles.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_RIGHT">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_RIGHT">
             <summary>
             The window has generic "right-aligned" properties. This depends on the window class. This style has an effect only if the shell language is Hebrew, Arabic, or another language that supports reading-order alignment; otherwise, the style is ignored.
             Using the WS_EX_RIGHT style for static or edit controls has the same effect as using the SS_RIGHT or ES_RIGHT style, respectively. Using this style with button controls has the same effect as using BS_RIGHT and BS_RIGHTBUTTON styles.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_RIGHTSCROLLBAR">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_RIGHTSCROLLBAR">
             <summary>
             Vertical scroll bar (if present) is to the right of the client area. This is the default.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_RTLREADING">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_RTLREADING">
             <summary>
             If the shell language is Hebrew, Arabic, or another language that supports reading-order alignment, the window text is displayed using right-to-left reading-order properties. For other languages, the style is ignored.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_STATICEDGE">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_STATICEDGE">
             <summary>
             Creates a window with a three-dimensional border style intended to be used for items that do not accept user input.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_TOOLWINDOW">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_TOOLWINDOW">
             <summary>
             Creates a tool window; that is, a window intended to be used as a floating toolbar. A tool window has a title bar that is shorter than a normal title bar, and the window title is drawn using a smaller font. A tool window does not appear in the taskbar or in the dialog that appears when the user presses ALT+TAB. If a tool window has a system menu, its icon is not displayed on the title bar. However, you can display the system menu by right-clicking or by typing ALT+SPACE.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_TOPMOST">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_TOPMOST">
             <summary>
             Specifies that a window created with this style should be placed above all non-topmost windows and should stay above them, even when the window is deactivated. To add or remove this style, use the SetWindowPos function.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_TRANSPARENT">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_TRANSPARENT">
             <summary>
             Specifies that a window created with this style should not be painted until siblings beneath the window (that were created by the same thread) have been painted. The window appears transparent because the bits of underlying sibling windows have already been painted.
             To achieve transparency without these restrictions, use the SetWindowRgn function.
             </summary>
         </member>
-        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowStylesEx.WS_EX_WINDOWEDGE">
+        <member name="F:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowStylesEx.WS_EX_WINDOWEDGE">
             <summary>
             Specifies that a window has a border with a raised edge.
             </summary>
         </member>
-        <member name="M:Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.SetWindowLong(System.IntPtr,Azylee.Core.WindowsUtils.APIUtils.WindowsDrawerAPI.WindowLongFlags,System.Int32)">
+        <member name="M:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.SetWindowLong(System.IntPtr,Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawAPI.WindowLongFlags,System.Int32)">
             <summary>
             Changes an attribute of the specified window. The function also sets the 32-bit (long) value at the specified offset into the extra window memory.
             </summary>
@@ -4391,6 +4409,31 @@
             <param name="dwNewLong">The replacement value.</param>
             <returns>If the function succeeds, the return value is the previous value of the specified 32-bit integer.
             If the function fails, the return value is zero. To get extended error information, call GetLastError. </returns>
+        </member>
+        <member name="T:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawTool">
+            <summary>
+            桌面绘制工具
+            </summary>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawTool.Paint(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            将图片绘制到桌面上
+            </summary>
+            <param name="file"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:Azylee.Core.WindowsUtils.APIUtils.WinDrawUtils.WindowsDrawTool.Paint(System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            将图片绘制到桌面上
+            </summary>
+            <param name="image"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
         </member>
         <member name="M:Azylee.Core.WindowsUtils.APIUtils.WindowsHotKeyAPI.RegisterHotKey(System.IntPtr,System.Int32,Azylee.Core.WindowsUtils.APIUtils.WindowsHotKeyAPI.KeyModifiers,System.Windows.Forms.Keys)">
             <summary>
@@ -4469,6 +4512,11 @@
             <param name="count">需要的端口号个数</param>
             <param name="start">起始端口</param>
             <returns></returns>
+        </member>
+        <member name="T:Azylee.Core.WindowsUtils.CMDUtils.CMDProcessTool">
+            <summary>
+            CMD进程启动工具
+            </summary>
         </member>
         <member name="M:Azylee.Core.WindowsUtils.CMDUtils.CMDProcessTool.GetProcess(System.String,Azylee.Core.WindowsUtils.AdminUtils.WindowsAccountModel)">
             <summary>

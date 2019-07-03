@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="Modules\CleanerModule\LogCleaner.cs" />
     <Compile Include="Modules\CleanerModule\VersionCleaner.cs" />
+    <Compile Include="Modules\CMDModule\CMDHelper.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskCore.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskM1.cs" />
     <Compile Include="Modules\PlanTaskModule\PlanTaskM10.cs" />
@@ -158,7 +159,9 @@
       <DependentUpon>ProjectConsoleForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\app.manifest" />
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
