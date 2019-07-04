@@ -25,12 +25,13 @@ using BigBird.Models.WorkModels;
 using BigBirdDeployer.Modules.TxModule;
 using Azylee.Core.ThreadUtils.SleepUtils;
 using BigBirdDeployer.Modules.CMDModule;
+using Azylee.Core.NetUtils;
 
 namespace BigBirdDeployer.Parts
 {
     public partial class ProjectItemPart : UserControl
     {
-        const int STATUS_INTERVAL = 2500;//刷新状态时间间隔
+        const int STATUS_INTERVAL = 3000;//刷新状态时间间隔
         private DateTime StartTime { get; set; }
         private WorkStatus Status { get; set; }
         private ProjectModel Project { get; set; }
@@ -142,20 +143,34 @@ namespace BigBirdDeployer.Parts
         {
             try
             {
-                var pid = CMDNetstatTool.FindByPort(Project.Port, false);
-                if (ListTool.HasElements(pid))
+                int pid = NetProcessTool.GetPidByPort(Project.Port);
+                var p = Process.GetProcessById(pid);
+                if (p != null)
                 {
-                    var p = Process.GetProcessById(pid.First().Item2);
-                    if (p != null)
-                    {
-                        Process = p;
-                        return true;
-                    }
+                    Process = p;
+                    return true;
                 }
             }
             catch { }
             Process = null;
             return false;
+
+            //try
+            //{
+            //    var pid = CMDNetstatTool.FindByPort(Project.Port, false);
+            //    if (ListTool.HasElements(pid))
+            //    {
+            //        var p = Process.GetProcessById(pid.First().Item2);
+            //        if (p != null)
+            //        {
+            //            Process = p;
+            //            return true;
+            //        }
+            //    }
+            //}
+            //catch { }
+            //Process = null;
+            //return false;
         }
         /// <summary>
         /// 根据工程设置启动服务

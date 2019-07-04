@@ -139,8 +139,18 @@ namespace BigBirdDeployer.Modules.TxModule
                             {
                                 IniTool.Set(R.Files.Settings, "Appoint", "Name", R.AppointName);
                                 IniTool.Set(R.Files.Settings, "Appoint", "MD5", R.AppointMD5);
-                                ProcessTool.Start(R.Files.App);
-                                R.MainUI.UIExitApp();
+
+                                // 判断文件存在，并且MD5相符，则退出并运行新版本（否则删除不一致文件）
+                                if (File.Exists(DirTool.Combine(R.Paths.App, R.AppointName)) && 
+                                    FileTool.GetMD5(DirTool.Combine(R.Paths.App, R.AppointName)) == R.AppointMD5)
+                                {
+                                    ProcessTool.Start(R.Files.App);
+                                    R.MainUI.UIExitApp();
+                                }
+                                else
+                                {
+                                    FileTool.Delete(DirTool.Combine(R.Paths.App, R.AppointName));
+                                }
                             }
                         }
                     }

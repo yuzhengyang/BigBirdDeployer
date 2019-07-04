@@ -6,6 +6,7 @@ using Azylee.YeahWeb.SocketUtils.TcpUtils;
 using BigBird.Models.ProjectModels;
 using BigBird.Models.SystemModels;
 using BigBirdConsole.Modules.TxModule;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace BigBirdConsole.Commons
                 {
                     if (Str.Ok(status.IP))
                     {
+                        status.CreateTime = DateTime.Now;
                         if (R.Store.SystemStatus.TryGetValue(status.IP, out SystemStatusModel _status))
                         {
                             bool a = R.Store.SystemStatus.TryUpdate(status.IP, status, _status);
@@ -42,6 +44,7 @@ namespace BigBirdConsole.Commons
                 {
                     if (Str.Ok(status.IP, status.Port.ToString()))
                     {
+                        status.CreateTime = DateTime.Now;
                         string key = $"{status.IP}-{status.Port}";
                         if (R.Store.ProjectStatus.TryGetValue(key, out ProjectStatusModel _status))
                         {

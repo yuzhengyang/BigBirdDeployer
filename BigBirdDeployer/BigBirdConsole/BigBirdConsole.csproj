@@ -167,7 +167,6 @@
     <EmbeddedResource Include="Views\UpdateViews\UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
     <None Include="Images\Logos\logo_1.psd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

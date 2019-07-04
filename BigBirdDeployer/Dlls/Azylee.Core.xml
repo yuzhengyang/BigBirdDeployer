@@ -2005,6 +2005,25 @@
             <param name="raw"><b>true</b> if the returned string should ony contain the raw bytes, <b>false</b> if the returned string should also contain a hexadecimal representation.</param>
             <returns>An instance of the <see cref="T:System.String"/> class.</returns>
         </member>
+        <member name="M:Azylee.Core.NetUtils.NetProcessTool.GetTcps">
+            <summary>
+            获取本机所有TCP连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.NetUtils.NetProcessTool.GetUdps">
+            <summary>
+            获取本机所有UDP连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Azylee.Core.NetUtils.NetProcessTool.GetPidByPort(System.Int32)">
+            <summary>
+            根据端口号获取进程ID
+            </summary>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
         <member name="T:Azylee.Core.NetUtils.NetcardControlTool">
             <summary>
             网卡设备操作工具
