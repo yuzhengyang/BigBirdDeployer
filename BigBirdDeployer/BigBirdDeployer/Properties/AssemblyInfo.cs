@@ -33,12 +33,15 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.2.0")]
+[assembly: AssemblyVersion("1.0.2.1")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.2.1（2019年8月14日）
+// @ 优化进程检测（已大幅降低CPU占用）
 
 // v 1.0.2.0（2019年7月4日）
 // @ 优化更新文件的MD5检查
-// @ 优化端口号与进程号检查方法（此方法导致CPU占用高）
+// @ 优化端口号与进程号检查方法（原方法导致CPU占用高）
 
 // v 1.0.1.9（2019年7月1日）
 // @ 优化CMD调用输入输出处理

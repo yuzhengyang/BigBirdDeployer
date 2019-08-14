@@ -31,6 +31,7 @@ namespace BigBirdDeployer.Parts
 {
     public partial class ProjectItemPart : UserControl
     {
+        private long ProcessRefreshCount = 0;
         const int STATUS_INTERVAL = 3000;//刷新状态时间间隔
         private DateTime StartTime { get; set; }
         private WorkStatus Status { get; set; }
@@ -143,34 +144,30 @@ namespace BigBirdDeployer.Parts
         {
             try
             {
-                int pid = NetProcessTool.GetPidByPort(Project.Port);
-                var p = Process.GetProcessById(pid);
-                if (p != null)
+                if (Process != null && !Process.HasExited && Process.Id > 0)
                 {
-                    Process = p;
-                    return true;
+                    //进程存在，无需重新获取进程对象
+                  return true;
+                }
+                else
+                {
+                    int pid = NetProcessTool.GetPidByPort(Project.Port);
+                    if (pid > 0)
+                    {
+                        var p = Process.GetProcessById(pid);
+                        if (p != null)
+                        {
+                            //进程异常，重新获取进程对象信息
+                            ProcessRefreshCount++;
+                            Process = p;
+                            return true;
+                        }
+                    }
                 }
             }
             catch { }
             Process = null;
             return false;
-
-            //try
-            //{
-            //    var pid = CMDNetstatTool.FindByPort(Project.Port, false);
-            //    if (ListTool.HasElements(pid))
-            //    {
-            //        var p = Process.GetProcessById(pid.First().Item2);
-            //        if (p != null)
-            //        {
-            //            Process = p;
-            //            return true;
-            //        }
-            //    }
-            //}
-            //catch { }
-            //Process = null;
-            //return false;
         }
         /// <summary>
         /// 根据工程设置启动服务
