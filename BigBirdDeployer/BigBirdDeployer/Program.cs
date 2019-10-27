@@ -101,6 +101,7 @@ namespace BigBirdDeployer
             R.Tx.Port = IniTool.GetInt(R.Files.Settings, "Console", "Port", 0);
             R.Tx.LocalIP = IniTool.GetString(R.Files.Settings, "Local", "IP", "");
             R.Tx.LocalName = IniTool.GetString(R.Files.Settings, "Local", "Name", "");
+            R.IsAutoDeleteExpiredLog = IniTool.GetBool(R.Files.Settings, "Settings", "AutoDeleteExpiredLog", false);
             R.AppID = IniTool.GetString(R.Files.Settings, "App", "ID", "");
 
             if (!Str.Ok(R.AppID))

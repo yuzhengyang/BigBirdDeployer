@@ -126,7 +126,7 @@
             this.LBAppSize.Name = "LBAppSize";
             this.LBAppSize.Size = new System.Drawing.Size(53, 12);
             this.LBAppSize.TabIndex = 12;
-            this.LBAppSize.Text = "1,177 KB";
+            this.LBAppSize.Text = "1,178 KB";
             // 
             // LBVersion
             // 
@@ -136,7 +136,7 @@
             this.LBVersion.Name = "LBVersion";
             this.LBVersion.Size = new System.Drawing.Size(47, 12);
             this.LBVersion.TabIndex = 11;
-            this.LBVersion.Text = "1.0.2.1";
+            this.LBVersion.Text = "1.0.2.2";
             // 
             // LBUpdateTime
             // 
@@ -144,9 +144,9 @@
             this.LBUpdateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.LBUpdateTime.Location = new System.Drawing.Point(119, 80);
             this.LBUpdateTime.Name = "LBUpdateTime";
-            this.LBUpdateTime.Size = new System.Drawing.Size(83, 12);
+            this.LBUpdateTime.Size = new System.Drawing.Size(89, 12);
             this.LBUpdateTime.TabIndex = 10;
-            this.LBUpdateTime.Text = "2019年8月14日";
+            this.LBUpdateTime.Text = "2019年10月27日";
             // 
             // BTConfirm
             // 

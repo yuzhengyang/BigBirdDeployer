@@ -41,6 +41,7 @@ namespace BigBirdDeployer.Views
             TBConsolePort.Text = R.Tx.Port == 0 ? "" : $"{R.Tx.Port}";
             TBLocalIP.Text = R.Tx.LocalIP;
             TBLocalName.Text = R.Tx.LocalName;
+            CBAutoDeleteExpiredLog.Checked = R.IsAutoDeleteExpiredLog;
             TaskOfStatus();
             TxHelper.Connect();
         }
@@ -120,6 +121,11 @@ namespace BigBirdDeployer.Views
                 R.Tx.LocalName = TBLocalName.Text;
                 IniTool.Set(R.Files.Settings, "Local", "Name", R.Tx.LocalName);
             }
+
+
+            R.IsAutoDeleteExpiredLog = CBAutoDeleteExpiredLog.Checked;
+            IniTool.Set(R.Files.Settings, "Settings", "AutoDeleteExpiredLog", R.IsAutoDeleteExpiredLog);
+
             return flag;
         }
         #endregion
@@ -176,6 +182,13 @@ namespace BigBirdDeployer.Views
                 }
             }
             catch { }
+        }
+
+        private void LBVersion_Click(object sender, EventArgs e)
+        {
+            R.FormMan.GetUnique<UpdateLogForm>().Show();
+            R.FormMan.GetUnique<UpdateLogForm>().WindowState = FormWindowState.Normal;
+            R.FormMan.GetUnique<UpdateLogForm>().Activate();
         }
         #endregion
 
@@ -238,12 +251,6 @@ namespace BigBirdDeployer.Views
         }
         #endregion
 
-        private void BTUpdateLog_Click(object sender, EventArgs e)
-        {
-            R.FormMan.GetUnique<UpdateLogForm>().Show();
-            R.FormMan.GetUnique<UpdateLogForm>().WindowState = FormWindowState.Normal;
-            R.FormMan.GetUnique<UpdateLogForm>().Activate();
-        }
         public void UITxStatus()
         {
             try

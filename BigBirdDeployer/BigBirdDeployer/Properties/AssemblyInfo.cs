@@ -33,8 +33,11 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: AssemblyVersion("1.0.2.1")]
+[assembly: AssemblyVersion("1.0.2.2")]
 //v*.*.*.*（年月日）//+添加 -删减 @优化 #修复
+
+// v 1.0.2.2（2019年10月27日）
+// + 新增日志自动清理选项（可自动删除过期日志）
 
 // v 1.0.2.1（2019年8月14日）
 // @ 优化进程检测（已大幅降低CPU占用）

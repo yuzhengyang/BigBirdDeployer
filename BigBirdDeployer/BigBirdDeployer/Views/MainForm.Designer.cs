@@ -74,12 +74,10 @@
             this.TBConsolePort = new System.Windows.Forms.TextBox();
             this.TBConsoleIP = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.BTUpdateLog = new System.Windows.Forms.Button();
             this.BTOpenNewStorage = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LBDesc = new System.Windows.Forms.Label();
-            this.BTCancel = new System.Windows.Forms.Button();
             this.TBNewStorage = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TBPublishStorage = new System.Windows.Forms.TextBox();
@@ -95,6 +93,12 @@
             this.LBStatus = new System.Windows.Forms.Label();
             this.PNContainer = new System.Windows.Forms.Panel();
             this.TMMain = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.CBAutoDeleteExpiredLog = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.BigIconFormPBHeadIcon)).BeginInit();
             this.BigIconFormPNContainer.SuspendLayout();
             this.BigIconFormPNHead.SuspendLayout();
@@ -109,6 +113,10 @@
             this.CMSMain.SuspendLayout();
             this.PNFooter.SuspendLayout();
             this.PNContainer.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // BigIconFormLBHeadTitle
@@ -440,7 +448,7 @@
             this.TPPage5.Location = new System.Drawing.Point(4, 22);
             this.TPPage5.Name = "TPPage5";
             this.TPPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.TPPage5.Size = new System.Drawing.Size(963, 413);
+            this.TPPage5.Size = new System.Drawing.Size(767, 417);
             this.TPPage5.TabIndex = 5;
             this.TPPage5.Text = " 【第五页】";
             // 
@@ -494,28 +502,13 @@
             // 
             // TPSettings
             // 
-            this.TPSettings.Controls.Add(this.label7);
-            this.TPSettings.Controls.Add(this.TBLocalName);
-            this.TPSettings.Controls.Add(this.TBLocalIP);
-            this.TPSettings.Controls.Add(this.label6);
-            this.TPSettings.Controls.Add(this.TBConsolePort);
-            this.TPSettings.Controls.Add(this.TBConsoleIP);
-            this.TPSettings.Controls.Add(this.label5);
-            this.TPSettings.Controls.Add(this.BTUpdateLog);
-            this.TPSettings.Controls.Add(this.BTOpenNewStorage);
-            this.TPSettings.Controls.Add(this.label4);
-            this.TPSettings.Controls.Add(this.label3);
+            this.TPSettings.Controls.Add(this.panel1);
             this.TPSettings.Controls.Add(this.LBDesc);
-            this.TPSettings.Controls.Add(this.BTCancel);
-            this.TPSettings.Controls.Add(this.TBNewStorage);
-            this.TPSettings.Controls.Add(this.label2);
-            this.TPSettings.Controls.Add(this.TBPublishStorage);
-            this.TPSettings.Controls.Add(this.label1);
             this.TPSettings.Controls.Add(this.BTSave);
             this.TPSettings.Location = new System.Drawing.Point(4, 22);
             this.TPSettings.Name = "TPSettings";
             this.TPSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.TPSettings.Size = new System.Drawing.Size(963, 413);
+            this.TPSettings.Size = new System.Drawing.Size(767, 417);
             this.TPSettings.TabIndex = 2;
             this.TPSettings.Text = " 【设置】 ";
             this.TPSettings.UseVisualStyleBackColor = true;
@@ -523,7 +516,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(69, 76);
+            this.label7.Location = new System.Drawing.Point(21, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 12);
             this.label7.TabIndex = 34;
@@ -531,14 +524,14 @@
             // 
             // TBLocalName
             // 
-            this.TBLocalName.Location = new System.Drawing.Point(210, 73);
+            this.TBLocalName.Location = new System.Drawing.Point(162, 64);
             this.TBLocalName.Name = "TBLocalName";
             this.TBLocalName.Size = new System.Drawing.Size(235, 21);
             this.TBLocalName.TabIndex = 33;
             // 
             // TBLocalIP
             // 
-            this.TBLocalIP.Location = new System.Drawing.Point(210, 37);
+            this.TBLocalIP.Location = new System.Drawing.Point(162, 28);
             this.TBLocalIP.Name = "TBLocalIP";
             this.TBLocalIP.Size = new System.Drawing.Size(235, 21);
             this.TBLocalIP.TabIndex = 32;
@@ -546,7 +539,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(69, 40);
+            this.label6.Location = new System.Drawing.Point(21, 31);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 31;
@@ -554,14 +547,14 @@
             // 
             // TBConsolePort
             // 
-            this.TBConsolePort.Location = new System.Drawing.Point(481, 104);
+            this.TBConsolePort.Location = new System.Drawing.Point(433, 95);
             this.TBConsolePort.Name = "TBConsolePort";
             this.TBConsolePort.Size = new System.Drawing.Size(88, 21);
             this.TBConsolePort.TabIndex = 30;
             // 
             // TBConsoleIP
             // 
-            this.TBConsoleIP.Location = new System.Drawing.Point(210, 104);
+            this.TBConsoleIP.Location = new System.Drawing.Point(162, 95);
             this.TBConsoleIP.Name = "TBConsoleIP";
             this.TBConsoleIP.Size = new System.Drawing.Size(235, 21);
             this.TBConsoleIP.TabIndex = 29;
@@ -569,25 +562,15 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(69, 107);
+            this.label5.Location = new System.Drawing.Point(21, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 28;
             this.label5.Text = "控制台IP地址";
             // 
-            // BTUpdateLog
-            // 
-            this.BTUpdateLog.Location = new System.Drawing.Point(69, 363);
-            this.BTUpdateLog.Name = "BTUpdateLog";
-            this.BTUpdateLog.Size = new System.Drawing.Size(174, 23);
-            this.BTUpdateLog.TabIndex = 27;
-            this.BTUpdateLog.Text = "查看更新日志";
-            this.BTUpdateLog.UseVisualStyleBackColor = true;
-            this.BTUpdateLog.Click += new System.EventHandler(this.BTUpdateLog_Click);
-            // 
             // BTOpenNewStorage
             // 
-            this.BTOpenNewStorage.Location = new System.Drawing.Point(479, 250);
+            this.BTOpenNewStorage.Location = new System.Drawing.Point(433, 98);
             this.BTOpenNewStorage.Name = "BTOpenNewStorage";
             this.BTOpenNewStorage.Size = new System.Drawing.Size(195, 23);
             this.BTOpenNewStorage.TabIndex = 26;
@@ -599,7 +582,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(477, 218);
+            this.label4.Location = new System.Drawing.Point(431, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(173, 12);
             this.label4.TabIndex = 25;
@@ -609,7 +592,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(477, 187);
+            this.label3.Location = new System.Drawing.Point(431, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(197, 12);
             this.label3.TabIndex = 24;
@@ -618,24 +601,15 @@
             // LBDesc
             // 
             this.LBDesc.AutoSize = true;
-            this.LBDesc.Location = new System.Drawing.Point(69, 318);
+            this.LBDesc.Location = new System.Drawing.Point(15, 390);
             this.LBDesc.Name = "LBDesc";
             this.LBDesc.Size = new System.Drawing.Size(77, 12);
             this.LBDesc.TabIndex = 23;
             this.LBDesc.Text = "执行结果描述";
             // 
-            // BTCancel
-            // 
-            this.BTCancel.Location = new System.Drawing.Point(559, 318);
-            this.BTCancel.Name = "BTCancel";
-            this.BTCancel.Size = new System.Drawing.Size(75, 23);
-            this.BTCancel.TabIndex = 22;
-            this.BTCancel.Text = "取消";
-            this.BTCancel.UseVisualStyleBackColor = true;
-            // 
             // TBNewStorage
             // 
-            this.TBNewStorage.Location = new System.Drawing.Point(208, 215);
+            this.TBNewStorage.Location = new System.Drawing.Point(162, 63);
             this.TBNewStorage.Name = "TBNewStorage";
             this.TBNewStorage.Size = new System.Drawing.Size(235, 21);
             this.TBNewStorage.TabIndex = 21;
@@ -643,7 +617,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 218);
+            this.label2.Location = new System.Drawing.Point(21, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 12);
             this.label2.TabIndex = 20;
@@ -651,7 +625,7 @@
             // 
             // TBPublishStorage
             // 
-            this.TBPublishStorage.Location = new System.Drawing.Point(208, 184);
+            this.TBPublishStorage.Location = new System.Drawing.Point(162, 32);
             this.TBPublishStorage.Name = "TBPublishStorage";
             this.TBPublishStorage.Size = new System.Drawing.Size(235, 21);
             this.TBPublishStorage.TabIndex = 19;
@@ -659,7 +633,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 187);
+            this.label1.Location = new System.Drawing.Point(21, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 18;
@@ -667,12 +641,16 @@
             // 
             // BTSave
             // 
-            this.BTSave.Location = new System.Drawing.Point(427, 318);
+            this.BTSave.BackColor = System.Drawing.Color.DarkGreen;
+            this.BTSave.FlatAppearance.BorderSize = 0;
+            this.BTSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTSave.ForeColor = System.Drawing.Color.White;
+            this.BTSave.Location = new System.Drawing.Point(550, 388);
             this.BTSave.Name = "BTSave";
-            this.BTSave.Size = new System.Drawing.Size(75, 23);
+            this.BTSave.Size = new System.Drawing.Size(191, 23);
             this.BTSave.TabIndex = 17;
             this.BTSave.Text = "保存";
-            this.BTSave.UseVisualStyleBackColor = true;
+            this.BTSave.UseVisualStyleBackColor = false;
             this.BTSave.Click += new System.EventHandler(this.BTSave_Click);
             // 
             // NIMain
@@ -733,6 +711,7 @@
             this.LBVersion.Size = new System.Drawing.Size(83, 12);
             this.LBVersion.TabIndex = 1;
             this.LBVersion.Text = "版本：6.6.6.6";
+            this.LBVersion.Click += new System.EventHandler(this.LBVersion_Click);
             // 
             // LBStatus
             // 
@@ -757,6 +736,79 @@
             this.TMMain.Enabled = true;
             this.TMMain.Interval = 5000;
             this.TMMain.Tick += new System.EventHandler(this.TMMain_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(10, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(749, 372);
+            this.panel1.TabIndex = 35;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.TBLocalName);
+            this.groupBox1.Controls.Add(this.TBConsoleIP);
+            this.groupBox1.Controls.Add(this.TBLocalIP);
+            this.groupBox1.Controls.Add(this.TBConsolePort);
+            this.groupBox1.Location = new System.Drawing.Point(16, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(704, 137);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "服务及地址配置";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.CBAutoDeleteExpiredLog);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Location = new System.Drawing.Point(16, 160);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(704, 138);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "自动化辅助配置";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.TBPublishStorage);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.BTOpenNewStorage);
+            this.groupBox3.Controls.Add(this.TBNewStorage);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Location = new System.Drawing.Point(16, 311);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(704, 145);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "路径配置（高阶配置）";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(23, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "日志删除策略";
+            // 
+            // CBAutoDeleteExpiredLog
+            // 
+            this.CBAutoDeleteExpiredLog.AutoSize = true;
+            this.CBAutoDeleteExpiredLog.Location = new System.Drawing.Point(120, 23);
+            this.CBAutoDeleteExpiredLog.Name = "CBAutoDeleteExpiredLog";
+            this.CBAutoDeleteExpiredLog.Size = new System.Drawing.Size(168, 16);
+            this.CBAutoDeleteExpiredLog.TabIndex = 1;
+            this.CBAutoDeleteExpiredLog.Text = "自动删除过期日志（15天）";
+            this.CBAutoDeleteExpiredLog.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -788,6 +840,13 @@
             this.PNFooter.ResumeLayout(false);
             this.PNFooter.PerformLayout();
             this.PNContainer.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -804,7 +863,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LBDesc;
-        private System.Windows.Forms.Button BTCancel;
         private System.Windows.Forms.TextBox TBNewStorage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TBPublishStorage;
@@ -848,7 +906,6 @@
         private Parts.ProjectItemPart project26;
         private Parts.ProjectItemPart project27;
         private System.Windows.Forms.ToolStripMenuItem 显示主界面ToolStripMenuItem;
-        private System.Windows.Forms.Button BTUpdateLog;
         private System.Windows.Forms.Label LBTxStatus;
         private System.Windows.Forms.TextBox TBConsoleIP;
         private System.Windows.Forms.Label label5;
@@ -858,5 +915,11 @@
         private System.Windows.Forms.TextBox TBLocalIP;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Timer TMMain;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox CBAutoDeleteExpiredLog;
+        private System.Windows.Forms.Label label8;
     }
 }

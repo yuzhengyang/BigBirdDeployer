@@ -13,7 +13,10 @@ namespace BigBirdDeployer.Modules.PlanTaskModule
         {
             R.SystemStatus.DriveTotal = DriveTool.GetDriveTotalSize(R.Paths.App);
             R.SystemStatus.DriveAvail = DriveTool.GetDriveAvailableSize(R.Paths.App);
+
             LogCleaner.LogFileAnalyse();
+
+            if (R.IsAutoDeleteExpiredLog) { LogCleaner.CleanLogFile(); }
         }
     }
 }
