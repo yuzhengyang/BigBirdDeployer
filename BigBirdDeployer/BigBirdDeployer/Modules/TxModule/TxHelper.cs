@@ -23,7 +23,7 @@ namespace BigBirdDeployer.Modules.TxModule
                             R.Tx.TcppClient?.Disconnect();
                             R.Tx.TcppClient = new TcppClient(R.Tx.IP, R.Tx.Port,
                                 TxEvent.ReceiveMessage, TxEvent.OnConnect, TxEvent.OnDisconnect);
-                            R.Tx.TcppClient.Connect();
+                            bool flag = R.Tx.TcppClient.Connect();
                         }
                     }
                     Sleep.S(R.Tx.AutoReConnectInterval);
